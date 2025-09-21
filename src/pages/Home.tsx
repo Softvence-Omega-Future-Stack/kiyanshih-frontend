@@ -1,5 +1,11 @@
+import { Link } from "react-router-dom";
+
 const Home = () => {
-  return <div className="bg-blue-400">Home</div>;
+  return (
+    <Link to="/dashboard" className=" cursor-pointer">
+      Home
+    </Link>
+  );
 };
 
 export default Home;

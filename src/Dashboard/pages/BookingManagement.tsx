@@ -1,57 +1,36 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { DollarSign, Users, UserCheck, Calendar } from "lucide-react";
+import { useState } from "react";
+import Tablist from "../components/booking/Tablist";
+import AllBookingTopSection from "../components/booking/allBooking/AllBookingTopSection";
+import AllBooking from "../components/booking/allBooking/AllBooking";
+import PendingTable from "../components/booking/pending/PendingTable";
+import AcceptTable from "../components/booking/accept/AcceptTable";
+import RejectedTable from "../components/booking/Rejected/RejectedTable";
+import ProgressTable from "../components/booking/Progress/ProgressTable";
+export type BookingStatus =
+  | "All Bookings"
+  | "Pending"
+  | "Accepted"
+  | "Rejected"
+  | "In-progress";
 
-const analyticsData = [
-  {
-    title: "Total earning",
-    value: "80,190.15$",
-    icon: DollarSign,
-    bgColor: "bg-blue-50",
-    iconColor: "text-blue-600",
-  },
-  {
-    title: "Total subscription",
-    value: "25",
-    icon: Users,
-    bgColor: "bg-green-50",
-    iconColor: "text-green-600",
-  },
-  {
-    title: "Total Provider",
-    value: "3",
-    icon: UserCheck,
-    bgColor: "bg-orange-50",
-    iconColor: "text-orange-600",
-  },
-  {
-    title: "Total booking served",
-    value: "33",
-    icon: Calendar,
-    bgColor: "bg-purple-50",
-    iconColor: "text-purple-600",
-  },
-];
-
+const counts = {
+  "All Bookings": 15,
+  Pending: 2,
+  Accepted: 5,
+  Rejected: 0,
+  "In-progress": 1,
+};
 const BookingManagement = () => {
+  const [tab, setTab] = useState<BookingStatus>("All Bookings");
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {analyticsData.map((item, index) => (
-        <Card key={index} className="border-0 shadow-sm">
-          <CardContent className="p-6">
-            <div className="flex items-center justify-between">
-              <div className="space-y-2">
-                <p className="text-sm font-medium text-muted-foreground">
-                  {item.title}
-                </p>
-                <p className="text-2xl font-bold text-balance">{item.value}</p>
-              </div>
-              <div className={`p-3 rounded-lg ${item.bgColor}`}>
-                <item.icon className={`h-6 w-6 ${item.iconColor}`} />
-              </div>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+    <div>
+      <AllBookingTopSection />
+      <Tablist activeTab={tab} setTab={setTab} counts={counts} />
+      {tab === "All Bookings" && <AllBooking />}
+      {tab === "Pending" && <PendingTable />}
+      {tab === "Accepted" && <AcceptTable />}
+      {tab === "Rejected" && <RejectedTable />}
+      {tab === "In-progress" && <ProgressTable />}
     </div>
   );
 };

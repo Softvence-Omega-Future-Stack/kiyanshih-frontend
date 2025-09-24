@@ -3,11 +3,15 @@ import App from "../App";
 import Home from "../pages/Home";
 import Dashboard from "@/Dashboard/pages/Dashboard";
 import BookingManagement from "@/Dashboard/pages/BookingManagement";
-import ProviderManagement from "@/Dashboard/pages/ProviderManagement";
 import UserManagement from "@/Dashboard/pages/UserManagement";
-import ServiceManagement from "@/Dashboard/pages/ServiceManagement";
-import BusinessManagement from "@/Dashboard/pages/BusinessManagement";
 import DashboardLayout from "@/layout/DashboardLayout";
+import AddProvider from "@/Dashboard/pages/provider/AddProvider";
+import BackgroundCheck from "@/Dashboard/pages/provider/BackgroundCheck";
+import ProviderList from "@/Dashboard/pages/provider/ProviderList";
+import CategorySetUp from "@/Dashboard/pages/category/CategorySetUp";
+import SubCategorySetUp from "@/Dashboard/pages/category/SubCategorySetUp";
+import Transaction from "@/Dashboard/pages/transaction/Transaction";
+import Subscription from "@/Dashboard/pages/subscription/Subscription";
 
 const routes = createBrowserRouter([
   {
@@ -33,20 +37,36 @@ const routes = createBrowserRouter([
             element: <BookingManagement />,
           },
           {
-            path: "provider",
-            element: <ProviderManagement />,
+            path: "provider-list",
+            element: <ProviderList />,
+          },
+          {
+            path: "add-provider",
+            element: <AddProvider />,
+          },
+          {
+            path: "background-check",
+            element: <BackgroundCheck />,
+          },
+          {
+            path: "category",
+            element: <CategorySetUp />,
+          },
+          {
+            path: "sub-category",
+            element: <SubCategorySetUp />,
           },
           {
             path: "user",
             element: <UserManagement />,
           },
           {
-            path: "service",
-            element: <ServiceManagement />,
+            path: "subscription",
+            element: <Subscription />,
           },
           {
-            path: "business",
-            element: <BusinessManagement />,
+            path: "transaction",
+            element: <Transaction />,
           },
         ],
       },

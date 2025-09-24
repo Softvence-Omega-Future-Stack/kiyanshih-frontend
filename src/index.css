@@ -40,7 +40,7 @@
 
 @layer base {
   body {
-    @apply font-sans;
+    @apply font-Geist;
   }
 }
 

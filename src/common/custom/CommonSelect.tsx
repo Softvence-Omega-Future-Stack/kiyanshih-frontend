@@ -35,7 +35,6 @@ const CommonSelect = <T extends string>({
         className={` ${className} bg-[#FCFCFC] border border-border px-3 py-5 cursor-pointer rounded-md outline-none text-sm focus:ring-0 focus:border-none hover:border-gray-400 transition-all duration-200`}
       >
         <SelectValue placeholder="Select an option" />
-        {/* <ChevronDown className={`w-4 h-4 ml-auto ${arrow}`} /> */}
       </SelectTrigger>
 
       <SelectContent className="bg-white border border-[#B3B3B3] rounded-md shadow-md">

@@ -12,6 +12,12 @@ import CategorySetUp from "@/Dashboard/pages/category/CategorySetUp";
 import SubCategorySetUp from "@/Dashboard/pages/category/SubCategorySetUp";
 import Transaction from "@/Dashboard/pages/transaction/Transaction";
 import Subscription from "@/Dashboard/pages/subscription/Subscription";
+import Login from "@/pages/Login";
+import ClientSignUp from "@/pages/ClientSignUp";
+import ProviderSignUp from "@/pages/ProviderSignUp";
+import Service from "@/pages/Service";
+import Provider from "@/pages/Provider";
+import Work from "@/pages/Work";
 
 const routes = createBrowserRouter([
   {
@@ -22,6 +28,30 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/service",
+        element: <Service />,
+      },
+      {
+        path: "/provider",
+        element: <Provider />,
+      },
+      {
+        path: "/how-it-works",
+        element: <Work />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/client-signup",
+        element: <ClientSignUp />,
+      },
+      {
+        path: "/provider-signup",
+        element: <ProviderSignUp />,
       },
 
       {

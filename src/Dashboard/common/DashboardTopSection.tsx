@@ -1,4 +1,4 @@
-import LargeTitle from "./LargeTitle";
+import LargeTitle from "../../common/header/LargeTitle";
 import SubHeader from "./SubHeader";
 
 interface ManagementHeaderProps {

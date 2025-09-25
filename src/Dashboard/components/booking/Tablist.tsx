@@ -22,9 +22,9 @@ const Tablist: FC<TablistProps> = ({ setTab, activeTab, counts }) => {
       {tabs.map((status) => (
         <SubHeader
           key={status}
-          className={`px-4 py-2 rounded cursor-pointer ${
-            activeTab === status ? "bg-[#E2E8F0]" : "text-gray-800"
-          }`}
+          className={`relative px-4 py-2 mb-2 rounded cursor-pointer transition-colors
+        ${activeTab === status ? " bg-[#E2E8F0] font-medium" : "text-gray-800"}
+      `}
           onClick={() => setTab(status)}
         >
           {status}
@@ -32,6 +32,9 @@ const Tablist: FC<TablistProps> = ({ setTab, activeTab, counts }) => {
             <span className="ml-1">
               ({counts[status].toString().padStart(2, "0")})
             </span>
+          )}
+          {activeTab === status && (
+            <span className="absolute left-0 right-0 -bottom-1 h-[2px] bg-[#007BFF] rounded-full" />
           )}
         </SubHeader>
       ))}

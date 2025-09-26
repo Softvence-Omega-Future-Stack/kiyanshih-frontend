@@ -1,12 +1,34 @@
+import React from "react";
 import CommonWrapper from "@/common/space/CommonWrapper";
-import hero from "@/assets/images/navHero2.png";
 import CommonButton from "@/common/button/CommonButton";
 import BigTitle from "@/common/header/BigTitle";
 import { Link } from "react-router-dom";
 
-const Hero = () => {
+interface HeroProps {
+  title: string;
+  subtitle: string;
+  primaryButtonText?: string;
+  primaryButtonLink?: string;
+  secondaryButtonText?: string;
+  secondaryButtonLink?: string;
+  image: string;
+  bgColor?: string;
+  subColor?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({
+  title,
+  subtitle,
+  primaryButtonText,
+  primaryButtonLink,
+  secondaryButtonText,
+  secondaryButtonLink,
+  image,
+  bgColor = "#93C5FD",
+  subColor,
+}) => {
   return (
-    <div className="relative bg-[#93C5FD]">
+    <div className="relative" style={{ backgroundColor: bgColor }}>
       <div className="absolute inset-0 bg-black/10"></div>
 
       <CommonWrapper>
@@ -14,29 +36,36 @@ const Hero = () => {
           {/* Left Content */}
           <div className="w-full lg:max-w-[555px] text-center lg:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug sm:leading-tight md:leading-[72px] font-Bricolage">
-              Find the Right Expert, Right Away
+              {title}
             </h1>
 
-            <BigTitle className="!text-base sm:!text-lg md:!text-xl !text-[#1E293B] mt-4">
-              Hire skilled professionals for cleaning, repairs, and home
-              improvement — all trusted providers near you.
+            <BigTitle
+              className={` ${subColor} !text-base sm:!text-lg md:!text-xl !text-[#1E293B] mt-4`}
+            >
+              {subtitle}
             </BigTitle>
 
-            <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mt-6 sm:mt-8">
-              <CommonButton className="!bg-blue !text-white !border-0 w-full sm:w-auto">
-                <Link to="/service">Browse Service</Link>
-              </CommonButton>
-              <CommonButton className="!bg-transparent !border-2 border-white !text-white w-full sm:w-auto">
-                <Link to="/provider-signup">Become a Provider</Link>
-              </CommonButton>
-            </div>
+            {(primaryButtonText || secondaryButtonText) && (
+              <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-3 mt-6 sm:mt-8">
+                {primaryButtonText && primaryButtonLink && (
+                  <CommonButton className="!bg-blue !text-white !border-0 w-full sm:w-auto">
+                    <Link to={primaryButtonLink}>{primaryButtonText}</Link>
+                  </CommonButton>
+                )}
+                {secondaryButtonText && secondaryButtonLink && (
+                  <CommonButton className="!bg-transparent !border-2 border-white !text-white w-full sm:w-auto">
+                    <Link to={secondaryButtonLink}>{secondaryButtonText}</Link>
+                  </CommonButton>
+                )}
+              </div>
+            )}
           </div>
 
           {/* Right Image */}
           <div className="w-full lg:flex-1 flex justify-center lg:justify-end">
             <img
-              src={hero}
-              alt="Professional service"
+              src={image}
+              alt="Hero"
               className="w-full max-w-lg sm:max-w-xl md:max-w-2xl h-auto object-contain"
             />
           </div>

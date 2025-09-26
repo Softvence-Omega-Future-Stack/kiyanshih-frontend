@@ -10,7 +10,7 @@ import PersonalForm from "./PersonalForm";
 
 export default function ClipPathSection() {
   return (
-    <div className="relative mt-50">
+    <div className="relative mt-10">
       {/* SVG mask */}
       <svg width="0" height="0">
         <defs>

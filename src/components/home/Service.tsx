@@ -1,12 +1,11 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
-import { ArrowRight } from "lucide-react";
 
 import Settings from "@/assets/frame/settings.svg";
 import Home from "@/assets/frame/layers-3.svg";
 import Sparkles from "@/assets/frame/fan.svg";
 import TreePine from "@/assets/frame/land-plot.svg";
 import MediumHeader from "@/common/header/MediumHeader";
-import LandingTitle from "@/common/header/LandingTitle";
+import SectionHeader from "@/common/header/SectionHeader";
 
 const categories = [
   {
@@ -45,36 +44,43 @@ const Service = () => {
       <section className="py-10 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-12">
-            <LandingTitle className="mb-2">
-              Popular Service category
-            </LandingTitle>
-            <MediumHeader className="!text-[#334155]">
-              Explore Services in Your Neighborhood
-            </MediumHeader>
+            <SectionHeader
+              title="Popular Service category"
+              subtitle="Explore Services in Your Neighborhood"
+            />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {/* Define clipPath once */}
+          <svg width="0" height="0">
+            <defs>
+              <clipPath id="cardClip" clipPathUnits="objectBoundingBox">
+                <path d="M0,0 H1 V1 H0.14 V0.85 H0 Z" />
+              </clipPath>
+            </defs>
+          </svg>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {categories.map((category, index) => {
               return (
-                <div>
+                <div key={index}>
                   <div
-                    key={index}
-                    className={`${category.bgColor} rounded-2xl p-6 h-full flex flex-col`}
+                    className={`${category.bgColor} rounded-2xl p-6  h-full flex flex-col `}
+                    style={{
+                      clipPath: "url(#cardClip)",
+                      WebkitClipPath: "url(#cardClip)",
+                    }}
                   >
-                    <div className={`w-12 h-12  mb-6`}>
+                    <div className="w-12 h-12 mb-6">
                       <img src={category.icon} alt="" />
                     </div>
 
-                    <MediumHeader className=" mb-10">
+                    <MediumHeader className="mb-10">
                       {category.title}
                     </MediumHeader>
 
-                    <MediumHeader className="!text-lg !text-[#515355] font-medium">
+                    <MediumHeader className="!text-lg !text-[#515355] font-medium pb-20">
                       {category.description}
                     </MediumHeader>
-                  </div>
-                  <div className="flex items-center text-gray-700 hover:text-gray-900 cursor-pointer transition-colors">
-                    <ArrowRight size={16} />
                   </div>
                 </div>
               );

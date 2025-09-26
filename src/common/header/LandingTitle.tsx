@@ -8,7 +8,7 @@ interface CommonHeaderProps {
 const LandingTitle: React.FC<CommonHeaderProps> = ({ children, className }) => {
   return (
     <h2
-      className={`text-2xl sm:text-4xl leading-[40px] font-Geist text-black font-bold ${className}`}
+      className={`text-2xl sm:text-4xl leading-[40px] font-Bricolage text-black font-bold ${className}`}
     >
       {children}
     </h2>

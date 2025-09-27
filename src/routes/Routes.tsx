@@ -18,6 +18,8 @@ import ProviderSignUp from "@/pages/ProviderSignUp";
 import Service from "@/pages/Service";
 import Provider from "@/pages/Provider";
 import Work from "@/pages/Work";
+import SingleService from "@/pages/SingleService";
+import SingleProvider from "@/pages/SingleProvider";
 
 const routes = createBrowserRouter([
   {
@@ -34,8 +36,16 @@ const routes = createBrowserRouter([
         element: <Service />,
       },
       {
+        path: "/service/:category",
+        element: <SingleService />,
+      },
+      {
         path: "/provider",
         element: <Provider />,
+      },
+      {
+        path: "/provider/:name",
+        element: <SingleProvider />,
       },
       {
         path: "/how-it-works",

@@ -15,7 +15,10 @@ interface ServiceCardProps {
 
 const ServiceCard: FC<ServiceCardProps> = ({ service }) => {
   return (
-    <div className="p-5 border border-border rounded-[20px]">
+    <div
+      key={service.title}
+      className="p-5 border border-border rounded-[20px]"
+    >
       <div className=" pb-2.5">
         <img src={service.image} alt="" />
       </div>

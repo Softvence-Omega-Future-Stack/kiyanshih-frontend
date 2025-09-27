@@ -4,6 +4,8 @@ import RenderStars from "./RenderStars";
 import CommonButton from "@/common/button/CommonButton";
 import CommonHeader from "@/common/header/CommonHeader";
 import Paragraph from "@/common/header/Paragraph";
+import { Link } from "react-router-dom";
+import { slugify } from "@/help/help";
 
 interface FeatureList {
   category: string;
@@ -14,7 +16,7 @@ interface FeatureList {
   price: number;
   image: string;
 }
-interface FeaturedCardProps {
+export interface FeaturedCardProps {
   feature: FeatureList;
 }
 
@@ -57,9 +59,13 @@ const FeaturedCard: FC<FeaturedCardProps> = ({ feature }) => {
       </div>
       <div className="flex items-center gap-3">
         <CommonButton className="!px-4 !py-2 bg-[#1D4ED8] !text-white">
-          Book Now{" "}
+          Book Now
         </CommonButton>
-        <CommonButton>View Details </CommonButton>
+        <CommonButton>
+          <Link to={`/provider/${slugify(feature.provider)}`} state={feature}>
+            View Details
+          </Link>
+        </CommonButton>
       </div>
     </div>
   );

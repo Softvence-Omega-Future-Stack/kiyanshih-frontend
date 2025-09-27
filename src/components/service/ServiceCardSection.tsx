@@ -7,6 +7,8 @@ import m5 from "@/assets/icon/car.svg";
 import m6 from "@/assets/icon/laptop.svg";
 import m7 from "@/assets/icon/services_trash_dumpster.svg";
 import m8 from "@/assets/icon/stay_on_trail.svg";
+import { Link } from "react-router-dom";
+import { slugify } from "@/help/help";
 
 const services = [
   {
@@ -111,7 +113,9 @@ const ServiceCardSection = () => {
     <>
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {services.map((service, index) => (
-          <ServiceCard key={index} service={service} />
+          <Link to={`/service/${slugify(service.title)}`} key={index}>
+            <ServiceCard service={service} />
+          </Link>
         ))}
       </div>
     </>

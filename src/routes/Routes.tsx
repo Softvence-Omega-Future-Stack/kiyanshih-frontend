@@ -3,11 +3,23 @@ import App from "../App";
 import Home from "../pages/Home";
 import Dashboard from "@/Dashboard/pages/Dashboard";
 import BookingManagement from "@/Dashboard/pages/BookingManagement";
-import ProviderManagement from "@/Dashboard/pages/ProviderManagement";
 import UserManagement from "@/Dashboard/pages/UserManagement";
-import ServiceManagement from "@/Dashboard/pages/ServiceManagement";
-import BusinessManagement from "@/Dashboard/pages/BusinessManagement";
 import DashboardLayout from "@/layout/DashboardLayout";
+import AddProvider from "@/Dashboard/pages/provider/AddProvider";
+import BackgroundCheck from "@/Dashboard/pages/provider/BackgroundCheck";
+import ProviderList from "@/Dashboard/pages/provider/ProviderList";
+import CategorySetUp from "@/Dashboard/pages/category/CategorySetUp";
+import SubCategorySetUp from "@/Dashboard/pages/category/SubCategorySetUp";
+import Transaction from "@/Dashboard/pages/transaction/Transaction";
+import Subscription from "@/Dashboard/pages/subscription/Subscription";
+import Login from "@/pages/Login";
+import ClientSignUp from "@/pages/ClientSignUp";
+import ProviderSignUp from "@/pages/ProviderSignUp";
+import Service from "@/pages/Service";
+import Provider from "@/pages/Provider";
+import Work from "@/pages/Work";
+import SingleService from "@/pages/SingleService";
+import SingleProvider from "@/pages/SingleProvider";
 
 const routes = createBrowserRouter([
   {
@@ -18,6 +30,38 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/service",
+        element: <Service />,
+      },
+      {
+        path: "/service/:category",
+        element: <SingleService />,
+      },
+      {
+        path: "/provider",
+        element: <Provider />,
+      },
+      {
+        path: "/provider/:name",
+        element: <SingleProvider />,
+      },
+      {
+        path: "/how-it-works",
+        element: <Work />,
+      },
+      {
+        path: "/login",
+        element: <Login />,
+      },
+      {
+        path: "/client-signup",
+        element: <ClientSignUp />,
+      },
+      {
+        path: "/provider-signup",
+        element: <ProviderSignUp />,
       },
 
       {
@@ -33,20 +77,36 @@ const routes = createBrowserRouter([
             element: <BookingManagement />,
           },
           {
-            path: "provider",
-            element: <ProviderManagement />,
+            path: "provider-list",
+            element: <ProviderList />,
+          },
+          {
+            path: "add-provider",
+            element: <AddProvider />,
+          },
+          {
+            path: "background-check",
+            element: <BackgroundCheck />,
+          },
+          {
+            path: "category",
+            element: <CategorySetUp />,
+          },
+          {
+            path: "sub-category",
+            element: <SubCategorySetUp />,
           },
           {
             path: "user",
             element: <UserManagement />,
           },
           {
-            path: "service",
-            element: <ServiceManagement />,
+            path: "subscription",
+            element: <Subscription />,
           },
           {
-            path: "business",
-            element: <BusinessManagement />,
+            path: "transaction",
+            element: <Transaction />,
           },
         ],
       },

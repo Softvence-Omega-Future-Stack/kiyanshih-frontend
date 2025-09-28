@@ -6,8 +6,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import React from "react";
 
 interface DropdownItem {
@@ -15,30 +13,15 @@ interface DropdownItem {
   onClick?: () => void;
 }
 
-interface ProfileDropdownProps {
-  profileImg?: string;
-  fallbackText?: string;
+interface CommonDropdownProps {
   items: DropdownItem[];
+  trigger: React.ReactNode; // pass any custom trigger (like your Filter button)
 }
 
-const CommonDropdown: React.FC<ProfileDropdownProps> = ({
-  profileImg,
-  fallbackText = "USER",
-  items,
-}) => {
+const CommonDropdown: React.FC<CommonDropdownProps> = ({ items, trigger }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild className="cursor-pointer">
-        <Button variant="ghost" className="gap-2 p-2">
-          <Avatar className="h-8 w-8">
-            {profileImg ? (
-              <AvatarImage src={profileImg} />
-            ) : (
-              <AvatarFallback>{fallbackText}</AvatarFallback>
-            )}
-          </Avatar>
-        </Button>
-      </DropdownMenuTrigger>
+      <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
 
       <DropdownMenuContent
         align="end"

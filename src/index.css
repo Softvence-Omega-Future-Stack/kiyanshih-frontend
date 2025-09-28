@@ -35,12 +35,12 @@
   --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
   --font-Lato: "Lato", sans-serif;
   --font-playfair: "Playfair", ui-sans-serif, system-ui, sans-serif;
-  --font-Geist:"Geist", sans-serif;
+  --font-Geist:"Inter", sans-serif;
 }
 
 @layer base {
   body {
-    @apply font-sans;
+    @apply font-Geist;
   }
 }
 

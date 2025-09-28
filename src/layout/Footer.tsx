@@ -1,5 +1,10 @@
+import ClipPathSection from "@/components/footer/ClipPathSection";
 const Footer = () => {
-  return <div>Footer</div>;
+  return (
+    <div>
+      <ClipPathSection />
+    </div>
+  );
 };
 
 export default Footer;

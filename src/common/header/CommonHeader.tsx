@@ -1,14 +1,18 @@
-import React, { type ReactNode } from "react";
+import React from "react";
 
-interface CommonHeaderProps {
-  children: ReactNode;
+interface CommonHeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
   className?: string;
 }
 
-const CommonHeader: React.FC<CommonHeaderProps> = ({ children, className }) => {
+const CommonHeader: React.FC<CommonHeaderProps> = ({
+  children,
+  className,
+  ...props
+}) => {
   return (
     <h2
-      className={`text-base lg:text-xl text-jet-black font-medium ${className}`}
+      className={`text-base leading-[24px] font-Geist text-[#0F172A] font-medium ${className}`}
+      {...props}
     >
       {children}
     </h2>

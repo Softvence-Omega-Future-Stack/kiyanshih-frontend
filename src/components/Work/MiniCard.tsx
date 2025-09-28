@@ -1,5 +1,6 @@
 import CommonHeader from "@/common/header/CommonHeader";
 import CommonWrapper from "@/common/space/CommonWrapper";
+import { BsDot } from "react-icons/bs";
 
 const featureCards = [
   {
@@ -21,26 +22,25 @@ const featureCards = [
     bgColor: "bg-[#F0FAF7]", // light green
   },
 ];
-import { BsDot } from "react-icons/bs";
 
 const MiniCard = () => {
   return (
     <CommonWrapper>
-      <div className="w-full flex justify-between">
+      <div className="w-full flex flex-col sm:flex-row flex-wrap justify-between gap-6">
         {featureCards.map((card, index) => (
-          <div key={index} className={`p-5 min-w-[364px] ${card.bgColor}`}>
+          <div
+            key={index}
+            className={`p-5 sm:min-w-[364px] flex-1 ${card.bgColor} rounded-xl`}
+          >
             <CommonHeader className="!text-black flex items-center">
               <span>
                 <BsDot />
               </span>
               {card.title}
             </CommonHeader>
-            <div className="ml-4 ">
-              {card.subItems?.map((item, index) => (
-                <CommonHeader
-                  className="!text-black flex items-center"
-                  key={index}
-                >
+            <div className="ml-4">
+              {card.subItems?.map((item, i) => (
+                <CommonHeader className="!text-black flex items-center" key={i}>
                   <span>
                     <BsDot />
                   </span>
@@ -48,7 +48,7 @@ const MiniCard = () => {
                 </CommonHeader>
               ))}
             </div>
-            <div className="ml-2  flex items-center">
+            <div className="ml-2 flex items-center">
               <span>
                 <BsDot />
               </span>

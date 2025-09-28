@@ -9,8 +9,7 @@ const Home = () => {
     <div>
       <HeroSection />
       <Service />
-      <div></div>
-      <FixList className="!py-40" title="How Fixlist works?" />
+      <FixList className=" md:!py-40" title="How Fixlist works?" />
       <Price />
       <Footer />
     </div>

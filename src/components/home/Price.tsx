@@ -60,7 +60,7 @@ const Price = () => {
               />
             </div>
 
-            <div className="w-full flex justify-between gap-12 ">
+            <div className="w-full flex flex-col md:flex-row  justify-between gap-12 ">
               {plansData.map((plan, idx) => (
                 <div
                   key={idx}

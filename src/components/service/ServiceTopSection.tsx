@@ -14,7 +14,7 @@ const servicesMini = [
 
 const ServiceTopSection = () => {
   return (
-    <CommonSpace className="!py-20">
+    <CommonSpace className="">
       <div className="max-w-3xl  ">
         <SectionHeader
           className=" !text-start"

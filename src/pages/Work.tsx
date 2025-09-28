@@ -13,6 +13,7 @@ const Work = () => {
     <div>
       <WorkHeroSection />
       <FixList
+        className="pt-10"
         title="For Clients"
         subtitle="Getting help has never been easier"
       />

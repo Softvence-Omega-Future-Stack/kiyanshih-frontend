@@ -43,20 +43,20 @@ interface FixListProps {
 const FixList: React.FC<FixListProps> = ({ title, subtitle, className }) => {
   return (
     <CommonWrapper>
-      <section className={`bg-white py-10 ${className}`}>
+      <section className={`bg-white pb-10  ${className}`}>
         <div className="max-w-7xl mx-auto">
           {/* Section Title */}
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <SectionHeader title={title} subtitle={subtitle} />
           </div>
 
           {/* Steps */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-18">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-18">
             {steps.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center flex flex-col items-center">
                   <div
-                    className={`w-22.5 h-22.5 mb-10 rounded-[20px] flex items-center justify-center ${step.bgColor}`}
+                    className={` w-22.5 h-22.5 mb-10 rounded-[20px] flex items-center justify-center ${step.bgColor}`}
                   >
                     <img
                       className="w-7.5 h-7.5"

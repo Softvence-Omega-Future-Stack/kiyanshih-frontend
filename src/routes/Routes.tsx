@@ -20,7 +20,11 @@ import Provider from "@/pages/Provider";
 import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
+
+import Test from "../components/home/Service";
+
 import UserLayout from "@/layout/UserLayout";
+
 
 const routes = createBrowserRouter([
   {
@@ -31,6 +35,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/path",
+        element: <Test />,
       },
       {
         path: "/service",

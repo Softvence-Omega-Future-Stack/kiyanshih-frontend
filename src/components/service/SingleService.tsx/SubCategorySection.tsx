@@ -5,6 +5,7 @@ import sub4 from "@/assets/images/sub4.svg";
 import sub5 from "@/assets/images/sub5.svg";
 import CommonHeader from "@/common/header/CommonHeader";
 import SectionHeader from "@/common/header/SectionHeader";
+import CommonSpace from "@/common/space/CommonSpace";
 const services = [
   {
     name: "Renovation",
@@ -58,14 +59,14 @@ const services = [
 ];
 const SubCategorySection = () => {
   return (
-    <div className="py-12">
+    <CommonSpace className="">
       <SectionHeader
         className="!text-start "
         title="Popular Handyman Services"
         subtitle="Explore Services in Your Neighborhood"
       />
 
-      <div className=" flex flex-wrap gap-9 pt-7">
+      <div className="w-full justify-center sm:justify-start flex flex-wrap gap-6 sm:gap-9 pt-7">
         {services.map((service, index) => (
           <div className="flex flex-col items-center gap-4" key={index}>
             <div
@@ -82,7 +83,7 @@ const SubCategorySection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </CommonSpace>
   );
 };
 

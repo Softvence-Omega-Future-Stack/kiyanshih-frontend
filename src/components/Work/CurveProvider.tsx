@@ -6,6 +6,7 @@ import CommonWrapper from "@/common/space/CommonWrapper";
 import React from "react";
 import line from "@/assets/frame/bakaLine.svg";
 import olta from "@/assets/frame/olta.svg";
+import SectionHeader from "@/common/header/SectionHeader";
 type Step = {
   number: string;
   title: string;
@@ -48,9 +49,13 @@ const steps: Step[] = [
 const CurveProvider: React.FC = () => {
   return (
     <CommonWrapper>
-      <CommonSpace className="!py-40">
+      <CommonSpace className=" py-10 sm:!py-40">
         {/* Steps */}
-        <div className=" flex flex-col md:flex-row gap-10">
+        <SectionHeader
+          title="For Providers          "
+          subtitle="Getting help has never been easier"
+        />
+        <div className=" flex flex-col md:flex-row gap-10 pt-20">
           {steps.map((step, index) => (
             <div key={index} className={`relative flex flex-col items-center `}>
               <div
@@ -68,14 +73,14 @@ const CurveProvider: React.FC = () => {
               </CommonHeader>
               {(index === 0 || index === 2) && (
                 <div
-                  className={`  absolute top-0 -left-12 translate-x-full z-50`}
+                  className={`hidden md:block   absolute top-0 -left-5 md:-left-8 xl:-left-12  md:translate-x-[60%] xl:translate-x-full z-50`}
                 >
                   <img src={line} alt="" />
                 </div>
               )}
               {index === 1 && (
                 <div
-                  className={`  absolute top-12 -left-12 translate-x-full z-50`}
+                  className={` hidden md:block  absolute top-12 -left-5 md:-left-8 xl:-left-12  md:translate-x-[60%] xl:translate-x-full z-50`}
                 >
                   <img src={olta} alt="" />
                 </div>

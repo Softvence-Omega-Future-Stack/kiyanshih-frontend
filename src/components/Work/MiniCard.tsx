@@ -1,33 +1,22 @@
 import CommonHeader from "@/common/header/CommonHeader";
 import CommonWrapper from "@/common/space/CommonWrapper";
+import type { FC } from "react";
 import { BsDot } from "react-icons/bs";
 
-const featureCards = [
-  {
-    title: "Detailed job descriptions",
-    subItems: ["Photo uploads", "Budget setting"],
-    extraItems: ["Timeline preferences"],
-    bgColor: "bg-[#FFFAF0]", // light cream
-  },
-  {
-    title: "Background-checked providers",
-    subItems: ["Customer reviews & ratings", "Portfolio galleries"],
-    extraItems: ["Transparent pricing"],
-    bgColor: "bg-[#FFFCF0]", // light yellowish
-  },
-  {
-    title: "Direct communication",
-    subItems: ["Progress tracking", "Secure payments"],
-    extraItems: ["Satisfaction guarantee"],
-    bgColor: "bg-[#F0FAF7]", // light green
-  },
-];
-
-const MiniCard = () => {
+interface FeatureList {
+  title: string;
+  subItems: string[];
+  extraItems: string[];
+  bgColor: string;
+}
+interface MiniCardProps {
+  feature: FeatureList[];
+}
+const MiniCard: FC<MiniCardProps> = ({ feature }) => {
   return (
     <CommonWrapper>
       <div className="w-full flex flex-col sm:flex-row flex-wrap justify-between gap-6">
-        {featureCards.map((card, index) => (
+        {feature.map((card, index) => (
           <div
             key={index}
             className={`p-5 sm:min-w-[364px] flex-1 ${card.bgColor} rounded-xl`}

@@ -7,14 +7,7 @@ import React from "react";
 import line from "@/assets/frame/bakaLine.svg";
 import olta from "@/assets/frame/olta.svg";
 import SectionHeader from "@/common/header/SectionHeader";
-type Step = {
-  number: string;
-  title: string;
-  gradient: string;
-  des: string;
-};
-
-const steps: Step[] = [
+const steps = [
   {
     number: "01",
     title: "Post Your Job",
@@ -46,15 +39,16 @@ const steps: Step[] = [
   },
 ];
 
-const CurveProvider: React.FC = () => {
+interface CurveProviderProps {
+  title: string;
+  subtitle: string;
+}
+const CurveProvider: React.FC<CurveProviderProps> = ({ title, subtitle }) => {
   return (
     <CommonWrapper>
       <CommonSpace className=" py-10 sm:!py-40">
         {/* Steps */}
-        <SectionHeader
-          title="For Providers          "
-          subtitle="Getting help has never been easier"
-        />
+        <SectionHeader title={title} subtitle={subtitle} />
         <div className=" flex flex-col md:flex-row gap-10 pt-20">
           {steps.map((step, index) => (
             <div key={index} className={`relative flex flex-col items-center `}>

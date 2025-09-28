@@ -1,5 +1,6 @@
 import FixList from "@/components/home/FixList";
 import HeroSection from "@/components/home/HeroSection";
+import HomeSteps from "@/components/home/HomeSteps";
 import Price from "@/components/home/Price";
 import Service from "@/components/home/Service";
 import Footer from "@/layout/Footer";
@@ -9,7 +10,8 @@ const Home = () => {
     <div>
       <HeroSection />
       <Service />
-      <FixList className=" md:!py-40" title="How Fixlist works?" />
+      <HomeSteps />
+
       <Price />
       <Footer />
     </div>

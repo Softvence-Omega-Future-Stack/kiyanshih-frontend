@@ -78,7 +78,7 @@ const testimonials = [
 
 const TestimonialsCarousel = () => {
   return (
-    <section className="py-16 relative">
+    <section className="py-10 relative">
       <div className="relative">
         {/* Yellow background */}
         <div className="absolute top-1/2 left-0 w-full h-64 -translate-y-1/2 bg-[#FDE68A] rounded-xl z-0"></div>
@@ -107,16 +107,16 @@ const TestimonialsCarousel = () => {
                   key={index}
                   className="pl-4 md:basis-1/2 lg:basis-1/3 mb-6"
                 >
-                  <div className="bg-white p-8 rounded-xl border border-border h-full">
+                  <div className="bg-white p-4 sm:p-8 rounded-xl border border-border h-full">
                     <div className="space-y-4">
-                      <BigTitle className="!font-bold !font-Roboto !text-[#475569] !text-2xl">
+                      <BigTitle className="!font-bold !font-Roboto !text-[#475569] md:!text-2xl">
                         {item.company}
                       </BigTitle>
-                      <BigTitle className="!font-Roboto !text-[#000] !text-xl !font-normal">
+                      <BigTitle className="!font-Roboto !text-[#000] md:!text-xl !font-normal">
                         {item.feedback}
                       </BigTitle>
 
-                      <div className="flex items-center gap-3 pt-6">
+                      <div className="flex items-center gap-3 pt-2 sm:pt-6">
                         <img
                           src={item.image}
                           alt={item.name}

@@ -1,27 +1,26 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
-import FixList from "@/components/home/FixList";
 import Price from "@/components/home/Price";
 import ReadyToHelp from "@/components/service/ReadyToHelp";
 import CurveProvider from "@/components/Work/CurveProvider";
-import MiniCard from "@/components/Work/MiniCard";
 import Trust from "@/components/Work/Trust";
+import WorkCard from "@/components/Work/WorkCard";
 import WorkHeroSection from "@/components/Work/WorkHeroSection";
+import WorkSteps from "@/components/Work/WorkSteps";
 import Footer from "@/layout/Footer";
 
 const Work = () => {
   return (
     <div>
       <WorkHeroSection />
-      <FixList
-        className="pt-10"
-        title="For Clients"
+      <WorkSteps />
+      <WorkCard />
+      <CurveProvider
+        title="For Providers"
         subtitle="Getting help has never been easier"
       />
-      <MiniCard />
-      <CurveProvider />
       <Trust />
       <Price />
-      <CommonWrapper className="py-20">
+      <CommonWrapper className="sm:py-20">
         <ReadyToHelp />
       </CommonWrapper>
       <Footer />

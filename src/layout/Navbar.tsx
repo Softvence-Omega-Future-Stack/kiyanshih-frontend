@@ -17,7 +17,7 @@ const Navbar = () => {
   return (
     <header className="bg-[#EFF6FF]">
       <CommonWrapper>
-        <div className="w-full flex items-center justify-between h-18 ">
+        <div className="w-full flex items-center justify-between h-18">
           {/* Logo + Desktop Nav */}
           <div className="flex items-center gap-8 lg:gap-12">
             <Link to="/" className="w-[132px] h-[52px]">

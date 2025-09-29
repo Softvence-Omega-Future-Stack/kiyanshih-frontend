@@ -1,17 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import Home from "../pages/Home";
-import Dashboard from "@/Dashboard/pages/Dashboard";
-import BookingManagement from "@/Dashboard/pages/BookingManagement";
-import UserManagement from "@/Dashboard/pages/UserManagement";
-import DashboardLayout from "@/layout/DashboardLayout";
-import AddProvider from "@/Dashboard/pages/provider/AddProvider";
-import BackgroundCheck from "@/Dashboard/pages/provider/BackgroundCheck";
-import ProviderList from "@/Dashboard/pages/provider/ProviderList";
-import CategorySetUp from "@/Dashboard/pages/category/CategorySetUp";
-import SubCategorySetUp from "@/Dashboard/pages/category/SubCategorySetUp";
-import Transaction from "@/Dashboard/pages/transaction/Transaction";
-import Subscription from "@/Dashboard/pages/subscription/Subscription";
 import Login from "@/pages/Login";
 import ClientSignUp from "@/pages/ClientSignUp";
 import ProviderSignUp from "@/pages/ProviderSignUp";
@@ -20,6 +9,23 @@ import Provider from "@/pages/Provider";
 import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
+
+import Test from "../components/home/Service";
+import Dashboard from "@/Dashboard/Admin/pages/Dashboard";
+import DashboardLayout from "@/layout/DashboardLayout";
+import BookingManagement from "@/Dashboard/Admin/pages/BookingManagement";
+import ProviderList from "@/Dashboard/Admin/pages/provider/ProviderList";
+import AddProvider from "@/Dashboard/Admin/pages/provider/AddProvider";
+import BackgroundCheck from "@/Dashboard/Admin/pages/provider/BackgroundCheck";
+import CategorySetUp from "@/Dashboard/Admin/pages/category/CategorySetUp";
+import SubCategorySetUp from "@/Dashboard/Admin/pages/category/SubCategorySetUp";
+import UserManagement from "@/Dashboard/Admin/pages/UserManagement";
+import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
+import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
+
+import UserLayout from "@/layout/UserLayout";
+import Overview from "@/Dashboard/userDashboard/Overview";
+
 
 const routes = createBrowserRouter([
   {
@@ -30,6 +36,10 @@ const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/path",
+        element: <Test />,
       },
       {
         path: "/service",
@@ -112,5 +122,21 @@ const routes = createBrowserRouter([
       },
     ],
   },
+  // user dashboard 
+  {
+    path: "user-dashboard",
+    element: <UserLayout />,
+    children: [
+      {
+        index: true,
+        element: <Overview />
+      },
+      {
+        path: "overview",
+        element: <Overview />
+      }
+    ]
+  }
+
 ]);
 export default routes;

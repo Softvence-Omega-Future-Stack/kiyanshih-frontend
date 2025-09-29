@@ -61,7 +61,7 @@ const FeaturedCard: FC<FeaturedCardProps> = ({ feature }) => {
         <CommonButton className="!px-4 !py-2 bg-[#1D4ED8] !text-white">
           Book Now
         </CommonButton>
-        <CommonButton>
+        <CommonButton className="!px-4 !py-2">
           <Link to={`/provider/${slugify(feature.provider)}`} state={feature}>
             View Details
           </Link>

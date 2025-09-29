@@ -8,7 +8,7 @@ interface LargeTitleProps {
 const MediumHeader: FC<LargeTitleProps> = ({ children, className = "" }) => {
   return (
     <div
-      className={`text-xl md:text-xl font-semibold  text-[#0D151D]  md:leading-[28px] font-Geist ${className}`}
+      className={`text-lg md:text-xl font-semibold  text-[#0D151D]  md:leading-[28px] font-Geist ${className}`}
     >
       {children}
     </div>

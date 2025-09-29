@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import React, { useState } from "react";
 
-import DashboardHeader from "@/Dashboard/common/DashboardHeader";
-import Sidebar from "@/Dashboard/common/Sidebar";
+import DashboardHeader from "@/Dashboard/Admin/common/DashboardHeader";
+import Sidebar from "@/Dashboard/Admin/common/Sidebar";
 import CommonHeader from "@/common/header/CommonHeader";
 
 // ✅ Sidebar item type
@@ -34,7 +34,7 @@ const DashboardLayout: React.FC = () => {
           <Outlet />
         </main>
       </div>
-      <div className="w-full flex items-center justify-between">
+      <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-1">
         <CommonHeader className="!text-black">
           All Right reserved by Fixlist©2025
         </CommonHeader>

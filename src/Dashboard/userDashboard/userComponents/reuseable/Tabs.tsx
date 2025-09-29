@@ -4,6 +4,7 @@ interface Tab {
   title: string;
   value: string;
   href: string;
+  icon?: React.ReactNode;
 }
 
 const Tabs = ({ tabs }: { tabs: Tab[] }) => {
@@ -11,23 +12,31 @@ const Tabs = ({ tabs }: { tabs: Tab[] }) => {
   const currentPath = location.pathname;
 
   return (
-    <div className="hidden lg:flex items-center space-x-4">
+    <div className="hidden md:flex items-center gap-4 md:gap-[30px]">
       {tabs.map((tab) => {
-        let isActive = currentPath === tab.href || currentPath.startsWith(tab.href + "/");
+        let isActive =
+          currentPath === tab.href || currentPath.startsWith(tab.href + "/");
+
         if (tab.value === "overview" && currentPath === "/user-dashboard") {
           isActive = true;
         }
+
         return (
           <Link
             key={tab.value}
             to={tab.href}
-            className={`sm:text-sm font-medium cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+            className={`group inline-flex items-center gap-2 sm:text-sm font-medium cursor-pointer text-sm md:text-[18px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
               ${
                 isActive
                   ? "text-white bg-[#1D4ED8] border border-[#1D4ED8]"
-                  : "text-black  hover:bg-[#1D4ED8] hover:text-white border border-[#CBD5E1]"
+                  : "text-black hover:bg-[#1D4ED8] hover:text-white border border-[#CBD5E1]"
               }`}
           >
+            {tab.icon && (
+              <span className="w-4 h-4 md:w-6 md:h-6 group-hover:brightness-0 group-hover:invert transition-all duration-200">
+                {tab.icon}
+              </span>
+            )}
             {tab.title}
           </Link>
         );
@@ -37,6 +46,8 @@ const Tabs = ({ tabs }: { tabs: Tab[] }) => {
 };
 
 export default Tabs;
+
+
 
 
 

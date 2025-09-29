@@ -21,6 +21,7 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 import UserLayout from "@/layout/UserLayout";
+import Overview from "@/Dashboard/userDashboard/Overview";
 
 const routes = createBrowserRouter([
   {
@@ -115,13 +116,19 @@ const routes = createBrowserRouter([
   },
   // user dashboard 
   {
-    path: "/user-dashboard",
+    path: "user-dashboard",
     element: <UserLayout />,
     children: [
       {
-
+        index: true,
+        element: <Overview />
+      },
+      {
+        path: "overview",
+        element: <Overview />
       }
     ]
   }
+
 ]);
 export default routes;

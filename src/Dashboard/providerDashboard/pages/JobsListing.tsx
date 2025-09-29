@@ -23,7 +23,7 @@ interface Job {
   isBoosted?: boolean;
 }
 
-const JobsDashboard = () => {
+const JobsListing = () => {
   const activeJobs: Job[] = [
     {
       id: 1,
@@ -56,39 +56,39 @@ const JobsDashboard = () => {
     },
   ];
 
-  const recentBookings: Job[] = [
-    {
-      id: 3,
-      title: "Professional Home Cleaning",
-      location: "Ontario, TX",
-      budget: "$35/hr",
-      postedTime: "Posted 10 minute ago",
-      views: 0,
-      applications: 0,
-      bookings: 0,
-      rating: 0,
-      image:
-        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-      status: "Pending",
-    },
-  ];
+  //   const recentBookings: Job[] = [
+  //     {
+  //       id: 3,
+  //       title: "Professional Home Cleaning",
+  //       location: "Ontario, TX",
+  //       budget: "$35/hr",
+  //       postedTime: "Posted 10 minute ago",
+  //       views: 0,
+  //       applications: 0,
+  //       bookings: 0,
+  //       rating: 0,
+  //       image:
+  //         "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+  //       status: "Pending",
+  //     },
+  //   ];
 
-  const availableJobs: Job[] = [
-    {
-      id: 4,
-      title: "Professional Home Cleaning",
-      location: "Ontario, TX",
-      budget: "$35/hr",
-      postedTime: "Posted by Sarah Smith",
-      views: 0,
-      applications: 0,
-      bookings: 0,
-      rating: 0,
-      image:
-        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-      status: "Pending",
-    },
-  ];
+  //   const availableJobs: Job[] = [
+  //     {
+  //       id: 4,
+  //       title: "Professional Home Cleaning",
+  //       location: "Ontario, TX",
+  //       budget: "$35/hr",
+  //       postedTime: "Posted by Sarah Smith",
+  //       views: 0,
+  //       applications: 0,
+  //       bookings: 0,
+  //       rating: 0,
+  //       image:
+  //         "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+  //       status: "Pending",
+  //     },
+  //   ];
 
   const JobCard = ({
     job,
@@ -256,8 +256,7 @@ const JobsDashboard = () => {
           ))}
         </div>
 
-        {/* Recent Bookings Section */}
-        <div>
+        {/* <div>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-gray-900">
@@ -274,10 +273,9 @@ const JobsDashboard = () => {
           {recentBookings.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
-        </div>
+        </div> */}
 
-        {/* Available Jobs Section */}
-        <div>
+        {/* <div>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-gray-900">
@@ -294,10 +292,10 @@ const JobsDashboard = () => {
           {availableJobs.map((job) => (
             <JobCard key={job.id} job={job} showSubmit />
           ))}
-        </div>
+        </div>  */}
       </div>
     </div>
   );
 };
 
-export default JobsDashboard;
+export default JobsListing;

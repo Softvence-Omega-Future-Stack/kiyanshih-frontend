@@ -24,19 +24,14 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
-
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-
-
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
+// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
-import BookingComponent from "@/components/booking/BookingComponent";
-
+import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
+import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 
 const routes = createBrowserRouter([
   {
@@ -84,7 +79,6 @@ const routes = createBrowserRouter([
         path: "/provider-signup",
         element: <ProviderSignUp />,
       },
-
       {
         path: "dashboard",
         element: <DashboardLayout />,
@@ -144,16 +138,6 @@ const routes = createBrowserRouter([
       },
       {
         path: "overview",
-
-        element: <Rakib />
-      },
-      {
-        path: "bookings",
-        element: <Bookings/>
-      }
-    ]
-  }
-
         element: <Overview />,
       },
       {
@@ -172,10 +156,6 @@ const routes = createBrowserRouter([
         path: "payment-history",
         element: <Payment />,
       },
-      {
-        path: "Provider-profile",
-        element: <ProviderProfile />,
-      },
     ],
   },
   {
@@ -191,20 +171,14 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "messages",
+        path: "message",
         element: <Message />,
       },
       {
-
-        path: "bookings",
-        element: <BookingComponent />,
-
-        path: "profile",
+        path: "provider-profile",
         element: <ProviderProfile />,
-
       },
     ],
   },
-
 ]);
 export default routes;

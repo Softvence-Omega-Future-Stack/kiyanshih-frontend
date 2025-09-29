@@ -13,7 +13,7 @@ const ProviderLayout = () => {
 
       <CommonWrapper>
         <UserNavbar />
-        <UserTabs />
+        <ProviderTabs />
         <Outlet />
       </CommonWrapper>
 

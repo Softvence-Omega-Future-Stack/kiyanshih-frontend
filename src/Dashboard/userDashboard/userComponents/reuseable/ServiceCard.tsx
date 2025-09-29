@@ -1,5 +1,6 @@
 import React from "react";
-import verifiedImg from "@/assets/cardImages/verified.svg"; // your verified image
+import verifiedImg from "@/assets/cardImages/verified.svg";
+import locationIcon from "@/assets/cardImages/location.svg"; // rename import to avoid conflict
 
 // ----- Star Component -----
 interface StarProps {
@@ -65,31 +66,10 @@ const RatingStars: React.FC<RatingStarsProps> = ({ rating = 0, size = 14 }) => {
 
 // ----- VerifiedBadge Component -----
 const VerifiedBadge: React.FC = () => (
-  <span className="ml-2 inline-flex items-center justify-center gap-1 ">
-    <img src={verifiedImg} className="w-[14px] h-[14px]" />
-    <span className="text-black text-xs">
-      Verified
-    </span>
+  <span className="ml-2 inline-flex items-center justify-center gap-1">
+    <img src={verifiedImg} className="w-[14px] h-[14px]" alt="Verified" />
+    <span className="text-black text-xs">Verified</span>
   </span>
-);
-
-// ----- LocationIcon Component -----
-const LocationIcon: React.FC = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="w-4 h-4 text-gray-400"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth="1.5"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M12 21c-4.418 0-8-5.373-8-9a8 8 0 1116 0c0 3.627-3.582 9-8 9z"
-    />
-    <circle cx="12" cy="12" r="3" />
-  </svg>
 );
 
 // ----- ServiceCard Component -----
@@ -97,7 +77,7 @@ interface ServiceCardProps {
   imageSrc?: string;
   name?: string;
   verified?: boolean;
-  location?: string;
+  locationText?: string; // rename prop to avoid conflict
   startingPrice?: string | number;
   rating?: number;
   reviewCount?: number;
@@ -110,7 +90,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   imageSrc,
   name,
   verified = false,
-  location,
+  locationText,
   startingPrice,
   rating,
   reviewCount,
@@ -130,21 +110,21 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         )}
 
         <div className="min-w-0">
-          <div className="flex items-center text-sm font-medium text-gray-900 truncate">
+          <div className="flex items-center text-sm font-medium text-black truncate">
             {name && <span className="truncate">{name}</span>}
             {verified && <VerifiedBadge />}
           </div>
 
-          {location && (
-            <div className="flex items-center text-xs text-gray-500 mt-1 truncate gap-1">
-              <LocationIcon />
-              <span className="truncate">{location}</span>
+          {locationText && (
+            <div className="flex items-center text-sm text-black mt-1 truncate gap-1">
+              <img src={locationIcon} className="w-[12px] h-4" alt="Location" />
+              <span className="truncate">{locationText}</span>
             </div>
           )}
 
           <div className="mt-3 flex flex-wrap items-center gap-4">
             {startingPrice && (
-              <div className="text-sm text-gray-700">
+              <div className="text-sm md:text-[16px] text-[#334155]">
                 Starting : <span className="font-semibold">${startingPrice}</span>
               </div>
             )}
@@ -152,7 +132,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             {rating && (
               <div className="flex items-center gap-2">
                 <RatingStars rating={rating} size={14} />
-                <div className="text-sm text-gray-600">
+                <div className="text-sm text-[#475569]">
                   {rating.toFixed(1)}{" "}
                   {reviewCount && (
                     <span className="text-gray-400">({reviewCount} Reviews)</span>
@@ -168,7 +148,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         {statusLabel && (
           <button
             onClick={onStatusClick}
-            className="px-3 py-1 rounded-full text-sm border border-yellow-200 bg-yellow-50 text-yellow-800 hover:bg-yellow-100"
+            className="px-3 py-1 cursor-pointer rounded-full text-sm border border-yellow-200 bg-yellow-50 text-yellow-800 hover:bg-yellow-100"
           >
             {statusLabel}
           </button>
@@ -177,7 +157,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         {onViewDetails && (
           <button
             onClick={onViewDetails}
-            className="text-sm text-gray-500 underline underline-offset-2"
+            className="text-sm text-gray-600 underline underline-offset-2 cursor-pointer"
           >
             View Details
           </button>

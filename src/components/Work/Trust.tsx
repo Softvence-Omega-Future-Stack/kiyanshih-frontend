@@ -37,14 +37,14 @@ const cards = [
 ];
 const Trust = () => {
   return (
-    <div className="bg-[#F8FAFC] my-20">
+    <div className="bg-[#F8FAFC] ">
       <CommonWrapper className="py-10">
         <SectionHeader
           title="Trust & Safety First"
           subtitle="Your safety and satisfaction are our top priorities"
         />
 
-        <div className="flex flex-wrap justify-center gap-20 py-20">
+        <div className="flex flex-wrap justify-center gap-10 sm:gap-20 py-10 sm:py-20">
           {cards.map((card) => (
             <div
               key={card.id}

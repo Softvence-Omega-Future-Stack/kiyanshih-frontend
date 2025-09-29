@@ -55,7 +55,7 @@ const services = [
 ];
 const FeaturedSection = () => {
   return (
-    <CommonSpace className="!py-20">
+    <CommonSpace className="">
       <div className="max-w-3xl  ">
         <SectionHeader
           className=" !text-start"
@@ -64,7 +64,7 @@ const FeaturedSection = () => {
         />
       </div>
 
-      <div className=" w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-6 pt-6">
+      <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-6 pt-6">
         {services.map((service, index) => (
           <FeaturedCard key={index} feature={service} />
         ))}

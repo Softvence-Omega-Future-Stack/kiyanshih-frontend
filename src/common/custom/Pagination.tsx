@@ -12,11 +12,17 @@ const Pagination: React.FC<PaginationProps> = ({
   totalPages,
   onPageChange,
 }) => {
-  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  // Always show 1, 2, 3, ..., last
+  const pages: (number | string)[] = [];
+
+  if (totalPages <= 4) {
+    for (let i = 1; i <= totalPages; i++) pages.push(i);
+  } else {
+    pages.push(1, 2, 3, "...", totalPages);
+  }
 
   return (
-    <div className="flex items-center justify-center gap-2 ">
-      {/* Previous Button */}
+    <div className="flex items-center justify-center gap-1 sm:gap-2">
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
@@ -26,22 +32,26 @@ const Pagination: React.FC<PaginationProps> = ({
         Previous
       </button>
 
-      {/* Page Numbers */}
-      {pages.map((page) => (
-        <button
-          key={page}
-          onClick={() => onPageChange(page)}
-          className={`px-3 py-1 text-sm rounded-md cursor-pointer ${
-            currentPage === page
-              ? "bg-black text-white shadow"
-              : "hover:bg-gray-100"
-          }`}
-        >
-          {page}
-        </button>
-      ))}
+      {pages.map((page, idx) =>
+        page === "..." ? (
+          <span key={idx} className="px-3 py-1 text-sm">
+            ...
+          </span>
+        ) : (
+          <button
+            key={idx}
+            onClick={() => onPageChange(page as number)}
+            className={`px-3 py-1 text-sm rounded-md cursor-pointer ${
+              currentPage === page
+                ? "bg-black text-white shadow"
+                : "hover:bg-gray-100"
+            }`}
+          >
+            {page}
+          </button>
+        )
+      )}
 
-      {/* Next Button */}
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}

@@ -9,6 +9,7 @@ import m7 from "@/assets/icon/services_trash_dumpster.svg";
 import m8 from "@/assets/icon/stay_on_trail.svg";
 import { Link } from "react-router-dom";
 import { slugify } from "@/help/help";
+import SectionHeader from "@/common/header/SectionHeader";
 
 const services = [
   {
@@ -111,6 +112,11 @@ const services = [
 const ServiceCardSection = () => {
   return (
     <>
+      <SectionHeader
+        className=" !text-start pb-10"
+        title="Browse Service By category "
+        subtitle="Explore Services in Your Neighborhood"
+      />
       <div className=" w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {services.map((service, index) => (
           <Link to={`/service/${slugify(service.title)}`} key={index}>

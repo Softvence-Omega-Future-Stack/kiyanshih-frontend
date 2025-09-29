@@ -21,8 +21,8 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import UserOverview from "@/Dashboard/userDashboard/pages/UserOverview";
 
 
 const routes = createBrowserRouter([
@@ -123,11 +123,11 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Overview />
+        element: <UserOverview />
       },
       {
         path: "overview",
-        element: <Overview />
+        element: <UserOverview />
       },
       {
         path: "bookings",

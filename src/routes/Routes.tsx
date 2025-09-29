@@ -24,12 +24,19 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
+
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
+
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+
+
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
+import BookingComponent from "@/components/booking/BookingComponent";
+
 
 const routes = createBrowserRouter([
   {
@@ -137,7 +144,21 @@ const routes = createBrowserRouter([
       },
       {
         path: "overview",
+
+        element: <Rakib />
+      },
+      {
+        path: "bookings",
+        element: <Bookings/>
+      }
+    ]
+  }
+
         element: <Overview />,
+      },
+      {
+        path: "overview/:title",
+        element: <SingleOverview />,
       },
       {
         path: "message",
@@ -170,14 +191,20 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
       {
+
+        path: "bookings",
+        element: <BookingComponent />,
+
         path: "profile",
         element: <ProviderProfile />,
+
       },
     ],
   },
+
 ]);
 export default routes;

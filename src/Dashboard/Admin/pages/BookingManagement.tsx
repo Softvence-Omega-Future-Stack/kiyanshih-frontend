@@ -20,12 +20,26 @@ const counts = {
   Rejected: 0,
   "In-progress": 1,
 };
+
+const DefaultTabs: BookingStatus[] = [
+  "All Bookings",
+  "Pending",
+  "Accepted",
+  "Rejected",
+  "In-progress",
+];
+
 const BookingManagement = () => {
   const [tab, setTab] = useState<BookingStatus>("All Bookings");
   return (
     <div>
       <AllBookingTopSection />
-      <Tablist activeTab={tab} setTab={setTab} counts={counts} />
+      <Tablist<BookingStatus>
+        tabs={DefaultTabs}
+        activeTab={tab}
+        setTab={setTab}
+        counts={counts}
+      />
       {tab === "All Bookings" && <AllBooking />}
       {tab === "Pending" && <PendingTable />}
       {tab === "Accepted" && <AcceptTable />}

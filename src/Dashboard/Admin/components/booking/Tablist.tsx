@@ -1,30 +1,30 @@
 import SubHeader from "@/Dashboard/Admin/common/SubHeader";
-import type { BookingStatus } from "@/Dashboard/Admin/pages/BookingManagement";
-import { type FC } from "react";
 
-interface TablistProps {
-  setTab: (tab: BookingStatus) => void;
-  activeTab: BookingStatus;
-  counts?: Record<BookingStatus, number>; // optional counts for each status
+interface TablistProps<T extends string> {
+  setTab: (tab: T) => void;
+  activeTab: T;
+  counts?: Record<T, number>;
+  tabs: T[];
 }
 
-const Tablist: FC<TablistProps> = ({ setTab, activeTab, counts }) => {
-  const tabs: BookingStatus[] = [
-    "All Bookings",
-    "Pending",
-    "Accepted",
-    "Rejected",
-    "In-progress",
-  ];
-
+const Tablist = <T extends string>({
+  setTab,
+  activeTab,
+  counts,
+  tabs,
+}: TablistProps<T>) => {
   return (
     <div className="flex gap-4 pb-[34px]">
       {tabs.map((status) => (
         <SubHeader
           key={status}
           className={`relative px-4 py-2 mb-2 rounded cursor-pointer transition-colors
-        ${activeTab === status ? " bg-[#E2E8F0] font-medium" : "text-gray-800"}
-      `}
+            ${
+              activeTab === status
+                ? " bg-[#E2E8F0] font-medium"
+                : "text-gray-800"
+            }
+          `}
           onClick={() => setTab(status)}
         >
           {status}

@@ -1,7 +1,7 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
 
 import MediumHeader from "@/common/header/MediumHeader";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import SectionHeader from "@/common/header/SectionHeader";
 
 interface StepProps {

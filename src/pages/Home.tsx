@@ -1,4 +1,3 @@
-import FixList from "@/components/home/FixList";
 import HeroSection from "@/components/home/HeroSection";
 import HomeSteps from "@/components/home/HomeSteps";
 import Price from "@/components/home/Price";

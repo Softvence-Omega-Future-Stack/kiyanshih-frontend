@@ -19,7 +19,7 @@ const Navbar = () => {
       <CommonWrapper>
         <div className="w-full flex items-center justify-between h-18 ">
           {/* Logo + Desktop Nav */}
-          <div className="flex items-center gap-8 lg:gap-12">
+          <div className="flex items-center gap-2 lg:gap-12">
             <Link to="/" className="w-[132px] h-[52px]">
               <img src={logo} alt="Logo" />
             </Link>
@@ -42,12 +42,12 @@ const Navbar = () => {
             <div className="text-xl cursor-pointer hidden lg:block">
               <Globe />
             </div>
-            <CommonButton className="border !border-[#1D4ED8]">
+            <CommonButton className="border !border-[#1D4ED8] !px-4 !py-2">
               <Link to="/login"> Sign In</Link>
             </CommonButton>
             <CommonButton
               onClick={() => setIsJoinModalOpen(true)}
-              className="!bg-[#1D4ED8] !border-[#1D4ED8] !border !text-white"
+              className="!bg-[#1D4ED8] !border-[#1D4ED8] !border !text-white !px-4 !py-2"
             >
               Get Started
             </CommonButton>

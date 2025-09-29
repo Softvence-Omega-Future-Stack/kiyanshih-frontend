@@ -1,6 +1,6 @@
 import CommonHeader from "@/common/header/CommonHeader";
 import CommonWrapper from "@/common/space/CommonWrapper";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import { RiFacebookFill } from "react-icons/ri";
 import { FaInstagramSquare } from "react-icons/fa";
 import { IoLogoTwitter } from "react-icons/io5";

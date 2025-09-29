@@ -7,6 +7,7 @@ import {
   Rocket,
   Edit,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Job {
   id: number;
@@ -23,7 +24,7 @@ interface Job {
   isBoosted?: boolean;
 }
 
-const JobsDashboard = () => {
+const JobsListing = () => {
   const activeJobs: Job[] = [
     {
       id: 1,
@@ -53,40 +54,6 @@ const JobsDashboard = () => {
         "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
       status: "Active",
       isBoosted: true,
-    },
-  ];
-
-  const recentBookings: Job[] = [
-    {
-      id: 3,
-      title: "Professional Home Cleaning",
-      location: "Ontario, TX",
-      budget: "$35/hr",
-      postedTime: "Posted 10 minute ago",
-      views: 0,
-      applications: 0,
-      bookings: 0,
-      rating: 0,
-      image:
-        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-      status: "Pending",
-    },
-  ];
-
-  const availableJobs: Job[] = [
-    {
-      id: 4,
-      title: "Professional Home Cleaning",
-      location: "Ontario, TX",
-      budget: "$35/hr",
-      postedTime: "Posted by Sarah Smith",
-      views: 0,
-      applications: 0,
-      bookings: 0,
-      rating: 0,
-      image:
-        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-      status: "Pending",
     },
   ];
 
@@ -195,7 +162,7 @@ const JobsDashboard = () => {
                 </span>
               </div>
 
-              {/* actions */}
+              {/* -------actions  --------------*/}
               <div className="flex flex-wrap gap-2">
                 {job.isBoosted ? (
                   <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
@@ -203,10 +170,12 @@ const JobsDashboard = () => {
                     Boosted
                   </button>
                 ) : (
-                  <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                    <Rocket size={16} />
-                    Boost
-                  </button>
+                  <Link to="/provider-dashboard/boost-service">
+                    <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                      <Rocket size={16} />
+                      Boost
+                    </button>
+                  </Link>
                 )}
                 <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
                   <Edit size={16} />
@@ -216,7 +185,7 @@ const JobsDashboard = () => {
             </div>
           )}
 
-          {/* Submit Proposal Section */}
+          {/*------ Submit Proposal Section------------- */}
           {showSubmit && (
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
               <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg text-sm font-medium flex-1">
@@ -237,7 +206,7 @@ const JobsDashboard = () => {
 
   return (
     <div className="p-6">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className=" mx-w-7xl mx-auto space-y-8">
         {/* Active Jobs Section */}
         <div>
           <div className="flex items-center justify-between mb-4">
@@ -255,49 +224,9 @@ const JobsDashboard = () => {
             <JobCard key={job.id} job={job} showActions />
           ))}
         </div>
-
-        {/* Recent Bookings Section */}
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h2 className="text-xl font-bold text-gray-900">
-                Recent Bookings
-              </h2>
-              <p className="text-sm text-gray-600">
-                View latest bookings of your job postings
-              </p>
-            </div>
-            <button className="text-blue-600 hover:text-blue-700 font-medium text-sm">
-              View All
-            </button>
-          </div>
-          {recentBookings.map((job) => (
-            <JobCard key={job.id} job={job} />
-          ))}
-        </div>
-
-        {/* Available Jobs Section */}
-        <div>
-          <div className="flex items-center justify-between mb-4">
-            <div>
-              <h2 className="text-xl font-bold text-gray-900">
-                Available jobs
-              </h2>
-              <p className="text-sm text-gray-600">
-                View All jobs customers have posted
-              </p>
-            </div>
-            <button className="text-blue-600 hover:text-blue-700 font-medium text-sm">
-              View All
-            </button>
-          </div>
-          {availableJobs.map((job) => (
-            <JobCard key={job.id} job={job} showSubmit />
-          ))}
-        </div>
       </div>
     </div>
   );
 };
 
-export default JobsDashboard;
+export default JobsListing;

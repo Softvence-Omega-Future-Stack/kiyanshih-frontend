@@ -1,8 +1,8 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
 import ProviderNavbar from "./ProviderNavbar";
 import OverviewProviderDashboard from "./OverviewProviderDashboard";
-import JobsDashboard from "./JobsDashboard";
-import JobsListing from "./JobsListing";
+import JobsDashboard from "./JobDashboard/JobsDashboard";
+
 
 const OverviewPage = () => {
   return (
@@ -10,7 +10,7 @@ const OverviewPage = () => {
       <ProviderNavbar />
       <OverviewProviderDashboard />
       <JobsDashboard />
-      <JobsListing />
+  
     </CommonWrapper>
   );
 };

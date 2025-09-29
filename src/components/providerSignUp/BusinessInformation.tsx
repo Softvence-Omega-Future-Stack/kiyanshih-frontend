@@ -2,7 +2,7 @@ import CommonSelect from "@/common/custom/CommonSelect";
 import { useState } from "react";
 import { BsFillBagDashFill } from "react-icons/bs";
 import image from "@/assets/images/miniUpload.svg";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 const inputClass = {
   input:
     "w-full bg-[#EFF6FF]/40 rounded-md p-3 text-black font-Geist text-base leading-[24px] border border-[#EFF6FF] outline-none transition bg-[#EFF6FF]/40",

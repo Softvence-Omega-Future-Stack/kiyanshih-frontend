@@ -1,46 +1,32 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
-import line1 from "@/assets/frame/line1.png";
-import Briefcase from "@/assets/frame/briefcase-business.svg";
-import User from "@/assets/frame/user-check.svg";
-import CheckCircle from "@/assets/frame/badge-check.svg";
+
 import MediumHeader from "@/common/header/MediumHeader";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import SectionHeader from "@/common/header/SectionHeader";
 
-const steps = [
-  {
-    title: "Post Your Job",
-    description:
-      "Connect with verified professionals for home improvement, cleaning, maintenance, and more. Quality service providers in your neighborhood.",
-    icon: Briefcase,
-    bgColor:
-      "bg-[#9672FF] shadow-[0_100px_80px_rgba(150,114,255,0.07),0_64.815px_46.852px_rgba(150,114,255,0.05),0_38.519px_25.481px_rgba(150,114,255,0.04),0_20px_13px_rgba(150,114,255,0.04),0_8.148px_6.519px_rgba(150,114,255,0.03),0_1.852px_3.148px_rgba(150,114,255,0.02)]",
-  },
-  {
-    title: "Choose a Provider",
-    description:
-      "Compare profiles, reviews, and prices. All providers are background-checked and verified for your peace of mind.",
-    icon: User,
-    bgColor:
-      "bg-[#4DDFFD] shadow-[0_100px_80px_rgba(77,223,253,0.07),0_64.815px_46.852px_rgba(77,223,253,0.05),0_38.519px_25.481px_rgba(77,223,253,0.04),0_20px_13px_rgba(77,223,253,0.04),0_8.148px_6.519px_rgba(77,223,253,0.03),0_1.852px_3.148px_rgba(77,223,253,0.02)]",
-  },
-  {
-    title: "Get it Done",
-    description:
-      "Work gets completed to your satisfaction. Pay securely through our platform or arrange cash/e-transfer directly.",
-    icon: CheckCircle,
-    bgColor:
-      "bg-[#F2B8EC] shadow-[0_100px_80px_0_rgba(242,184,236,0.07),0_64.815px_46.852px_0_rgba(242,184,236,0.05),0_38.519px_25.481px_0_rgba(242,184,236,0.04),0_20px_13px_0_rgba(242,184,236,0.04),0_8.148px_6.519px_0_rgba(242,184,236,0.03),0_1.852px_3.148px_0_rgba(242,184,236,0.02)]",
-  },
-];
-
+interface StepProps {
+  title: string;
+  description: string;
+  icon: string;
+  bgColor: string;
+}
 interface FixListProps {
   title: string;
   subtitle?: string;
+  line1: string;
+  line2: string;
   className?: string;
+  steps?: StepProps[];
 }
 
-const FixList: React.FC<FixListProps> = ({ title, subtitle, className }) => {
+const FixList: React.FC<FixListProps> = ({
+  title,
+  subtitle,
+  line1,
+  line2,
+  className,
+  steps,
+}) => {
   return (
     <CommonWrapper>
       <section className={`bg-white pb-10  ${className}`}>
@@ -52,7 +38,7 @@ const FixList: React.FC<FixListProps> = ({ title, subtitle, className }) => {
 
           {/* Steps */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-18">
-            {steps.map((step, index) => (
+            {steps?.map((step, index) => (
               <div key={index} className="relative">
                 <div className="text-center flex flex-col items-center">
                   <div
@@ -77,11 +63,13 @@ const FixList: React.FC<FixListProps> = ({ title, subtitle, className }) => {
                 {/* Connector Line */}
                 {index !== steps.length - 1 && (
                   <div
-                    className={`hidden md:block absolute top-[40px] translate-x-[60%] px-4 ${
-                      index % 2 !== 0 ? "rotate-180" : ""
-                    }`}
+                    className={`hidden md:block absolute top-[40px] translate-x-[60%] px-4 `}
                   >
-                    <img src={line1} alt="" />
+                    {index === 0 ? (
+                      <img src={line1} alt="" />
+                    ) : (
+                      <img src={line2} alt="" />
+                    )}
                   </div>
                 )}
               </div>

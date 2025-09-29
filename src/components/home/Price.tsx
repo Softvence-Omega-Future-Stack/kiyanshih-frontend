@@ -1,7 +1,7 @@
 import CommonButton from "@/common/button/CommonButton";
 import MediumHeader from "@/common/header/MediumHeader";
 import CommonWrapper from "@/common/space/CommonWrapper";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import briefcase from "@/assets/frame/briefcase-business (1).svg";
 import zap from "@/assets/frame/zap.svg";
 import party from "@/assets/frame/party-popper.svg";

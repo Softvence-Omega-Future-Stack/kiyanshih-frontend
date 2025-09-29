@@ -9,12 +9,15 @@ import settings from "@/assets/icon/tabIcons/settings.svg";
 
 const UserTabs = () => {
     const tabOptions = [
-        { title: "Overview", value: "overview", href: "/user-dashboard/overview", icon: <img src={overview} /> },
-        { title: "My Jobs", value: "jobs", href: "/user-dashboard/jobs" , icon: <img src={jobs} /> },
-        { title: "Messages", value: "messages", href: "/user-dashboard/messages" , icon: <img src={messages} /> },
-        { title: "Bookings", value: "bookings", href: "/user-dashboard/bookings" , icon: <img src={bookings} /> },
-        { title: "Payment History", value: "payments", href: "/user-dashboard/payments" , icon: <img src={payments} /> },
-        { title: "Settings", value: "settings", href: "/user-dashboard/settings" , icon: <img src={settings} /> },
+
+        { title: "Overview", value: "overview", href: "/user-dashboard/overview" },
+        { title: "My Jobs", value: "jobs", href: "/user-dashboard/jobs" },
+        { title: "Messages", value: "messages", href: "/user-dashboard/messages" },
+        { title: "Bookings", value: "bookings", href: "/user-dashboard/bookings" },
+        { title: "Payment History", value: "payments", href: "/user-dashboard/payments" },
+        { title: "Settings", value: "settings", href: "/user-dashboard/settings" },
+        { title: "Profile", value: "profile", href: "/provider-dashboard/profile" },
+
     ];
 
     return (

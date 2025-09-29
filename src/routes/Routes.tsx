@@ -188,6 +188,10 @@ const routes = createBrowserRouter([
         path: "message",
         element: <Message />,
       },
+      {
+        path: "profile",
+        element: <ProviderProfile />,
+      },
     ],
   },
 

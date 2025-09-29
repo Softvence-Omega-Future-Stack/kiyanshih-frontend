@@ -21,7 +21,7 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 
 

@@ -1,6 +1,6 @@
 import CommonWrapper from "@/common/space/CommonWrapper"
 
-const Overview = () => {
+const UserOverview = () => {
     return (
         <CommonWrapper>
             <div className="text-6xl text-black">
@@ -10,4 +10,4 @@ const Overview = () => {
     )
 }
 
-export default Overview;
+export default UserOverview;

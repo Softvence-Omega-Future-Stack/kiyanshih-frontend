@@ -24,8 +24,12 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/Overview";
-
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Message from "@/Dashboard/userDashboard/pages/Message";
+import Job from "@/Dashboard/userDashboard/pages/Job";
+import Payment from "@/Dashboard/userDashboard/pages/Payment";
+import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
+import ProviderLayout from "@/layout/ProviderLayout";
 
 const routes = createBrowserRouter([
   {
@@ -122,21 +126,54 @@ const routes = createBrowserRouter([
       },
     ],
   },
-  // user dashboard 
+  // user dashboard
   {
     path: "user-dashboard",
     element: <UserLayout />,
     children: [
       {
         index: true,
-        element: <Overview />
+        element: <Overview />,
       },
       {
         path: "overview",
-        element: <Overview />
-      }
-    ]
-  }
-
+        element: <Overview />,
+      },
+      {
+        path: "message",
+        element: <Message />,
+      },
+      {
+        path: "my-jobs",
+        element: <Job />,
+      },
+      {
+        path: "payment-history",
+        element: <Payment />,
+      },
+      {
+        path: "Provider-profile",
+        element: <ProviderProfile />,
+      },
+    ],
+  },
+  {
+    path: "provider-dashboard",
+    element: <ProviderLayout />,
+    children: [
+      {
+        index: true,
+        element: <Overview />,
+      },
+      {
+        path: "overview",
+        element: <Overview />,
+      },
+      {
+        path: "message",
+        element: <Message />,
+      },
+    ],
+  },
 ]);
 export default routes;

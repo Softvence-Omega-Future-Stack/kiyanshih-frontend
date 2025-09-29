@@ -11,7 +11,7 @@ export default function ProfileHeading() {
     <div className="mb-10">
       <img src={profileBanner} alt="" />
       <div>
-        <div className="grid grid-cols-3 px-6">
+        <div className="grid grid-cols-3 gap-5 px-6">
           <div className="col-span-1 bg-white shadow border-slate-300 rounded-[8px] p-4 md:p-6 -mt-10">
             <div className="text-center">
               <img src={profileImage} alt="" className="mx-auto" />
@@ -57,30 +57,34 @@ export default function ProfileHeading() {
             </Link>
           </div>
 
-          <div className="col-span-2 bg-white border border-slate-300 py-6 px-5">
-            <h4 className="text-lg font-medium">About Mike Handyman Service</h4>
-            <p className="text-slate-600 mt-4 mb-2">
-              Building and repairing small structures, such as decks, sheds, or
-              custom shelving. Designing and building unique tables, chairs,
-              bookshelves. Building and repairing small structures, such as
-              decks, sheds, or custom shelving. Designing and building unique
-              tables, chairs, bookshelves.
-            </p>
-            <div>
-              <p className="text-[#0F172A] font-semibold">Skills</p>
-              <div className="flex items-center gap-2 mt-4">
-                <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
-                  Handyman
-                </p>
-                <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
-                  Gardening
-                </p>
-                <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
-                  Renovation
-                </p>
-                <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
-                  Renovation
-                </p>
+          <div className="col-span-2 mt-5">
+            <div className="bg-white border border-slate-300 py-6 px-5 rounded-[8px]">
+              <h4 className="text-lg font-medium">
+                About Mike Handyman Service
+              </h4>
+              <p className="text-slate-600 mt-4 mb-2">
+                Building and repairing small structures, such as decks, sheds,
+                or custom shelving. Designing and building unique tables,
+                chairs, bookshelves. Building and repairing small structures,
+                such as decks, sheds, or custom shelving. Designing and building
+                unique tables, chairs, bookshelves.
+              </p>
+              <div>
+                <p className="text-[#0F172A] font-semibold">Skills</p>
+                <div className="flex items-center gap-2 mt-4">
+                  <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
+                    Handyman
+                  </p>
+                  <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
+                    Gardening
+                  </p>
+                  <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
+                    Renovation
+                  </p>
+                  <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
+                    Renovation
+                  </p>
+                </div>
               </div>
             </div>
           </div>

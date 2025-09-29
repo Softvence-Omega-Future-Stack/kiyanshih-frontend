@@ -19,12 +19,12 @@ const ProviderNavbar = () => {
       icon: LayoutDashboard,
     },
     {
-      to: "/provider-dashboard/jobs-listing",
+      to: "/provider-dashboard/job-listing",
       label: "My Jobs listing",
       icon: Briefcase,
     },
     {
-      to: "/provider-dashboard/available-jobs",
+      to: "/provider-dashboard/available-job",
       label: "Available Jobs",
       icon: ListChecks,
     },

@@ -30,9 +30,14 @@ import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
-import ProviderNavbar from "@/Dashboard/providerDashboard/pages/ProviderNavbar";
 import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
-
+import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
+import BoostService from "@/Dashboard/providerDashboard/pages/JobListing/BoostService";
+import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/AvailableJobs";
+import SubmitProposal from "@/Dashboard/providerDashboard/pages/SubmitProposal/SubmitProposal";
+import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
+import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
+import ServicePublishForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
 
 const routes = createBrowserRouter([
   {
@@ -175,6 +180,34 @@ const routes = createBrowserRouter([
       {
         path: "message",
         element: <Message />,
+      },
+      {
+        path: "job-listing",
+        element: <JobsListing />,
+      },
+      {
+        path: "boost-service",
+        element: <BoostService />,
+      },
+      {
+        path: "available-job",
+        element: <AvailableJobs />,
+      },
+      {
+        path: "submit-proposal",
+        element: <SubmitProposal />,
+      },
+      {
+        path: "fixedjob-post",
+        element: <FixListJobPosting />,
+      },
+      {
+        path: "fixedjob-list",
+        element: <FixListAvailabilityStep />,
+      },
+      {
+        path: "job-published",
+        element: <ServicePublishForm />,
       },
     ],
   },

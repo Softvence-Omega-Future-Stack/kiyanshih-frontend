@@ -7,6 +7,7 @@ import {
   Rocket,
   Edit,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface Job {
   id: number;
@@ -23,7 +24,7 @@ interface Job {
   isBoosted?: boolean;
 }
 
-const JobsListing = () => {
+const JobsDashboard = () => {
   const activeJobs: Job[] = [
     {
       id: 1,
@@ -56,39 +57,39 @@ const JobsListing = () => {
     },
   ];
 
-  //   const recentBookings: Job[] = [
-  //     {
-  //       id: 3,
-  //       title: "Professional Home Cleaning",
-  //       location: "Ontario, TX",
-  //       budget: "$35/hr",
-  //       postedTime: "Posted 10 minute ago",
-  //       views: 0,
-  //       applications: 0,
-  //       bookings: 0,
-  //       rating: 0,
-  //       image:
-  //         "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-  //       status: "Pending",
-  //     },
-  //   ];
+  const recentBookings: Job[] = [
+    {
+      id: 3,
+      title: "Professional Home Cleaning",
+      location: "Ontario, TX",
+      budget: "$35/hr",
+      postedTime: "Posted 10 minute ago",
+      views: 0,
+      applications: 0,
+      bookings: 0,
+      rating: 0,
+      image:
+        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+      status: "Pending",
+    },
+  ];
 
-  //   const availableJobs: Job[] = [
-  //     {
-  //       id: 4,
-  //       title: "Professional Home Cleaning",
-  //       location: "Ontario, TX",
-  //       budget: "$35/hr",
-  //       postedTime: "Posted by Sarah Smith",
-  //       views: 0,
-  //       applications: 0,
-  //       bookings: 0,
-  //       rating: 0,
-  //       image:
-  //         "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
-  //       status: "Pending",
-  //     },
-  //   ];
+  const availableJobs: Job[] = [
+    {
+      id: 4,
+      title: "Professional Home Cleaning",
+      location: "Ontario, TX",
+      budget: "$35/hr",
+      postedTime: "Posted by Sarah Smith",
+      views: 0,
+      applications: 0,
+      bookings: 0,
+      rating: 0,
+      image:
+        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+      status: "Pending",
+    },
+  ];
 
   const JobCard = ({
     job,
@@ -219,9 +220,11 @@ const JobsListing = () => {
           {/* Submit Proposal Section */}
           {showSubmit && (
             <div className="flex flex-col sm:flex-row gap-2 mt-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg text-sm font-medium flex-1">
-                Submit Proposal
-              </button>
+              <Link to="/fixedjob-post">
+                <button className="bg-orange-500 hover:bg-orange-600 w-fit text-white px-6 py-2 rounded-lg text-sm font-medium ">
+                  Submit Proposal
+                </button>
+              </Link>
               <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
                 Message
               </button>
@@ -237,7 +240,7 @@ const JobsListing = () => {
 
   return (
     <div className="p-6">
-      <div className="max-w-5xl mx-auto space-y-8">
+      <div className=" space-y-8">
         {/* Active Jobs Section */}
         <div>
           <div className="flex items-center justify-between mb-4">
@@ -256,7 +259,8 @@ const JobsListing = () => {
           ))}
         </div>
 
-        {/* <div>
+        {/* Recent Bookings Section */}
+        <div>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-gray-900">
@@ -273,9 +277,10 @@ const JobsListing = () => {
           {recentBookings.map((job) => (
             <JobCard key={job.id} job={job} />
           ))}
-        </div> */}
+        </div>
 
-        {/* <div>
+        {/* Available Jobs Section */}
+        <div>
           <div className="flex items-center justify-between mb-4">
             <div>
               <h2 className="text-xl font-bold text-gray-900">
@@ -292,10 +297,10 @@ const JobsListing = () => {
           {availableJobs.map((job) => (
             <JobCard key={job.id} job={job} showSubmit />
           ))}
-        </div>  */}
+        </div>
       </div>
     </div>
   );
 };
 
-export default JobsListing;
+export default JobsDashboard;

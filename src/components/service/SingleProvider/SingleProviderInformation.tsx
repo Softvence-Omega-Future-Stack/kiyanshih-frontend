@@ -9,6 +9,7 @@ import BigTitle from "@/common/header/BigTitle";
 import { IoIosCheckmarkCircle } from "react-icons/io";
 import calender from "@/assets/images/clock.svg";
 import CommonButton from "@/common/button/CommonButton";
+
 const SingleProviderInformation = () => {
   const { state } = useLocation();
 
@@ -17,18 +18,21 @@ const SingleProviderInformation = () => {
     "Modular kitchen cabinets & storage units",
     "Fixing broken chairs, tables, and beds",
   ];
+
   return (
     <div>
-      <div className=" text-white flex justify-center items-start  gap-8">
-        <div className="flex-1 ">
-          <div className=" flex w-full justify-between">
+      <div className="text-white flex flex-col lg:flex-row justify-center items-start gap-8">
+        {/* Left Content */}
+        <div className="flex-1 w-full">
+          <div className="flex flex-col sm:flex-row w-full justify-between gap-4">
+            {/* Profile Section */}
             <div className="flex items-center gap-4">
               <img
                 src={state.image || w1}
                 className="w-16 h-16 rounded-full object-cover"
               />
               <div>
-                <CommonHeader className=" !text-lg !leading-[28px]">
+                <CommonHeader className="!text-lg !leading-[28px]">
                   {state.category}
                 </CommonHeader>
 
@@ -36,32 +40,36 @@ const SingleProviderInformation = () => {
                   Service Provider
                 </CommonHeader>
                 <div className="flex items-center gap-1">
-                  <span className=" text-[#1D4ED8]">
+                  <span className="text-[#1D4ED8]">
                     <HiOutlineLocationMarker />
                   </span>
-                  <Paragraph className=" !text-black/81">
+                  <Paragraph className="!text-black/81">
                     {state.location}
                   </Paragraph>
                 </div>
               </div>
             </div>
 
-            <div className=" flex items-center gap-1">
+            {/* Rating */}
+            <div className="flex items-center gap-1">
               <RenderStars rating={state.rating} />
-              <p>{state.rating} </p>
-              <Paragraph className=" !text-[#475569]">
+              <p>{state.rating}</p>
+              <Paragraph className="!text-[#475569]">
                 ({state.reviews} Reviews)
               </Paragraph>
             </div>
-            <div className=" flex items-center gap-1">
-              <span className=" text-[#FFC100] text-xl">
+
+            {/* Verified */}
+            <div className="flex items-center gap-1">
+              <span className="text-[#FFC100] text-xl">
                 <RiVerifiedBadgeLine />
               </span>
-              <Paragraph className=" !text-[#000]">Verified</Paragraph>
+              <Paragraph className="!text-[#000]">Verified</Paragraph>
             </div>
           </div>
 
           <hr className="my-4.5 border border-[#F5E4DF]" />
+
           {/* Service Details */}
           <BigTitle className="text-[#212529] !text-2xl pb-5 mt-10">
             Service Details
@@ -97,13 +105,13 @@ const SingleProviderInformation = () => {
         </div>
 
         {/* Right Card */}
-        <div className="w-[464px] bg-white border border-border rounded-[20px] p-6">
+        <div className="w-full lg:w-[464px] bg-white border border-border rounded-[20px] p-6">
           <div className="flex justify-between items-start">
-            <CommonHeader className=" !text-lg !leading-[28px]">
+            <CommonHeader className="!text-lg !leading-[28px]">
               {state.category}
             </CommonHeader>
             <div className="flex items-center gap-1">
-              <Paragraph className="!text-[#475569]">Start From </Paragraph>
+              <Paragraph className="!text-[#475569]">Start From</Paragraph>
               <CommonHeader className="!text-[#1D4ED8]">
                 {state.price}.0$
               </CommonHeader>
@@ -111,11 +119,10 @@ const SingleProviderInformation = () => {
           </div>
 
           {/* Duration */}
-          <div className=" py-2 ">
+          <div className="py-2">
             <Paragraph className="!text-[#212529] !font-medium">
               Duration
             </Paragraph>
-
             <div className="flex items-center gap-2 pt-2">
               <img src={calender} alt="" />
               <Paragraph className="!text-[#212529] !font-sans !text-lg">
@@ -141,7 +148,7 @@ const SingleProviderInformation = () => {
 
           {/* Buttons */}
           <div className="mt-6 space-y-3">
-            <CommonButton className="w-full ">Message</CommonButton>
+            <CommonButton className="w-full">Message</CommonButton>
             <CommonButton className="w-full !bg-[#1D4ED8] !text-white">
               Book Service
             </CommonButton>

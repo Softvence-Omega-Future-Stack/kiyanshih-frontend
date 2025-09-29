@@ -5,11 +5,11 @@ import LandingTitle from "@/common/header/LandingTitle";
 const ReadyToHelp = () => {
   return (
     <div className="bg-[linear-gradient(145deg,#1D4ED8_31.69%,#560F72_95.28%)] rounded-[20px]">
-      <div className=" max-w-xl mx-auto py-16 px-4 space-y-6 flex justify-center flex-col">
-        <LandingTitle className="!text-white text-center !text-5xl">
+      <div className=" max-w-xl mx-auto py-16 px-4 space-y-3 sm:space-y-6 flex justify-center flex-col">
+        <LandingTitle className="!text-white text-center lg:!text-5xl">
           Ready to Get Help?
         </LandingTitle>
-        <CommonHeader className="!text-white">
+        <CommonHeader className="!text-white text-center">
           Post your job and connect with verified local professionals today
         </CommonHeader>
         <div className="flex justify-center pt-4">

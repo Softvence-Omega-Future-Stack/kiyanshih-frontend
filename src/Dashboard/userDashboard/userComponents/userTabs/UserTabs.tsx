@@ -9,6 +9,7 @@ const UserTabs = () => {
         { title: "Bookings", value: "bookings", href: "/user-dashboard/bookings" },
         { title: "Payment History", value: "payments", href: "/user-dashboard/payments" },
         { title: "Settings", value: "settings", href: "/user-dashboard/settings" },
+        { title: "Profile", value: "profile", href: "/provider-dashboard/profile" },
     ];
 
     return (

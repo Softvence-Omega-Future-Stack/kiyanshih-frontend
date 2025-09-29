@@ -170,7 +170,7 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
     ],

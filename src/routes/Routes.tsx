@@ -24,8 +24,12 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
+
 import Rakib from "@/Dashboard/userDashboard/pages/Overview";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
+=======
+
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
 
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 
@@ -151,8 +155,7 @@ const routes = createBrowserRouter([
         element: <Bookings/>
       }
     ]
-  }
-  ,
+  },
   {
     path: "provider-dashboard",
     element: <ProviderLayout />,

@@ -157,6 +157,10 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
+        path: "overview/:title",
+        element: <SingleOverview />,
+      },
+      {
         path: "message",
         element: <Message />,
       },

@@ -34,6 +34,7 @@ import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
+import BookingComponent from "@/components/booking/BookingComponent";
 
 
 const routes = createBrowserRouter([
@@ -185,12 +186,17 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
       {
+
+        path: "bookings",
+        element: <BookingComponent />,
+
         path: "profile",
         element: <ProviderProfile />,
+
       },
     ],
   },

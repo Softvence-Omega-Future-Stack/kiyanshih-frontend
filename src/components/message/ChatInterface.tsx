@@ -1,6 +1,6 @@
 // ChatInterface.tsx
 import React, { useState } from "react";
-import ChatComponents, { demoUsers } from "./ChatComponents";
+import ChatComponents from "./ChatComponents";
 
 const ChatInterface: React.FC = () => {
   const [activeUserId, setActiveUserId] = useState<string | null>(null);

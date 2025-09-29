@@ -1,4 +1,5 @@
-// import React, { ChangeEvent, KeyboardEvent } from "react";
+import React from "react";
+import type { ChangeEvent, KeyboardEvent } from "react";
 import { Search, User, Send, ArrowLeft, MoreVertical, Paperclip } from "lucide-react";
 
 // ========== Types ==========

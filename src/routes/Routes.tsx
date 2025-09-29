@@ -25,17 +25,20 @@ import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
 
+import Rakib from "@/Dashboard/userDashboard/pages/Overview";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+=======
+
 import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
 
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 
 
 import Message from "@/Dashboard/userDashboard/pages/Message";
-import Job from "@/Dashboard/userDashboard/pages/Job";
-import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
 import BookingComponent from "@/components/booking/BookingComponent";
+import ReportComponent from "@/components/report/ReportComponent";
+import SettingsPage from "@/components/settings/SettingsPage";
 
 
 const routes = createBrowserRouter([
@@ -152,31 +155,6 @@ const routes = createBrowserRouter([
         element: <Bookings/>
       }
     ]
-  }
-
-        element: <Overview />,
-      },
-      {
-        path: "overview/:title",
-        element: <SingleOverview />,
-      },
-      {
-        path: "message",
-        element: <Message />,
-      },
-      {
-        path: "my-jobs",
-        element: <Job />,
-      },
-      {
-        path: "payment-history",
-        element: <Payment />,
-      },
-      {
-        path: "Provider-profile",
-        element: <ProviderProfile />,
-      },
-    ],
   },
   {
     path: "provider-dashboard",
@@ -184,24 +162,27 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "overview",
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "messages",
         element: <Message />,
       },
       {
-
+        path: "settings",
+        element: <SettingsPage />,
+      },
+      {
         path: "bookings",
         element: <BookingComponent />,
-
-        path: "profile",
-        element: <ProviderProfile />,
-
+      },
+      {
+        path: "report",
+        element: <ReportComponent />,
       },
     ],
   },

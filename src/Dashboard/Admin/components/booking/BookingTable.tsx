@@ -10,7 +10,7 @@ const BookingTable: React.FC = () => {
     <CommonBorderWrapper className="!p-10 !border-0">
       <SearchFilter />
 
-      <div className="">
+      <div className="pt-5">
         <SharedTable bookings={bookings} />
       </div>
 

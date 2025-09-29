@@ -30,6 +30,7 @@ import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
+import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 
 const routes = createBrowserRouter([
   {
@@ -138,6 +139,10 @@ const routes = createBrowserRouter([
       {
         path: "overview",
         element: <Overview />,
+      },
+      {
+        path: "overview/:title",
+        element: <SingleOverview />,
       },
       {
         path: "message",

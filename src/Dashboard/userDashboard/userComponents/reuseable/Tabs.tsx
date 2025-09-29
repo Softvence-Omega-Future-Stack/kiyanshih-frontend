@@ -1,0 +1,76 @@
+import { Link, useLocation } from "react-router-dom";
+
+interface Tab {
+  title: string;
+  value: string;
+  href: string;
+}
+
+const Tabs = ({ tabs }: { tabs: Tab[] }) => {
+  const location = useLocation();
+  const currentPath = location.pathname;
+
+  return (
+    <div className="hidden lg:flex items-center space-x-4">
+      {tabs.map((tab) => {
+        let isActive = currentPath === tab.href || currentPath.startsWith(tab.href + "/");
+        if (tab.value === "overview" && currentPath === "/user-dashboard") {
+          isActive = true;
+        }
+        return (
+          <Link
+            key={tab.value}
+            to={tab.href}
+            className={`sm:text-sm font-medium cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+              ${
+                isActive
+                  ? "text-white bg-[#1D4ED8] border border-[#1D4ED8]"
+                  : "text-black  hover:bg-[#1D4ED8] hover:text-white border border-[#CBD5E1]"
+              }`}
+          >
+            {tab.title}
+          </Link>
+        );
+      })}
+    </div>
+  );
+};
+
+export default Tabs;
+
+
+
+
+
+
+// import { Link, useLocation } from "react-router-dom";
+
+// const Tabs = ({ tabs }: { tabs: { title: string; value: string; href: string }[] }) => {
+//   const location = useLocation();
+//   const currentPath = location.pathname;
+
+//   return (
+//     <div className="hidden lg:flex items-center space-x-4">
+//       {tabs.map((tab) => {
+//         const isActive = currentPath === tab.href;
+
+//         return (
+//           <Link
+//             key={tab.value}
+//             to={tab.href}
+//             className={`sm:text-sm font-medium cursor-pointer text-sm sm:text-[15px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+//               ${isActive
+//                 ? " text-white bg-[#1D4ED8]"
+//                 : "text-black border-transparent hover:bg-[#1D4ED8] hover:text-white"
+//               }`}
+//           >
+//             {tab.title}
+//           </Link>
+//         );
+//       })}
+//     </div>
+//   );
+// };
+
+// export default Tabs;
+

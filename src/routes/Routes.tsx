@@ -22,6 +22,7 @@ import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 import UserLayout from "@/layout/UserLayout";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 
 
 const routes = createBrowserRouter([
@@ -127,6 +128,10 @@ const routes = createBrowserRouter([
       {
         path: "overview",
         element: <Overview />
+      },
+      {
+        path: "bookings",
+        element: <Bookings/>
       }
     ]
   }

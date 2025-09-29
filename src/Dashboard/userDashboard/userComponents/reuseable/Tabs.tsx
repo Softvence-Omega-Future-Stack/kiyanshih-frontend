@@ -4,7 +4,7 @@ interface Tab {
   title: string;
   value: string;
   href: string;
-  icon?: React.ReactNode;
+  icon?: React.ReactNode; // optional icon
 }
 
 const Tabs = ({ tabs }: { tabs: Tab[] }) => {
@@ -17,6 +17,7 @@ const Tabs = ({ tabs }: { tabs: Tab[] }) => {
         let isActive =
           currentPath === tab.href || currentPath.startsWith(tab.href + "/");
 
+        // make Overview active on /user-dashboard
         if (tab.value === "overview" && currentPath === "/user-dashboard") {
           isActive = true;
         }
@@ -25,18 +26,14 @@ const Tabs = ({ tabs }: { tabs: Tab[] }) => {
           <Link
             key={tab.value}
             to={tab.href}
-            className={`group inline-flex items-center gap-2 sm:text-sm font-medium cursor-pointer text-sm md:text-[18px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
+            className={`inline-flex items-center gap-2 sm:text-sm font-medium cursor-pointer text-sm md:text-[18px] px-4 py-2 rounded-[6px] border-[1px] transition-all duration-200
               ${
                 isActive
                   ? "text-white bg-[#1D4ED8] border border-[#1D4ED8]"
                   : "text-black hover:bg-[#1D4ED8] hover:text-white border border-[#CBD5E1]"
               }`}
           >
-            {tab.icon && (
-              <span className="w-4 h-4 md:w-6 md:h-6 group-hover:brightness-0 group-hover:invert transition-all duration-200">
-                {tab.icon}
-              </span>
-            )}
+            {tab.icon && <span className="w-4 h-4 md:w-6 md:h-6 hover:text-white">{tab.icon}</span>}
             {tab.title}
           </Link>
         );
@@ -46,7 +43,6 @@ const Tabs = ({ tabs }: { tabs: Tab[] }) => {
 };
 
 export default Tabs;
-
 
 
 

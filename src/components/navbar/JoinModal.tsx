@@ -4,7 +4,7 @@ import LargeTitle from "@/common/header/LargeTitle";
 import CommonHeader from "@/common/header/CommonHeader";
 import home from "@/assets/images/m1.svg";
 import provide from "@/assets/images/m2.svg";
-import SubHeader from "@/Dashboard/common/SubHeader";
+import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import { Link } from "react-router-dom";
 interface JoinModalProps {
   open: boolean;

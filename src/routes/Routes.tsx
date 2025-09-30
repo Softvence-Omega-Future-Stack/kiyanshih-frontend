@@ -24,11 +24,13 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
-import Message from "@/Dashboard/userDashboard/pages/Message";
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
+// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
+
+
+import Message from "@/Dashboard/userDashboard/pages/Message";
 import ProviderLayout from "@/layout/ProviderLayout";
 import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
 import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
@@ -39,6 +41,8 @@ import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob
 import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
 import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
 import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 
 const routes = createBrowserRouter([
   {
@@ -86,7 +90,6 @@ const routes = createBrowserRouter([
         path: "/provider-signup",
         element: <ProviderSignUp />,
       },
-
       {
         path: "dashboard",
         element: <DashboardLayout />,
@@ -149,6 +152,10 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
+        path: "overview/:title",
+        element: <SingleOverview />,
+      },
+      {
         path: "message",
         element: <Message />,
       },
@@ -161,8 +168,8 @@ const routes = createBrowserRouter([
         element: <Payment />,
       },
       {
-        path: "Provider-profile",
-        element: <ProviderProfile />,
+        path: "bookings",
+        element: <Bookings />,
       },
     ],
   },
@@ -179,7 +186,7 @@ const routes = createBrowserRouter([
         element: <OverviewPage />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
       {

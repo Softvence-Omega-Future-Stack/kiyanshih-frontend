@@ -1,10 +1,20 @@
+import type { FC } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 
-const CurveSearch = () => {
+interface CurveSearchProps {
+  className?: string;
+  border?: string;
+}
+const CurveSearch: FC<CurveSearchProps> = ({
+  className,
+  border = "border-[#2563EB]",
+}) => {
   return (
-    <div>
+    <div className={` ${className} w-full  `}>
       <div className="   font-Geist">
-        <div className="flex items-center w-full h-13 gap-3 px-1 border border-[#2563EB] rounded-md bg-white">
+        <div
+          className={`${border} flex items-center w-full h-13 gap-3 px-1 border  rounded-md bg-white}`}
+        >
           <button className="w-12 h-12 relative flex items-center justify-center transition-colors duration-200">
             <svg
               className="absolute top-0 left-0 w-full h-full"

@@ -1,13 +1,18 @@
-import CommonWrapper from "@/common/space/CommonWrapper"
+import PopularServices from "../userComponents/overview/PopularServices";
+import OverviewCardSection from "../userComponents/overview/OverviewCardSection";
+import MyJob from "../userComponents/overview/MyJob";
+import RecentActivity from "../userComponents/overview/RecentActivity";
+import CommonWrapper from "@/common/space/CommonWrapper";
 
 const Overview = () => {
-    return (
-        <CommonWrapper>
-            <div className="text-6xl text-black">
-                <h2>Overview fdsafd asfdsaf sdafsda fsdafsdafsd afsdaf</h2>
-            </div>
-        </CommonWrapper>
-    )
-}
+  return (
+    <CommonWrapper>
+      <OverviewCardSection />
+      <PopularServices />
+      <MyJob />
+      <RecentActivity />
+    </CommonWrapper>
+  );
+};
 
 export default Overview;

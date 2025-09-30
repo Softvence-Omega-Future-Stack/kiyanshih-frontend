@@ -1,6 +1,6 @@
-
 interface TablistProps<T extends string> {
   title?: string; // optional heading above tabs
+  description?: string; // ✅ added description
   tabs: T[]; // list of tab labels
   activeTab: T;
   setTab: (tab: T) => void;
@@ -9,6 +9,7 @@ interface TablistProps<T extends string> {
 
 const BookingTabs = <T extends string>({
   title,
+  description,
   tabs,
   activeTab,
   setTab,
@@ -16,9 +17,13 @@ const BookingTabs = <T extends string>({
 }: TablistProps<T>) => {
   return (
     <div className="w-full">
-      {title && (
-        <h4 className="text-sm md:text-lg font-medium mb-3">{title}</h4>
+      {(title || description) && (
+        <div className="mb-4 md:mb-6 space-y-2">
+          {title && <h4 className="text-[16px] md:text-[20px] font-semibold text-[#0F172A]">{title}</h4>}
+          {description && <p className="text-[16px] text-gray-600">{description}</p>}
+        </div>
       )}
+
       <div className="flex gap-4 pb-[20px] flex-wrap">
         {tabs.map((tab) => (
           <button

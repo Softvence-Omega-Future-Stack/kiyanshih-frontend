@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import verifiedImg from "@/assets/cardImages/verified.svg";
-import locationIcon from "@/assets/cardImages/location.svg"; // rename import to avoid conflict
+import locationIcon from "@/assets/cardImages/location.svg";
+import type { ServiceStatus } from "@/lib/serviceCardData";
+import ReviewDialog from "../ReviewDialog";
 
 // ----- Star Component -----
 interface StarProps {
@@ -77,12 +79,15 @@ interface ServiceCardProps {
   imageSrc?: string;
   name?: string;
   verified?: boolean;
-  locationText?: string; // rename prop to avoid conflict
+  locationText?: string;
   startingPrice?: string | number;
   rating?: number;
   reviewCount?: number;
-  statusLabel?: string;
+  statusLabel?: React.ReactNode;
+  status?: ServiceStatus;
   onViewDetails?: () => void;
+  onBookAgain?: () => void;
+  onWriteReview?: () => void;
   onStatusClick?: () => void;
 }
 
@@ -95,12 +100,20 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   rating,
   reviewCount,
   statusLabel,
+  status,
   onViewDetails,
+  onBookAgain,
+  onWriteReview,
   onStatusClick,
 }) => {
+  const showViewDetailsOnly = status === "Pending";
+  const showCompletedActions = status === "Completed";
+  const showNoActions = status === "Accepted" || status === "Rejected" || status === "In-progress";
+  const [openReview, setOpenReview] = useState(false);
+
   return (
-    <div className="border border-[#CBD5E1] rounded-[10px] p-4 flex items-center justify-between gap-4 bg-white">
-      <div className="flex items-start gap-4 min-w-0">
+    <div className="border border-[#CBD5E1] rounded-[10px] p-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4 bg-white">
+      <div className="flex items-start gap-4 min-w-0 flex-1">
         {imageSrc && (
           <img
             src={imageSrc}
@@ -109,14 +122,24 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           />
         )}
 
-        <div className="min-w-0">
-          <div className="flex items-center text-sm font-medium text-black truncate">
-            {name && <span className="truncate">{name}</span>}
-            {verified && <VerifiedBadge />}
+        <div className="min-w-0 flex-1">
+          {/* Name + Verified + Mobile Status Badge */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center text-xs sm:text-sm font-medium text-black truncate">
+              {name && <span className="truncate">{name}</span>}
+              {verified && <VerifiedBadge />}
+            </div>
+
+            {/* Status Badge for mobile (hidden on md+) */}
+            {statusLabel && (
+              <div onClick={onStatusClick} className="md:hidden ml-2">
+                {statusLabel}
+              </div>
+            )}
           </div>
 
           {locationText && (
-            <div className="flex items-center text-sm text-black mt-1 truncate gap-1">
+            <div className="flex items-center text-xs sm:text-sm text-black mt-1 truncate gap-1">
               <img src={locationIcon} className="w-[12px] h-4" alt="Location" />
               <span className="truncate">{locationText}</span>
             </div>
@@ -124,7 +147,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
           <div className="mt-3 flex flex-wrap items-center gap-4">
             {startingPrice && (
-              <div className="text-sm md:text-[16px] text-[#334155]">
+              <div className="text-xs sm:text-sm md:text-[16px] text-[#334155]">
                 Starting : <span className="font-semibold">${startingPrice}</span>
               </div>
             )}
@@ -144,25 +167,64 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         </div>
       </div>
 
-      <div className="flex flex-col items-end gap-3">
+      {/* Right Section - Desktop Status + Buttons */}
+      <div className="flex flex-col items-start md:items-end gap-2 w-full md:w-auto">
+        {/* Status Badge for desktop (hidden on mobile) */}
         {statusLabel && (
-          <button
-            onClick={onStatusClick}
-            className="px-3 py-1 cursor-pointer rounded-full text-sm border border-yellow-200 bg-yellow-50 text-yellow-800 hover:bg-yellow-100"
-          >
+          <div onClick={onStatusClick} className="hidden md:block">
             {statusLabel}
-          </button>
+          </div>
         )}
 
-        {onViewDetails && (
-          <button
-            onClick={onViewDetails}
-            className="text-sm text-gray-600 underline underline-offset-2 cursor-pointer"
-          >
-            View Details
-          </button>
+        {!showNoActions && (
+          <div className="flex items-center gap-3 flex-wrap justify-end">
+            {showViewDetailsOnly && onViewDetails && (
+              <button
+                onClick={onViewDetails}
+                className="text-sm text-gray-600 underline underline-offset-2 cursor-pointer hover:text-gray-800"
+              >
+                View Details
+              </button>
+            )}
+
+            {showCompletedActions && (
+              <>
+                {onViewDetails && (
+                  <button
+                    onClick={onViewDetails}
+                    className="text-sm md:text-[16px] font-medium text-[#475569] underline underline-offset-2 cursor-pointer hover:text-[#0056b3]"
+                  >
+                    View Details
+                  </button>
+                )}
+
+                {onBookAgain && (
+                  <button
+                    onClick={onBookAgain}
+                    className="text-sm md:text-[16px] font-medium text-[#475569] underline underline-offset-2 cursor-pointer hover:text-[#0056b3]"
+                  >
+                    Book Again
+                  </button>
+                )}
+
+                {onWriteReview && (
+                  <button
+                    onClick={() => {
+                      setOpenReview(true);
+                      if (onWriteReview) onWriteReview();
+                    }}
+                    className="text-sm md:text-[16px] font-medium text-[#007BFF] underline underline-offset-2 cursor-pointer hover:text-[#0056b3]"
+                  >
+                    Write Review
+                  </button>
+                )}
+              </>
+            )}
+          </div>
         )}
       </div>
+
+      <ReviewDialog open={openReview} onOpenChange={setOpenReview} />
     </div>
   );
 };

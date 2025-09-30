@@ -84,7 +84,7 @@ interface JobCardItemProps {
   job: Job;
   onActionClick?: (job: Job) => void;
   viewProposals?: boolean;
-  setViewProposals?: (viewProposals: boolean) => void;
+  setViewProposals: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export const JobCardItem: FC<JobCardItemProps> = ({

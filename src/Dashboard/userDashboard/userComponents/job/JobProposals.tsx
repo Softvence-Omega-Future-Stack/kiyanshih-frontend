@@ -53,7 +53,7 @@ const JobProposals: FC<JobProposalsProps> = ({ setViewProposals }) => {
                 Accept
               </CommonButton>
               <CommonButton
-                onClick={() => setViewProposals(false)}
+                onClick={() => setViewProposals?.(false)}
                 className=" !bg-[#B91C1C] !text-white"
               >
                 Decline

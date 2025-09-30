@@ -2,7 +2,6 @@ import image from "@/assets/frame/p3.svg";
 import InfoSection from "../InfoSection";
 import { Dot, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import CommonHeader from "@/common/header/CommonHeader";
 import MediumHeader from "@/common/header/MediumHeader";
 import image2 from "@/assets/images/f2.png";

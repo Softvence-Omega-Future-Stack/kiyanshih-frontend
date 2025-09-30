@@ -45,10 +45,15 @@ import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/Backgrou
 import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
 import SettingsPage from "@/components/settings/SettingsPage";
 import UserSettings from "@/Dashboard/userDashboard/pages/UserSettings";
-
-
-
-
+import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
+import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
+import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
+import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
+import SubmitProposal from "@/Dashboard/providerDashboard/pages/SubmitProposal/SubmitProposal";
+import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/AvailableJobs";
+import BoostService from "@/Dashboard/providerDashboard/pages/JobListing/BoostService";
+import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
+import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
 
 const routes = createBrowserRouter([
   {
@@ -179,15 +184,12 @@ const routes = createBrowserRouter([
         element: <JobPost />,
       },
       {
-
         path: "payment-history",
-        element: <Payment />
+        element: <Payment />,
       },
-        {
-
+      {
         path: "bookings",
         element: <Bookings />,
-
       },
     ],
   },
@@ -233,13 +235,12 @@ const routes = createBrowserRouter([
         element: <FixListAvailabilityStep />,
       },
       {
-
         path: "settings",
         element: <SettingsPage />,
-
+      },
+      {
         path: "fixedjob-details",
         element: <ServiceDetailsForm />,
-
       },
       {
         path: "job-published",
@@ -249,7 +250,6 @@ const routes = createBrowserRouter([
         path: "bookings",
         element: <BookingServiceDashboard />,
       },
-
     ],
   },
 ]);

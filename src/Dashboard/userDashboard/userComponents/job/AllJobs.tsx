@@ -100,7 +100,6 @@ export const jobs: Job[] = [
 ];
 
 const AllJobs = () => {
-  // const [viewProposals, setViewProposals] = useState(false);
   const [selectedJobId, setSelectedJobId] = useState<string | null>(null);
 
   const handleActionClick = (job: Job) => {

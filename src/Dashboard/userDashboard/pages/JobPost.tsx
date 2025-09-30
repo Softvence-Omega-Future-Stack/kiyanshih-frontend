@@ -13,7 +13,7 @@ const JobPost = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [totalSteps, setTotalSteps] = useState(5);
 
-  console.log("setTotalSteps",setTotalSteps)
+  console.log("setTotalSteps", setTotalSteps);
   const handleNextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);
@@ -28,7 +28,7 @@ const JobPost = () => {
   };
   return (
     <CommonWrapper>
-      <div>
+      <div className="pt-10">
         <UserSectionHeader
           title="Post a Job in Minutes"
           subtitle="Post a job, receive proposals, and hire the right professional with confidence."
@@ -50,10 +50,20 @@ const JobPost = () => {
             {currentStep !== totalSteps && (
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-5">
-                  <CommonButton onClick={handlePreviousStep}>
-                    Previous
+                  {currentStep !== 1 && (
+                    <CommonButton
+                      className="!bg-[#475569] !text-white"
+                      onClick={handlePreviousStep}
+                    >
+                      Previous
+                    </CommonButton>
+                  )}
+                  <CommonButton
+                    className="!bg-[#0F172A] !text-white"
+                    onClick={handleNextStep}
+                  >
+                    Next Step
                   </CommonButton>
-                  <CommonButton onClick={handleNextStep}>Next</CommonButton>
                 </div>
               </div>
             )}

@@ -1,11 +1,8 @@
-
 import UserNavbar from "./UserNavbar";
 import { Outlet } from "react-router-dom";
 import CommonWrapper from "@/common/space/CommonWrapper";
 import ProviderTabs from "@/Dashboard/userDashboard/userComponents/userTabs/ProviderTabs";
-import Footer from "./Footer";
 import WelcomeBanner from "./WelcomeBanner";
-
 
 const ProviderLayout = () => {
   return (
@@ -14,14 +11,12 @@ const ProviderLayout = () => {
 
       {/* <Outlet /> */}
 
+      <UserNavbar />
       <CommonWrapper>
-        <UserNavbar />
-        <WelcomeBanner name="Charlotte Davis"/>
+        <WelcomeBanner name="Charlotte Davis" />
         <ProviderTabs />
         <Outlet />
-        <Footer />
       </CommonWrapper>
-
     </div>
   );
 };

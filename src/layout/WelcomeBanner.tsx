@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 interface WelcomeBannerProps {
   name?: string;
@@ -17,9 +18,11 @@ const WelcomeBanner: React.FC<WelcomeBannerProps> = ({ name }) => {
 
       {/* Action Button */}
       <div>
-        <button className="px-4 py-2 text-white hover:scale-105 transition-transform rounded-md border border-zinc-800 bg-zinc-950">
-          Get Verified
-        </button>
+        <Link to={"/provider-dashboard/verification"}>
+          <button className="px-4 py-2 text-white hover:scale-105 transition-transform rounded-md border border-zinc-800 bg-zinc-950 cursor-pointer">
+            Get Verified
+          </button>
+        </Link>
       </div>
     </div>
   );

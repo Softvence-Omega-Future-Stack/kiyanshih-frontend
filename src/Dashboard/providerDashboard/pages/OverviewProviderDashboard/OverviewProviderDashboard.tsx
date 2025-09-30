@@ -6,6 +6,7 @@ import {
   Star,
   FileText,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const OverviewProviderDashboard = () => {
   return (
@@ -23,9 +24,11 @@ const OverviewProviderDashboard = () => {
                 You've reached your monthly limit of 2 applications. Upgrade to
                 unlimited to receive more client inquiries.
               </p>
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors">
-                Upgrade to Unlimited-$99/month
-              </button>
+              <Link to={"/provider-dashboard/upgrade-plan"}>
+                <button className="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-md text-sm font-medium transition-colors cursor-pointer">
+                  Upgrade to Unlimited-$99/month
+                </button>
+              </Link>
             </div>
           </div>
         </div>

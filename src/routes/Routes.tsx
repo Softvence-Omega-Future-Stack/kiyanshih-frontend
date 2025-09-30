@@ -29,21 +29,25 @@ import Payment from "@/Dashboard/userDashboard/pages/Payment";
 // import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 
-
+import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
+import Verification from "@/Dashboard/providerDashboard/pages/Verification";
+import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
+import Rakib from "@/Dashboard/userDashboard/pages/Overview";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import ProviderLayout from "@/layout/ProviderLayout";
-import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
-import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
-import BoostService from "@/Dashboard/providerDashboard/pages/JobListing/BoostService";
-import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/AvailableJobs";
-import SubmitProposal from "@/Dashboard/providerDashboard/pages/SubmitProposal/SubmitProposal";
-import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
-import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
-import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
-import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
+import ReportComponent from "@/components/report/ReportComponent";
+import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
+import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
+import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
+import SettingsPage from "@/components/settings/SettingsPage";
+import UserSettings from "@/Dashboard/userDashboard/pages/UserSettings";
+
+
+
 
 
 const routes = createBrowserRouter([
@@ -151,6 +155,10 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
+        path: "settings",
+        element: <UserSettings />,
+      },
+      {
         path: "overview",
         element: <Overview />,
       },
@@ -173,7 +181,9 @@ const routes = createBrowserRouter([
       {
 
         path: "payment-history",
-        element: <Payment />,
+        element: <Payment />
+      },
+        {
 
         path: "bookings",
         element: <Bookings />,
@@ -223,8 +233,13 @@ const routes = createBrowserRouter([
         element: <FixListAvailabilityStep />,
       },
       {
+
+        path: "settings",
+        element: <SettingsPage />,
+
         path: "fixedjob-details",
         element: <ServiceDetailsForm />,
+
       },
       {
         path: "job-published",

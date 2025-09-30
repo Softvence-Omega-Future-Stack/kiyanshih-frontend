@@ -1,7 +1,6 @@
 import type React from "react";
 import { ClipboardList, Sliders, MapPin, DollarSign, Eye } from "lucide-react";
 import type { FC } from "react";
-import { FaRegCircleDot } from "react-icons/fa6";
 import Paragraph from "@/common/header/Paragraph";
 import CommonHeader from "@/common/header/CommonHeader";
 

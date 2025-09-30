@@ -1,5 +1,3 @@
-import Pagination from "@/common/custom/Pagination";
-import CommonBorderWrapper from "@/common/space/CommonBorderWrapper";
 import {
   Table,
   TableHeader,

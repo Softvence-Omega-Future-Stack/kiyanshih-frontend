@@ -3,8 +3,6 @@ import { HiOutlineLocationMarker } from "react-icons/hi";
 import CommonButton from "@/common/button/CommonButton";
 import CommonHeader from "@/common/header/CommonHeader";
 import Paragraph from "@/common/header/Paragraph";
-import { Link } from "react-router-dom";
-import { slugify } from "@/help/help";
 
 interface providerList {
   category: string;

@@ -13,6 +13,7 @@ const JobPost = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const [totalSteps, setTotalSteps] = useState(5);
 
+  console.log("setTotalSteps",setTotalSteps)
   const handleNextStep = () => {
     if (currentStep < totalSteps) {
       setCurrentStep(currentStep + 1);

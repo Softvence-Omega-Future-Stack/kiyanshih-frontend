@@ -9,7 +9,6 @@ import f3 from "@/assets/images/f3.png";
 import f4 from "@/assets/images/f4.png";
 import f5 from "@/assets/images/f5.png";
 import FeaturedCard from "@/components/service/FeaturedCard";
-import Pagination from "@/common/custom/Pagination";
 const services = [
   {
     category: "Carpentry & Woodwork",

@@ -105,8 +105,7 @@ const SharedTable: FC<BookingTableProps> = ({
                   </TableCell>
                   <TableCell className="border border-border text-center min-w-[140px]">
                     <div>
-                      <p
-                        className="whitespace-nowrap truncate max-w-[140px]"
+                      <p className="whitespace-nowrap truncate max-w-[140px]"
                         title={booking.providerInfo.name}
                       >
                         {booking.providerInfo.name}

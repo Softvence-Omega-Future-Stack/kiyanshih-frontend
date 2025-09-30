@@ -3,12 +3,14 @@ import MediumHeader from "@/common/header/MediumHeader";
 import CommonHeader from "@/common/header/CommonHeader";
 import ButtonWithIcon from "@/common/button/ButtonWithIcon";
 import { Plus } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface SectionHeaderProps {
-  title: string;
+  title?: string;
   subtitle?: string;
   className?: string;
   button?: string;
+  buttonLink?: string;
   text?: string;
 }
 
@@ -16,7 +18,9 @@ const UserSectionHeader: React.FC<SectionHeaderProps> = ({
   title,
   subtitle,
   button,
+  buttonLink,
   text,
+
   className = "",
 }) => {
   return (
@@ -31,7 +35,11 @@ const UserSectionHeader: React.FC<SectionHeaderProps> = ({
           <CommonHeader className="!text-[#334155]">{subtitle}</CommonHeader>
         )}
       </div>
-      {button && <ButtonWithIcon icon={Plus}>{button}</ButtonWithIcon>}
+      {button && (
+        <Link to={buttonLink ?? "#"}>
+          <ButtonWithIcon icon={Plus}>{button}</ButtonWithIcon>
+        </Link>
+      )}
 
       {text && (
         <MediumHeader className="!text-[#1D4ED8] underline !font-medium cursor-pointer">

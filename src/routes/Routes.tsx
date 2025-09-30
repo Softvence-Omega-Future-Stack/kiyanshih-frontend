@@ -10,7 +10,6 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 
-import Test from "../components/home/Service";
 import Dashboard from "@/Dashboard/Admin/pages/Dashboard";
 import DashboardLayout from "@/layout/DashboardLayout";
 import BookingManagement from "@/Dashboard/Admin/pages/BookingManagement";
@@ -24,6 +23,7 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
+
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 // import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
@@ -45,6 +45,7 @@ import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 
+
 const routes = createBrowserRouter([
   {
     path: "/",
@@ -55,10 +56,7 @@ const routes = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/path",
-        element: <Test />,
-      },
+
       {
         path: "/service",
         element: <Service />,
@@ -74,6 +72,10 @@ const routes = createBrowserRouter([
       {
         path: "/provider/:name",
         element: <SingleProvider />,
+      },
+      {
+        path: "/provider-profile/:name",
+        element: <ProviderProfile />,
       },
       {
         path: "/how-it-works",
@@ -165,12 +167,17 @@ const routes = createBrowserRouter([
         element: <Job />,
       },
       {
-        path: "payment-history",
-        element: <Payment />,
+        path: "job-postings",
+        element: <JobPost />,
       },
       {
+
+        path: "payment-history",
+        element: <Payment />,
+
         path: "bookings",
         element: <Bookings />,
+
       },
     ],
   },
@@ -187,9 +194,10 @@ const routes = createBrowserRouter([
         element: <OverviewPage />,
       },
       {
-        path: "messages",
+        path: "message",
         element: <Message />,
       },
+
       {
         path: "job-listing",
         element: <JobsListing />,
@@ -226,6 +234,7 @@ const routes = createBrowserRouter([
         path: "bookings",
         element: <BookingServiceDashboard />,
       },
+
     ],
   },
 ]);

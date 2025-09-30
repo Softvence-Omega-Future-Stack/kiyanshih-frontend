@@ -1,13 +1,12 @@
 import type { FC } from "react";
 import { HiOutlineLocationMarker } from "react-icons/hi";
-import RenderStars from "./RenderStars";
 import CommonButton from "@/common/button/CommonButton";
 import CommonHeader from "@/common/header/CommonHeader";
 import Paragraph from "@/common/header/Paragraph";
 import { Link } from "react-router-dom";
 import { slugify } from "@/help/help";
 
-interface FeatureList {
+interface providerList {
   category: string;
   provider: string;
   location: string;
@@ -16,62 +15,47 @@ interface FeatureList {
   price: number;
   image: string;
 }
-export interface FeaturedCardProps {
-  feature: FeatureList;
+export interface providerCardProps {
+  provider: providerList;
 }
 
-const FeaturedCard: FC<FeaturedCardProps> = ({ feature }) => {
+const ProviderCard: FC<providerCardProps> = ({ provider }) => {
   return (
     <div className="p-5 border border-border rounded-[20px]">
       <div className="rounded-lg max-h-[120px] overflow-hidden mb-4">
         <img
-          src={feature.image}
+          src={provider.image}
           alt=""
           className="w-full h-full object-cover"
         />
       </div>
 
       <div className=" space-y-2">
-        <Link
-          to={`/provider-profile/${slugify(feature.category)}`}
-          className=" cursor-pointer"
-        >
+        <div>
           <CommonHeader className=" !text-lg !leading-[28px]">
-            {feature.category}
+            {provider.category}
           </CommonHeader>
-        </Link>
+        </div>
         <div className="flex items-center gap-1">
           <span className=" text-[#1D4ED8]">
             <HiOutlineLocationMarker />
           </span>
-          <Paragraph className=" !text-black/81">{feature.location}</Paragraph>
-        </div>
-        <div className=" flex items-center gap-1">
-          <RenderStars rating={feature.rating} />
-          <p>{feature.rating} </p>
-          <Paragraph className=" !text-[#475569]">
-            ({feature.reviews} Reviews){" "}
-          </Paragraph>
+          <Paragraph className=" !text-black/81">{provider.location}</Paragraph>
         </div>
       </div>
       <div className="py-4">
         <Paragraph className="!text-[#475569]">Start From </Paragraph>
         <CommonHeader className="!text-[#1D4ED8]">
-          {feature.price}.0$
+          {provider.price}.0$
         </CommonHeader>
       </div>
       <div className="flex items-center gap-3">
-        <CommonButton className="!px-4 !py-2 bg-[#1D4ED8] !text-white">
-          Book Now
-        </CommonButton>
-        <CommonButton className="!px-4 !py-2">
-          <Link to={`/provider/${slugify(feature.provider)}`} state={feature}>
-            View Details
-          </Link>
+        <CommonButton className="!px-4 !py-2 bg-[#1D4ED8] !text-white w-full">
+          Book For Service
         </CommonButton>
       </div>
     </div>
   );
 };
 
-export default FeaturedCard;
+export default ProviderCard;

@@ -59,6 +59,7 @@ const PopularServices = () => {
             title="Browse Services"
             subtitle="Browse verified providers in your area. Free for clients, transparent pricing, and reviews from real customers."
             button="Post a Job"
+            buttonLink="/user-dashboard/job-postings"
           />
         </div>
         <div className="w-full max-w-lg flex items-center gap-5">

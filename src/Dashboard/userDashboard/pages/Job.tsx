@@ -57,7 +57,9 @@ const Job = () => {
         {tab === "Proposals" && <Proposals />}
         {tab === "In-Progress" && <Progress />}
         {tab === "Completed" && <Completed />}
-        <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
+        <div className="py-10">
+          <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
+        </div>
       </div>
     </CommonWrapper>
   );

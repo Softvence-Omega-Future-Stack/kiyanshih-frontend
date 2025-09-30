@@ -10,7 +10,6 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 
-import Test from "../components/home/Service";
 import Dashboard from "@/Dashboard/Admin/pages/Dashboard";
 import DashboardLayout from "@/layout/DashboardLayout";
 import BookingManagement from "@/Dashboard/Admin/pages/BookingManagement";
@@ -24,19 +23,14 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
-
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-
-
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
 import ProviderLayout from "@/layout/ProviderLayout";
-import BookingComponent from "@/components/booking/BookingComponent";
-
+import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
+import ProviderProfile from "@/pages/ProviderProfile";
+import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
 
 const routes = createBrowserRouter([
   {
@@ -48,10 +42,7 @@ const routes = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/path",
-        element: <Test />,
-      },
+
       {
         path: "/service",
         element: <Service />,
@@ -67,6 +58,10 @@ const routes = createBrowserRouter([
       {
         path: "/provider/:name",
         element: <SingleProvider />,
+      },
+      {
+        path: "/provider-profile/:name",
+        element: <ProviderProfile />,
       },
       {
         path: "/how-it-works",
@@ -144,16 +139,6 @@ const routes = createBrowserRouter([
       },
       {
         path: "overview",
-
-        element: <Rakib />
-      },
-      {
-        path: "bookings",
-        element: <Bookings/>
-      }
-    ]
-  }
-
         element: <Overview />,
       },
       {
@@ -169,12 +154,12 @@ const routes = createBrowserRouter([
         element: <Job />,
       },
       {
-        path: "payment-history",
-        element: <Payment />,
+        path: "job-postings",
+        element: <JobPost />,
       },
       {
-        path: "Provider-profile",
-        element: <ProviderProfile />,
+        path: "payment-history",
+        element: <Payment />,
       },
     ],
   },
@@ -191,20 +176,10 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "messages",
+        path: "message",
         element: <Message />,
-      },
-      {
-
-        path: "bookings",
-        element: <BookingComponent />,
-
-        path: "profile",
-        element: <ProviderProfile />,
-
       },
     ],
   },
-
 ]);
 export default routes;

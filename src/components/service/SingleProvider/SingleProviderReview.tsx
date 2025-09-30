@@ -3,6 +3,7 @@ import RenderStars from "../RenderStars";
 import CommonHeader from "@/common/header/CommonHeader";
 import Paragraph from "@/common/header/Paragraph";
 import BigTitle from "@/common/header/BigTitle";
+import type { FC } from "react";
 
 const reviews = [
   {
@@ -30,10 +31,13 @@ const reviews = [
     text: "Mike Handyman Service is a great , he helped me through the problems that i really want . Very much recommended.",
   },
 ];
-const SingleProviderReview = () => {
+interface SingleProviderReviewProps {
+  className?: string;
+}
+const SingleProviderReview: FC<SingleProviderReviewProps> = ({ className }) => {
   return (
     <div className=" pb-10">
-      <BigTitle className="text-[#212529] !text-2xl pb-5 mt-10">
+      <BigTitle className={`text-[#212529] !text-2xl pb-5 mt-10 ${className}`}>
         Reviews
       </BigTitle>
 

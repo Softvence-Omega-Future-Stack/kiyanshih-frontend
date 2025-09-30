@@ -19,7 +19,7 @@ const DefaultTabs: ProviderProfileStatus[] = [
 const ProviderProfile = () => {
   const [tab, setTab] = useState<ProviderProfileStatus>("Personal information");
   return (
-    <div className="mb-10">
+    <div className="mb-10 ">
       <ProfileHeading />
       <div className="mt-12">
         <Tablist<ProviderProfileStatus>

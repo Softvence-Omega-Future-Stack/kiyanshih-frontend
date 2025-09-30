@@ -327,7 +327,7 @@ const ReportComponent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-[1400px] mx-auto my-auto px-4 md:px-10">
+    <div className="min-h-screen w-full">
       <div className="max-w-7xl w-full">
         {/* Balance Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">

@@ -1,4 +1,3 @@
-import CommonWrapper from "@/common/space/CommonWrapper";
 import Tabs from "../reuseable/Tabs";
 
 const ProviderTabs = () => {
@@ -8,7 +7,17 @@ const ProviderTabs = () => {
       value: "overview",
       href: "/provider-dashboard/overview",
     },
-    { title: "My Jobs", value: "jobs", href: "/provider-dashboard/jobs" },
+
+    {
+      title: "My Jobs",
+      value: "jobs",
+      href: "/provider-dashboard/job-listing",
+    },
+    {
+      title: "Available Job",
+      value: "available-job",
+      href: "/provider-dashboard/available-job",
+    },
     {
       title: "Messages",
       value: "messages",
@@ -38,11 +47,9 @@ const ProviderTabs = () => {
   ];
 
   return (
-    <CommonWrapper>
-      <div className="py-6">
-        <Tabs tabs={tabOptions} />
-      </div>
-    </CommonWrapper>
+    <div className="py-6">
+      <Tabs tabs={tabOptions} />
+    </div>
   );
 };
 

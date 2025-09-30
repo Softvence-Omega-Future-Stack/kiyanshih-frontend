@@ -10,6 +10,9 @@ import WelcomeBanner from "./WelcomeBanner";
 const ProviderLayout = () => {
   return (
     <div>
+      {/* <UserNavbar /> */}
+
+      {/* <Outlet /> */}
 
       <CommonWrapper>
         <UserNavbar />

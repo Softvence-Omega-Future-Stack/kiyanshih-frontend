@@ -29,17 +29,29 @@ import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile
 import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
 import Verification from "@/Dashboard/providerDashboard/pages/Verification";
 import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
-import Rakib from "@/Dashboard/userDashboard/pages/Overview";
-import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+// import Rakib from "@/Dashboard/userDashboard/pages/Overview";
+
 import Message from "@/Dashboard/userDashboard/pages/Message";
-import ProviderLayout from "@/layout/ProviderLayout";
+
 import ReportComponent from "@/components/report/ReportComponent";
 import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
 import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
 import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
 import SettingsPage from "@/components/settings/SettingsPage";
+
+import ProviderLayout from "@/layout/ProviderLayout";
+import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
+import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
+import BoostService from "@/Dashboard/providerDashboard/pages/JobListing/BoostService";
+import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/AvailableJobs";
+import SubmitProposal from "@/Dashboard/providerDashboard/pages/SubmitProposal/SubmitProposal";
+import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
+import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
+import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
+import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -181,22 +193,67 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Rakib />,
+        element: <OverviewPage />,
       },
       {
         path: "overview",
-        element: <Rakib />,
+        element: <OverviewPage />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
 
       {
-        path: "provider-profile",
-        element: <ProviderProfile />,
+        path: "job-listing",
+        element: <JobsListing />,
       },
       {
+        path: "boost-service",
+        element: <BoostService />,
+      },
+      {
+        path: "available-job",
+        element: <AvailableJobs />,
+      },
+      {
+        path: "submit-proposal",
+        element: <SubmitProposal />,
+      },
+      {
+        path: "fixedjob-post",
+        element: <FixListJobPosting />,
+      },
+      {
+        path: "fixedjob-list",
+        element: <FixListAvailabilityStep />,
+      },
+      {
+        path: "settings",
+        element: <SettingsPage />,
+      },
+      {
+        path: "fixedjob-details",
+        element: <ServiceDetailsForm />,
+      },
+      {
+        path: "job-published",
+        element: <JobReviewPublish />,
+      },
+      {
+        path: "bookings",
+        element: <BookingServiceDashboard />,
+      },
+
+      {
+        path: "report",
+        element: <ReportComponent />,
+      },
+      {
+        path: "provider-profile",
+        element: <ProviderProfile />
+      },
+       {
         path: "upgrade-plan",
         element: <UpgradePlans />,
       },
@@ -215,19 +272,6 @@ const routes = createBrowserRouter([
       {
         path: "background-check-payment",
         element: <BackgroundCheckPayment />,
-      },
-      {
-        path: "settings",
-        element: <SettingsPage />,
-      },
-
-      {
-        path: "bookings",
-        element: <BookingServiceDashboard />,
-      },
-      {
-        path: "report",
-        element: <ReportComponent />,
       },
     ],
   },

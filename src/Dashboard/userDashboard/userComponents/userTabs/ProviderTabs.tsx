@@ -8,7 +8,13 @@ const ProviderTabs = () => {
       value: "overview",
       href: "/provider-dashboard/overview",
     },
-    { title: "My Jobs", value: "jobs", href: "/provider-dashboard/jobs" },
+  
+    { title: "My Jobs", value: "jobs", href: "/provider-dashboard/job-listing" },
+    {
+      title: "available-job",
+      value: "available-job",
+      href: "/provider-dashboard/available-job",
+    },
     {
       title: "Messages",
       value: "messages",
@@ -34,6 +40,10 @@ const ProviderTabs = () => {
       title: "Profile",
       value: "profile",
       href: "/provider-dashboard/provider-profile",
+    },
+    {
+      title: "Over", value: "profile",
+      href: "/provider-dashboard/OverviewPage",
     },
   ];
 

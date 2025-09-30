@@ -27,16 +27,11 @@ import UserLayout from "@/layout/UserLayout";
 
 import Rakib from "@/Dashboard/userDashboard/pages/Overview";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
-=======
-
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-
-
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import ProviderLayout from "@/layout/ProviderLayout";
-import BookingComponent from "@/components/booking/BookingComponent";
 import ReportComponent from "@/components/report/ReportComponent";
 import SettingsPage from "@/components/settings/SettingsPage";
 
@@ -178,7 +173,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "bookings",
-        element: <BookingComponent />,
+        element: <BookingServiceDashboard />,
       },
       {
         path: "report",

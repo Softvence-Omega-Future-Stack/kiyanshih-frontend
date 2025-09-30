@@ -8,6 +8,7 @@ const ProviderTabs = () => {
         { title: "Messages", value: "messages", href: "/provider-dashboard/messages" },
         { title: "Bookings", value: "bookings", href: "/provider-dashboard/bookings" },
         { title: "Payment History", value: "payments", href: "/provider-dashboard/payments" },
+        { title: "Report", value: "report", href: "/provider-dashboard/report" },
         { title: "Settings", value: "settings", href: "/provider-dashboard/settings" },
     ];
 

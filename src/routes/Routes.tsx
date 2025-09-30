@@ -21,33 +21,25 @@ import SubCategorySetUp from "@/Dashboard/Admin/pages/category/SubCategorySetUp"
 import UserManagement from "@/Dashboard/Admin/pages/UserManagement";
 import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
-
 import UserLayout from "@/layout/UserLayout";
-
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
 import Verification from "@/Dashboard/providerDashboard/pages/Verification";
 import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
-// import UploadDocuments from "@/Dashboard/providerDashboard/pages/uploadDocuments";
-// import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
-
 import Rakib from "@/Dashboard/userDashboard/pages/Overview";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import ProviderLayout from "@/layout/ProviderLayout";
 import ReportComponent from "@/components/report/ReportComponent";
-// import SettingsPage from "@/components/settings/SettingsPage";
 import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
 import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
-
+import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
+import SettingsPage from "@/components/settings/SettingsPage";
 
 const routes = createBrowserRouter([
   {
@@ -174,13 +166,12 @@ const routes = createBrowserRouter([
         element: <JobPost />,
       },
       {
-
         path: "payment-history",
         element: <Payment />,
-
+      },
+      {
         path: "bookings",
         element: <Bookings />,
-
       },
     ],
   },
@@ -225,7 +216,7 @@ const routes = createBrowserRouter([
         path: "background-check-payment",
         element: <BackgroundCheckPayment />,
       },
-       {
+      {
         path: "settings",
         element: <SettingsPage />,
       },
@@ -238,7 +229,6 @@ const routes = createBrowserRouter([
         path: "report",
         element: <ReportComponent />,
       },
-
     ],
   },
 ]);

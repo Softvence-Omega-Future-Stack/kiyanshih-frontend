@@ -11,7 +11,7 @@ export default function ProfileHeading() {
     <div className="mb-10">
       <img src={profileBanner} alt="" />
       <div>
-        <div className="grid grid-cols-3 gap-5 px-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 px-6">
           <div className="col-span-1 bg-white shadow border-slate-300 rounded-[8px] p-4 md:p-6 -mt-10">
             <div className="text-center">
               <img src={profileImage} alt="" className="mx-auto" />
@@ -71,7 +71,7 @@ export default function ProfileHeading() {
               </p>
               <div>
                 <p className="text-[#0F172A] font-semibold">Skills</p>
-                <div className="flex items-center gap-2 mt-4">
+                <div className="flex flex-col md:flex-row items-start gap-2 mt-4">
                   <p className="text-[15px] text-[#032642] py-2.5 px-3.5 border border-[#F5E4DF] rounded">
                     Handyman
                   </p>

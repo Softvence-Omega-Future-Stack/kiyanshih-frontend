@@ -32,6 +32,11 @@ import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import ProviderLayout from "@/layout/ProviderLayout";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
+import Verification from "@/Dashboard/providerDashboard/pages/Verification";
+import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
+import UploadDocuments from "@/Dashboard/providerDashboard/pages/uploadDocuments";
+import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
 
 const routes = createBrowserRouter([
   {
@@ -177,6 +182,26 @@ const routes = createBrowserRouter([
       {
         path: "provider-profile",
         element: <ProviderProfile />,
+      },
+      {
+        path: "upgrade-plan",
+        element: <UpgradePlans />,
+      },
+      {
+        path: "verification",
+        element: <Verification />,
+      },
+      {
+        path: "verification-information",
+        element: <VerificationInfo />,
+      },
+      {
+        path: "upload-documents",
+        element: <UploadDocuments />,
+      },
+      {
+        path: "background-check-payment",
+        element: <BackgroundCheckPayment />,
       },
     ],
   },

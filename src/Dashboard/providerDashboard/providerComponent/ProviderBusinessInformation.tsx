@@ -134,14 +134,14 @@ export default function ProviderBusinessInformation() {
             <Button
               type="button"
               variant="secondary"
-              className="w-36 border border-slate-300 px-8 py-3 h-auto cursor-pointer text-white bg-black hover:bg-white hover:text-black"
+              className="w-full md:w-36 border border-slate-300 px-8 py-3 h-auto cursor-pointer text-white bg-black hover:bg-white hover:text-black"
             >
               <LogOut />
               Logout
             </Button>
             <Button
               type="submit"
-              className="w-36 border border-slate-300 px-8 py-3 h-auto cursor-pointer hover:bg-black hover:text-white"
+              className="w-full md:w-36 border border-slate-300 px-8 py-3 h-auto cursor-pointer hover:bg-black hover:text-white"
             >
               Edit Profile
             </Button>

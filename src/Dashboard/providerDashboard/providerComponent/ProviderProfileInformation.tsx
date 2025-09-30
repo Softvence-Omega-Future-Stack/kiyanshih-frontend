@@ -1,5 +1,4 @@
-// src/components/ProfileForm.tsx
-"use client";
+
 
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -144,17 +143,17 @@ export default function ProviderProfileInformation() {
       </div>
 
       {/* Buttons */}
-      <div className="flex gap-4">
+      <div className="flex flex-col md:flex-row gap-4">
         <Button
           type="button"
-          className="w-36 px-4 py-4 h-auto bg-gray-900 text-white rounded-md"
+          className="w-full md:w-36 px-4 py-4 h-auto bg-gray-900 text-white rounded-md"
         >
           <LogOut />
           Logout
         </Button>
         <button
           type="submit"
-          className="w-36 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+          className="w-full md:w-36 py-4 bg-blue-600 text-white rounded-md hover:bg-blue-700"
         >
           Edit Profile
         </button>

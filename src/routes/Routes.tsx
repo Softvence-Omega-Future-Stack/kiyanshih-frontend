@@ -43,6 +43,7 @@ import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJo
 import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 
 const routes = createBrowserRouter([
   {
@@ -220,6 +221,10 @@ const routes = createBrowserRouter([
       {
         path: "job-published",
         element: <JobReviewPublish />,
+      },
+      {
+        path: "bookings",
+        element: <BookingServiceDashboard />,
       },
     ],
   },

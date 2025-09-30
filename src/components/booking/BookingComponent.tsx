@@ -132,7 +132,7 @@ const BookingServiceDashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-4 md:p-8">
+    <div className="min-h-[calc(100vh-50rem)] p-4 md:p-8">
       <div className="max-w-7xl mx-auto">
         {/* Stats Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -193,7 +193,7 @@ const BookingServiceDashboard: React.FC = () => {
           </div>
 
           {/* Tabs */}
-          <div className="flex flex-wrap gap-2 mb-6 border-b border-gray-200">
+          <div className="flex flex-wrap items-center gap-0 md:items-baseline md:gap-2 mb-6 border-b border-gray-200">
             <button
               onClick={() => setActiveTab("pending")}
               className={`px-4 py-2 text-sm font-medium transition-colors ${
@@ -253,124 +253,129 @@ const BookingServiceDashboard: React.FC = () => {
 
           {/* Booking Cards */}
           <div className="space-y-4">
-            {filteredBookings.length === 0 ? (
-              <div className="text-center py-12 text-gray-500">
-                No bookings in this category
+  {filteredBookings.length === 0 ? (
+    <div className="text-center py-12 text-gray-500">
+      No bookings in this category
+    </div>
+  ) : (
+    filteredBookings.map((booking) => (
+      <div
+        key={booking.id}
+        className="border border-gray-200 rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow bg-white"
+      >
+        {activeTab === "completed" && (
+          <div className="flex items-center gap-2 mb-4 text-sm">
+            <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+            <span className="text-gray-700">Confirm job completion</span>
+          </div>
+        )}
+
+        {/* Top Section */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          {/* Left side (service info) */}
+          <div className="flex gap-4">
+            <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
+              <span className="text-2xl">{booking.serviceIcon}</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <h3 className="text-base font-semibold text-gray-900 mb-1 truncate">
+                {booking.serviceName}
+              </h3>
+              <div className="flex flex-wrap gap-x-3 gap-y-1 text-sm text-gray-600">
+                <span>{booking.jobPost}</span>
+                <span>Budget: {booking.budget}</span>
               </div>
-            ) : (
-              filteredBookings.map((booking) => (
-                <div
-                  key={booking.id}
-                  className="border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+              <div className="text-sm text-gray-500 mt-1">
+                Booking id: {booking.bookingId}
+              </div>
+            </div>
+          </div>
+
+          {/* Right side (client info) */}
+          <div className="sm:text-right">
+            <div className="text-sm font-medium text-gray-900 mb-1">
+              Client: {booking.clientName}
+            </div>
+            <div className="text-sm text-gray-600">
+              Payment: {booking.paymentMethod}
+            </div>
+            <div className="flex flex-wrap sm:justify-end gap-3 mt-2 text-sm text-gray-600">
+              <div className="flex items-center gap-1">
+                <Calendar className="w-4 h-4" />
+                <span>{booking.date}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <Clock className="w-4 h-4" />
+                <span>{booking.time}</span>
+              </div>
+              <div className="flex items-center gap-1">
+                <MapPin className="w-4 h-4" />
+                <span>{booking.location}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 pt-4 border-t border-gray-100">
+          <div className="flex flex-wrap gap-2">
+            {booking.status === "pending" && (
+              <>
+                <button
+                  onClick={() => handleAccept(booking.id)}
+                  className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
                 >
-                  {activeTab === "completed" && (
-                    <div className="flex items-center gap-2 mb-4 text-sm">
-                      <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                      <span className="text-gray-700">Confirm job completion</span>
-                    </div>
-                  )}
-                  
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-start gap-4 flex-1">
-                      <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                        <span className="text-2xl">{booking.serviceIcon}</span>
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-semibold text-gray-900 mb-1">
-                          {booking.serviceName}
-                        </h3>
-                        <div className="flex flex-wrap gap-3 text-sm text-gray-600">
-                          <span>{booking.jobPost}</span>
-                          <span>Budget: {booking.budget}</span>
-                        </div>
-                        <div className="text-sm text-gray-500 mt-1">
-                          Booking id:{booking.bookingId}
-                        </div>
-                      </div>
-                    </div>
-
-                    <div className="text-right flex-shrink-0">
-                      <div className="text-sm font-medium text-gray-900 mb-1">
-                        Client: {booking.clientName}
-                      </div>
-                      <div className="text-sm text-gray-600">
-                        Payment: {booking.paymentMethod}
-                      </div>
-                      <div className="flex flex-col lg:flex-row lg:gap-6 items-right justify-end gap-4 mt-2 text-sm text-gray-600">
-                        <div className="flex items-center gap-1">
-                          <Calendar className="w-4 h-4" />
-                          <span>{booking.date}</span>
-                        </div>
-                        <div className="flex items-right md:items-center gap-1">
-                          <Clock className="w-4 h-4" />
-                          <span>{booking.time}</span>
-                        </div>
-                        <div className="flex items-right md:items-center gap-1">
-                          <MapPin className="w-4 h-4" />
-                          <span>{booking.location}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-gray-100">
-                    <div className="flex gap-2">
-                      {booking.status === "pending" && (
-                        <>
-                          <button
-                            onClick={() => handleAccept(booking.id)}
-                            className="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
-                          >
-                            Accept
-                          </button>
-                          <button
-                            onClick={() => handleReject(booking.id)}
-                            className="px-6 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
-                          >
-                            Reject
-                          </button>
-                        </>
-                      )}
-                      {booking.status === "accepted" && (
-                        <button className="px-6 py-2 bg-teal-600 text-white text-sm font-medium rounded-lg hover:bg-teal-700 transition-colors">
-                          Accepted
-                        </button>
-                      )}
-                      {booking.status === "rejected" && (
-                        <button className="px-6 py-2 bg-red-600 text-white text-sm font-medium rounded-lg cursor-default">
-                          Rejected
-                        </button>
-                      )}
-                      {booking.status === "in-progress" && (
-                        <>
-                          <button className="px-6 py-2 bg-yellow-600 text-white text-sm font-medium rounded-lg hover:bg-yellow-700 transition-colors">
-                            In-Progress
-                          </button>
-                          <button
-                            onClick={() => handleComplete(booking.id)}
-                            className="px-6 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
-                          >
-                            Complete
-                          </button>
-                        </>
-                      )}
-                    </div>
-                    <div className="flex gap-3">
-                      {booking.status === "pending" && (
-                        <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
-                          Massage
-                        </button>
-                      )}
-                      <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
-                        View Details
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))
+                  Accept
+                </button>
+                <button
+                  onClick={() => handleReject(booking.id)}
+                  className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg hover:bg-red-700 transition-colors"
+                >
+                  Reject
+                </button>
+              </>
+            )}
+            {booking.status === "accepted" && (
+              <button className="px-4 py-2 bg-teal-600 text-white text-sm font-medium rounded-lg">
+                Accepted
+              </button>
+            )}
+            {booking.status === "rejected" && (
+              <button className="px-4 py-2 bg-red-600 text-white text-sm font-medium rounded-lg cursor-default">
+                Rejected
+              </button>
+            )}
+            {booking.status === "in-progress" && (
+              <>
+                <button className="px-4 py-2 bg-yellow-600 text-white text-sm font-medium rounded-lg hover:bg-yellow-700 transition-colors">
+                  In-Progress
+                </button>
+                <button
+                  onClick={() => handleComplete(booking.id)}
+                  className="px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors"
+                >
+                  Complete
+                </button>
+              </>
             )}
           </div>
+
+          <div className="flex gap-3">
+            {booking.status === "pending" && (
+              <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
+                Message
+              </button>
+            )}
+            <button className="text-sm font-medium text-blue-600 hover:text-blue-700">
+              View Details
+            </button>
+          </div>
+        </div>
+      </div>
+    ))
+  )}
+</div>
+
         </div>
       </div>
     </div>

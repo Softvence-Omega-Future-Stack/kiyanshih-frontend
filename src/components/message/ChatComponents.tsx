@@ -2,48 +2,7 @@ import React from "react";
 import type { ChangeEvent, KeyboardEvent } from "react";
 import { Search, User, Send, ArrowLeft, MoreVertical, Paperclip } from "lucide-react";
 
-// ========== Types ==========
-export interface ChatUser {
-  id: string;
-  name: string;
-  avatar: string;
-  status: "online" | "offline";
-  lastMessage: string;
-  lastSeen: string;
-  unread?: number;
-}
-
-export interface Message {
-  id: string;
-  userId: string;
-  userName: string;
-  content: string;
-  timestamp: string;
-  isSent: boolean;
-}
-
-// ========== Demo Data ==========
-export const currentUserId = "current";
-
-export const demoUsers: ChatUser[] = [
-  { id: "1", name: "Charlotte Davis", avatar: "CD", status: "online", lastMessage: "You: I will send you...", lastSeen: "Active Now" },
-  { id: "2", name: "Albert Flores", avatar: "AF", status: "offline", lastMessage: "You: I will send you...", lastSeen: "2h ago" },
-  { id: "3", name: "Kristin Watson", avatar: "KW", status: "offline", lastMessage: "You: I will send you...", lastSeen: "Yesterday" },
-];
-
-export const demoMessages: { [key: string]: Message[] } = {
-  "1": [
-    { id: "1", userId: "1", userName: "Charlotte Davis", content: "Hi Mike! I See your service and I have a few questions about the timeline and materials.", timestamp: "10 min ago", isSent: false },
-    { id: "2", userId: currentUserId, userName: "You", content: "Hi Mike! Thanks for your proposal. I have a few questions about the timeline and materials.", timestamp: "10 min ago", isSent: true },
-    { id: "3", userId: "1", userName: "Charlotte Davis", content: "Hi Mike! Thanks for your proposal. I have a few questions about the timeline and materials.", timestamp: "10 min ago", isSent: false },
-  ],
-  "2": [
-    { id: "1", userId: "2", userName: "Albert Flores", content: "Hey! How are you doing?", timestamp: "2h ago", isSent: false },
-  ],
-  "3": [
-    { id: "1", userId: "3", userName: "Kristin Watson", content: "Thanks for the update!", timestamp: "Yesterday", isSent: false },
-  ],
-};
+import { demoUsers, demoMessages } from "./chatDemoData";
 
 // ========== Props ==========
 interface ChatComponentsProps {
@@ -99,7 +58,11 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
   return (
     <>
       {/* Sidebar */}
-      <div className={`${showSidebar ? "flex" : "hidden"} md:flex w-full md:w-80 border-r border-gray-200 flex-col`}>
+      <div
+        className={`${
+          showSidebar ? "flex" : "hidden"
+        } md:flex w-full md:w-80 border-r border-gray-200 flex-col`}
+      >
         <div className="p-4 border-b border-gray-200">
           <h1 className="text-xl font-semibold text-gray-900 mb-4">Messages</h1>
           <div className="relative">
@@ -119,13 +82,17 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
             <div
               key={user.id}
               onClick={() => handleUserSelect(user.id)}
-              className={`flex items-center p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors ${activeUserId === user.id ? "bg-blue-50" : ""}`}
+              className={`flex items-center p-4 hover:bg-gray-50 cursor-pointer border-b border-gray-100 transition-colors ${
+                activeUserId === user.id ? "bg-blue-50" : ""
+              }`}
             >
               <div className="relative flex-shrink-0">
                 <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-teal-600 rounded-full flex items-center justify-center">
                   <span className="text-white text-sm font-semibold">{user.avatar}</span>
                 </div>
-                {user.status === "online" && <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white" />}
+                {user.status === "online" && (
+                  <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-500 rounded-full border-2 border-white" />
+                )}
               </div>
               <div className="ml-3 flex-1 min-w-0">
                 <div className="flex items-center justify-between mb-1">
@@ -142,12 +109,19 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
       </div>
 
       {/* Chat Main */}
-      <div className={`${!showSidebar || activeUserId ? "flex" : "hidden"} md:flex flex-1 flex-col bg-white`}>
+      <div
+        className={`${
+          !showSidebar || activeUserId ? "flex" : "hidden"
+        } md:flex flex-1 flex-col bg-white`}
+      >
         {activeUser ? (
           <>
             {/* Header */}
             <div className="bg-white px-4 py-3 flex items-center border-b border-gray-200">
-              <button className="md:hidden mr-3 text-gray-600 hover:text-gray-900" onClick={handleBack}>
+              <button
+                className="md:hidden mr-3 text-gray-600 hover:text-gray-900"
+                onClick={handleBack}
+              >
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div className="flex items-center flex-1">
@@ -155,7 +129,9 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
                   <span className="text-white text-sm font-semibold">{activeUser.avatar}</span>
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h2 className="text-base font-semibold text-gray-900 truncate">{activeUser.name}</h2>
+                  <h2 className="text-base font-semibold text-gray-900 truncate">
+                    {activeUser.name}
+                  </h2>
                   <p className="text-xs text-green-600 font-medium">{activeUser.lastSeen}</p>
                 </div>
               </div>
@@ -181,12 +157,25 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
             {/* Messages */}
             <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gray-50">
               {messages.map((message) => (
-                <div key={message.id} className={`flex ${message.isSent ? "justify-end" : "justify-start"}`}>
+                <div
+                  key={message.id}
+                  className={`flex ${message.isSent ? "justify-end" : "justify-start"}`}
+                >
                   <div className={`max-w-[75%] ${message.isSent ? "order-2" : "order-1"}`}>
-                    <div className={`rounded-2xl px-4 py-2.5 ${message.isSent ? "bg-blue-600 text-white rounded-br-sm" : "bg-white text-gray-900 rounded-bl-sm shadow-sm"}`}>
+                    <div
+                      className={`rounded-2xl px-4 py-2.5 ${
+                        message.isSent
+                          ? "bg-blue-600 text-white rounded-br-sm"
+                          : "bg-white text-gray-900 rounded-bl-sm shadow-sm"
+                      }`}
+                    >
                       <p className="text-sm leading-relaxed">{message.content}</p>
                     </div>
-                    <p className={`text-xs text-gray-500 mt-1 px-2 ${message.isSent ? "text-right" : "text-left"}`}>
+                    <p
+                      className={`text-xs text-gray-500 mt-1 px-2 ${
+                        message.isSent ? "text-right" : "text-left"
+                      }`}
+                    >
                       {message.timestamp}
                     </p>
                   </div>
@@ -210,7 +199,10 @@ const ChatComponents: React.FC<ChatComponentsProps> = ({
                     onKeyPress={handleKeyPress}
                   />
                 </div>
-                <button onClick={handleSendMessage} className="p-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-1">
+                <button
+                  onClick={handleSendMessage}
+                  className="p-2.5 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors mb-1"
+                >
                   <Send className="w-5 h-5" />
                 </button>
                 <button className="px-4 py-2.5 bg-teal-600 text-white rounded-lg hover:bg-teal-700 transition-colors text-sm font-medium whitespace-nowrap mb-1">

@@ -24,18 +24,29 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
-import Message from "@/Dashboard/userDashboard/pages/Message";
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 // import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
-import ProviderLayout from "@/layout/ProviderLayout";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
 import Verification from "@/Dashboard/providerDashboard/pages/Verification";
 import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
-import UploadDocuments from "@/Dashboard/providerDashboard/pages/uploadDocuments";
+// import UploadDocuments from "@/Dashboard/providerDashboard/pages/uploadDocuments";
+// import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
+
+import Rakib from "@/Dashboard/userDashboard/pages/Overview";
+
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
+
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+
+import Message from "@/Dashboard/userDashboard/pages/Message";
+import ProviderLayout from "@/layout/ProviderLayout";
+import BookingComponent from "@/components/booking/BookingComponent";
+import ReportComponent from "@/components/report/ReportComponent";
+// import SettingsPage from "@/components/settings/SettingsPage";
+import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
 import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
 
 const routes = createBrowserRouter([
@@ -161,6 +172,10 @@ const routes = createBrowserRouter([
         path: "payment-history",
         element: <Payment />,
       },
+      {
+        path: "bookings",
+        element: <Bookings />,
+      },
     ],
   },
   {
@@ -169,11 +184,11 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "overview",
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "message",
@@ -202,6 +217,15 @@ const routes = createBrowserRouter([
       {
         path: "background-check-payment",
         element: <BackgroundCheckPayment />,
+      },
+
+      {
+        path: "bookings",
+        element: <BookingComponent />,
+      },
+      {
+        path: "report",
+        element: <ReportComponent />,
       },
     ],
   },

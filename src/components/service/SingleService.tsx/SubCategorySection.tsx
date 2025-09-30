@@ -6,6 +6,7 @@ import sub5 from "@/assets/images/sub5.svg";
 import CommonHeader from "@/common/header/CommonHeader";
 import SectionHeader from "@/common/header/SectionHeader";
 import CommonSpace from "@/common/space/CommonSpace";
+import type { FC } from "react";
 const services = [
   {
     name: "Renovation",
@@ -57,11 +58,15 @@ const services = [
     textColor: "text-pink-800",
   },
 ];
-const SubCategorySection = () => {
+
+interface SubCategorySectionProps {
+  hide?: boolean;
+}
+const SubCategorySection: FC<SubCategorySectionProps> = ({ hide }) => {
   return (
-    <CommonSpace className="">
+    <CommonSpace>
       <SectionHeader
-        className="!text-start "
+        className={`!text-start ${hide ? "hidden" : ""}`}
         title="Popular Handyman Services"
         subtitle="Explore Services in Your Neighborhood"
       />

@@ -32,7 +32,7 @@ const BookingManagement = () => {
   return (
     <div>
       <AllBookingTopSection />
-      <Tablist activeTab={tab} setTab={setTab} counts={counts} />
+      <Tablist<BookingStatus> tabs={["All Bookings", "Pending", "Accepted", "Rejected", "In-progress"]} activeTab={tab} setTab={setTab} counts={counts} />
       {tab === "All Bookings" && <AllBooking />}
       {tab === "Pending" && <PendingTable />}
       {tab === "Accepted" && <AcceptTable />}

@@ -10,7 +10,6 @@ import Work from "@/pages/Work";
 import SingleService from "@/pages/SingleService";
 import SingleProvider from "@/pages/SingleProvider";
 
-import Test from "../components/home/Service";
 import Dashboard from "@/Dashboard/Admin/pages/Dashboard";
 import DashboardLayout from "@/layout/DashboardLayout";
 import BookingManagement from "@/Dashboard/Admin/pages/BookingManagement";
@@ -24,17 +23,28 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Message from "@/Dashboard/userDashboard/pages/Message";
+
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderProfile from "@/Dashboard/userDashboard/pages/ProviderProfile";
-import ProviderLayout from "@/layout/ProviderLayout";
+// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
+import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
+import Verification from "@/Dashboard/providerDashboard/pages/Verification";
+import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
+import Rakib from "@/Dashboard/userDashboard/pages/Overview";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
-import SingleProviderReview from "@/components/service/SingleProvider/SingleProviderReview";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-import BookingCheckout from "@/Dashboard/userDashboard/pages/BookingCheckout";
+import Message from "@/Dashboard/userDashboard/pages/Message";
+import ProviderLayout from "@/layout/ProviderLayout";
+import ReportComponent from "@/components/report/ReportComponent";
+import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
+import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
+import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
+import SettingsPage from "@/components/settings/SettingsPage";
 import UserSettings from "@/Dashboard/userDashboard/pages/UserSettings";
-import UserProfile from "@/Dashboard/userDashboard/pages/UserProfile";
+
 
 const routes = createBrowserRouter([
   {
@@ -46,10 +56,7 @@ const routes = createBrowserRouter([
         path: "/",
         element: <Home />,
       },
-      {
-        path: "/path",
-        element: <Test />,
-      },
+
       {
         path: "/service",
         element: <Service />,
@@ -65,6 +72,10 @@ const routes = createBrowserRouter([
       {
         path: "/provider/:name",
         element: <SingleProvider />,
+      },
+      {
+        path: "/provider-profile/:name",
+        element: <ProviderProfile />,
       },
       {
         path: "/how-it-works",
@@ -140,28 +151,16 @@ const routes = createBrowserRouter([
         element: <Overview />,
       },
       {
-        path: "overview",
-        element: <Overview />,
-      },
-      {
-        path: "bookings",
-        element: <Bookings />
-      },
-      {
-        path: "booking-checkout",
-        element: <BookingCheckout />,
-      },
-      {
         path: "settings",
         element: <UserSettings />,
       },
       {
-        path:"user-profile",
-        element: <UserProfile/>
+        path: "overview",
+        element: <Overview />,
       },
       {
         path: "overview/:title",
-        element: <SingleProviderReview />,
+        element: <SingleOverview />,
       },
       {
         path: "message",
@@ -172,12 +171,19 @@ const routes = createBrowserRouter([
         element: <Job />,
       },
       {
-        path: "payment-history",
-        element: <Payment />,
+        path: "job-postings",
+        element: <JobPost />,
       },
       {
-        path: "Provider-profile",
-        element: <ProviderProfile />,
+
+        path: "payment-history",
+        element: <Payment />
+      },
+        {
+
+        path: "bookings",
+        element: <Bookings />,
+
       },
     ],
   },
@@ -187,16 +193,55 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "overview",
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "message",
         element: <Message />,
       },
+
+      {
+        path: "provider-profile",
+        element: <ProviderProfile />,
+      },
+      {
+        path: "upgrade-plan",
+        element: <UpgradePlans />,
+      },
+      {
+        path: "verification",
+        element: <Verification />,
+      },
+      {
+        path: "verification-information",
+        element: <VerificationInfo />,
+      },
+      {
+        path: "upload-documents",
+        element: <UploadDocuments />,
+      },
+      {
+        path: "background-check-payment",
+        element: <BackgroundCheckPayment />,
+      },
+      {
+        path: "settings",
+        element: <SettingsPage />,
+      },
+
+      {
+        path: "bookings",
+        element: <BookingServiceDashboard />,
+      },
+      {
+        path: "report",
+        element: <ReportComponent />,
+      },
+
     ],
   },
 ]);

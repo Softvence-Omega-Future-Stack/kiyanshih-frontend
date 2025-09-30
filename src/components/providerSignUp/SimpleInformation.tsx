@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { FaCheck } from "react-icons/fa";
 import LargeTitle from "@/common/header/LargeTitle";
 import PricingCard from "./PricingCard";
+import PlanSelector from "@/common/custom/PlanSelector";
 
 const SimpleInformation = () => {
   const [plan, setPlan] = useState<"basic" | "unlimited">("basic");
@@ -15,8 +15,8 @@ const SimpleInformation = () => {
           </LargeTitle>
         </div>
 
-        <div className="flex items-center gap-6 justify-center lg:justify-start">
-          {/* Basic */}
+        {/* <div className="flex items-center gap-6 justify-center lg:justify-start">
+        
           <div
             onClick={() => setPlan("basic")}
             className={`w-5 h-5 border-2 rounded-md flex items-center justify-center cursor-pointer transition
@@ -30,7 +30,7 @@ const SimpleInformation = () => {
           </div>
           <span className="text-sm text-gray-600">Basic</span>
 
-          {/* Unlimited */}
+       
           <div
             onClick={() => setPlan("unlimited")}
             className={`w-5 h-5 border-2 rounded-md flex items-center justify-center cursor-pointer transition
@@ -43,7 +43,16 @@ const SimpleInformation = () => {
             {plan === "unlimited" && <FaCheck className="text-black w-2 h-2" />}
           </div>
           <span className="text-sm text-gray-600">Unlimited</span>
-        </div>
+        </div> */}
+
+        <PlanSelector
+          value={plan}
+          onChange={setPlan}
+          options={[
+            { label: "Basic", value: "basic" },
+            { label: "Unlimited", value: "unlimited" },
+          ]}
+        />
 
         {/* Pricing Cards */}
         <PricingCard

@@ -9,8 +9,8 @@ const ChatInterface: React.FC = () => {
   const [showSidebar, setShowSidebar] = useState(true);
 
   return (
-    <div className="h-[calc(100vh-200px)] w-[68vw] flex bg-gray-50">
-      <div className="flex w-full max-w-full mx-auto bg-white shadow-lg overflow-hidden md:gap-x-2">
+    <div className="h-[calc(100vh-220px)] flex  mt-10 w-full max-w-[1400px] mx-auto my-auto px-4 md:px-10">
+      <div className="flex w-full max-w-full mx-auto bg-white overflow-hidden md:gap-x-2">
         <ChatComponents
           activeUserId={activeUserId}
           setActiveUserId={setActiveUserId}

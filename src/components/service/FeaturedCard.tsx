@@ -32,11 +32,14 @@ const FeaturedCard: FC<FeaturedCardProps> = ({ feature }) => {
       </div>
 
       <div className=" space-y-2">
-        <div>
+        <Link
+          to={`/provider-profile/${slugify(feature.category)}`}
+          className=" cursor-pointer"
+        >
           <CommonHeader className=" !text-lg !leading-[28px]">
             {feature.category}
           </CommonHeader>
-        </div>
+        </Link>
         <div className="flex items-center gap-1">
           <span className=" text-[#1D4ED8]">
             <HiOutlineLocationMarker />

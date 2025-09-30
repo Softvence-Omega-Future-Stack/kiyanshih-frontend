@@ -1,6 +1,6 @@
 import CommonWrapper from "@/common/space/CommonWrapper";
-import ProviderNavbar from "./ProviderNavbar";
-import OverviewProviderDashboard from "./OverviewProviderDashboard";
+import ProviderNavbar from "./providerNavbar/ProviderNavbar";
+import OverviewProviderDashboard from "./OverviewProviderDashboard/OverviewProviderDashboard";
 import JobsDashboard from "./JobDashboard/JobsDashboard";
 
 

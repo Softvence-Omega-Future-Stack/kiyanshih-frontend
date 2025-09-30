@@ -37,7 +37,8 @@ import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/Ava
 import SubmitProposal from "@/Dashboard/providerDashboard/pages/SubmitProposal/SubmitProposal";
 import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
 import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
-import ServicePublishForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
+import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
+import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
 
 const routes = createBrowserRouter([
   {
@@ -206,8 +207,12 @@ const routes = createBrowserRouter([
         element: <FixListAvailabilityStep />,
       },
       {
+        path: "fixedjob-details",
+        element: <ServiceDetailsForm />,
+      },
+      {
         path: "job-published",
-        element: <ServicePublishForm />,
+        element: <JobReviewPublish />,
       },
     ],
   },

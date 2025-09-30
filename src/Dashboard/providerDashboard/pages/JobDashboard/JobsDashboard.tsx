@@ -104,11 +104,11 @@ const JobsDashboard = () => {
       {/* Responsive flex layout */}
       <div className="flex flex-col sm:flex-row gap-4">
         {/* Image */}
-        <div className="w-full sm:w-40 md:w-48 lg:w-56 flex-shrink-0">
+        <div className="w-full sm:w-40 md:w-40 lg:w-40 flex-shrink-0">
           <img
             src={job.image}
             alt={job.title}
-            className="w-full h-40 sm:h-full rounded-lg object-cover"
+            className="w-full h-20 sm:h-full rounded-lg object-cover"
           />
         </div>
 
@@ -120,9 +120,14 @@ const JobsDashboard = () => {
                 <div className="flex items-center gap-2 flex-wrap">
                   <h3 className="font-semibold text-gray-900">{job.title}</h3>
                   {job.isBoosted && (
-                    <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded">
-                      Boost
-                    </span>
+                    <Link
+                      className="cursor-pointer"
+                      to="/provider-dashboard/boost-service"
+                    >
+                      <span className="bg-blue-600 text-white text-xs px-2 py-0.5 rounded">
+                        Boost
+                      </span>
+                    </Link>
                   )}
                 </div>
                 <p className="text-sm text-gray-500 flex items-center gap-1 mt-1">
@@ -204,10 +209,15 @@ const JobsDashboard = () => {
                     Boosted
                   </button>
                 ) : (
-                  <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                    <Rocket size={16} />
-                    Boost
-                  </button>
+                  <Link
+                    to="/provider-dashboard/boost-service"
+                    className="cursor-pointer"
+                  >
+                    <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+                      <Rocket size={16} />
+                      Boost
+                    </button>
+                  </Link>
                 )}
                 <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
                   <Edit size={16} />
@@ -219,18 +229,21 @@ const JobsDashboard = () => {
 
           {/* Submit Proposal Section */}
           {showSubmit && (
-            <div className="flex flex-col sm:flex-row gap-2 mt-4">
-              <Link to="/fixedjob-post">
+            <div className="flex flex-col sm:flex-row md:justify-between gap-2 mt-4">
+              <Link to="/provider-dashboard/fixedjob-post">
                 <button className="bg-orange-500 hover:bg-orange-600 w-fit text-white px-6 py-2 rounded-lg text-sm font-medium ">
                   Submit Proposal
                 </button>
               </Link>
-              <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
-                Message
-              </button>
-              <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
-                Details
-              </button>
+              {/* ----edit details buttons-- */}
+              <div className="flex gap-6">
+                <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
+                  Message
+                </button>
+                <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
+                  Details
+                </button>
+              </div>
             </div>
           )}
         </div>
@@ -241,7 +254,7 @@ const JobsDashboard = () => {
   return (
     <div className="p-6">
       <div className=" space-y-8">
-        {/* Active Jobs Section */}
+        {/*--------- Active Jobs Section ----------*/}
         <div>
           <div className="flex items-center justify-between mb-4">
             <div>

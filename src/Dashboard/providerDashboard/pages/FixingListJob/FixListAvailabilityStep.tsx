@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FileText, MapPin, List, Eye, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 
 interface AvailabilityData {
   serviceArea: string;
@@ -76,19 +77,6 @@ const FixListAvailabilityStep = () => {
         [day]: {
           ...prev.availability[day],
           enabled: !prev.availability[day].enabled,
-        },
-      },
-    }));
-  };
-
-  const handleTimeChange = (day: string, time: string) => {
-    setAvailabilityData((prev) => ({
-      ...prev,
-      availability: {
-        ...prev.availability,
-        [day]: {
-          ...prev.availability[day],
-          time: time,
         },
       },
     }));
@@ -301,20 +289,25 @@ const FixListAvailabilityStep = () => {
 
                 {/* Navigation Buttons */}
                 <div className="flex justify-between pt-6">
-                  <button
-                    type="button"
-                    onClick={handlePrevious}
-                    className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-200 font-medium"
-                  >
-                    Previous
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleNextStep}
-                    className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-colors duration-200 font-medium"
-                  >
-                    Next Step
-                  </button>
+                  <Link to="/provider-dashboard/fixedjob-post">
+                    <button
+                      type="button"
+                      onClick={handlePrevious}
+                      className="bg-gray-500 text-white px-6 py-2 rounded-md hover:bg-gray-600 transition-colors duration-200 font-medium"
+                    >
+                      Previous
+                    </button>
+                  </Link>
+
+                  <Link to="/provider-dashboard/fixedjob-details">
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-colors duration-200 font-medium"
+                    >
+                      Next Step
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

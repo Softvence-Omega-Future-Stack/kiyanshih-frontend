@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, Bell } from "lucide-react";
+import { ChevronLeft } from "lucide-react";
 
 interface ProposalFormData {
   budget: string;

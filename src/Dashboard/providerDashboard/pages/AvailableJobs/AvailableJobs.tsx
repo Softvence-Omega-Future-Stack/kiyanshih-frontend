@@ -63,9 +63,9 @@ const AvailableJobs = () => {
   ];
 
   const tabs = [
-    { key: "all" as TabType, label: "All Jobs", count: 10 },
+    { key: "all" as TabType, label: "All Jobs", count: 3 },
     { key: "pending" as TabType, label: "Pending", count: 2 },
-    { key: "accepted" as TabType, label: "Accepted", count: 5 },
+    { key: "accepted" as TabType, label: "Accepted", count: 0 },
     { key: "rejected" as TabType, label: "Rejected", count: 0 },
   ];
 
@@ -80,7 +80,7 @@ const AvailableJobs = () => {
   const totalPages = Math.ceil(filteredJobs.length / jobsPerPage);
 
   const JobCard = ({ job }: { job: Job }) => (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
+    <div className=" border border-gray-200 rounded-lg p-4 mb-4">
       <div className="flex gap-4">
         {/* Job Image */}
         <img
@@ -133,7 +133,7 @@ const AvailableJobs = () => {
           </div>
         ) : (
           <div className="flex items-center justify-between">
-            <Link to="/fixedjob-post">
+            <Link to="/provider-dashboard">
               <button className="bg-orange-500 hover:bg-orange-600 text-white font-medium text-sm px-6 py-2 rounded-lg transition-colors">
                 Submit Proposal
               </button>

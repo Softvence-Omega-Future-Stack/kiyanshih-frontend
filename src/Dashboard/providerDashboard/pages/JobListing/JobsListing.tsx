@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Eye,
   FileText,
@@ -55,30 +56,84 @@ const JobsListing = () => {
       status: "Active",
       isBoosted: true,
     },
+    {
+      id: 3,
+      title: "Lawn Mowing Service",
+      location: "Dallas, TX",
+      budget: "$25/hr",
+      postedTime: "Posted 2 hours ago",
+      views: 40,
+      applications: 5,
+      bookings: 2,
+      rating: 4.2,
+      image:
+        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+      status: "Pending",
+    },
+    {
+      id: 4,
+      title: "Dog Walking Service",
+      location: "Austin, TX",
+      budget: "$20/hr",
+      postedTime: "Posted 3 hours ago",
+      views: 25,
+      applications: 3,
+      bookings: 1,
+      rating: 4.5,
+      image:
+        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+      status: "Active",
+    },
+    {
+      id: 5,
+      title: "Grocery Delivery",
+      location: "Houston, TX",
+      budget: "$15/hr",
+      postedTime: "Posted yesterday",
+      views: 50,
+      applications: 8,
+      bookings: 4,
+      rating: 4.7,
+      image:
+        "https://res.cloudinary.com/dkqdwcguu/image/upload/v1759133045/licensed-image_1_1_ojismo.png",
+      status: "Pending",
+    },
   ];
+
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  const jobsPerPage = 3;
+
+  const indexOfLastJob = currentPage * jobsPerPage;
+  const indexOfFirstJob = indexOfLastJob - jobsPerPage;
+  const currentJobs = activeJobs.slice(indexOfFirstJob, indexOfLastJob);
+
+  const totalPages = Math.ceil(activeJobs.length / jobsPerPage);
+
+  const handlePrev = () => {
+    if (currentPage > 1) setCurrentPage(currentPage - 1);
+  };
+
+  const handleNext = () => {
+    if (currentPage < totalPages) setCurrentPage(currentPage + 1);
+  };
 
   const JobCard = ({
     job,
     showActions = false,
-    showSubmit = false,
   }: {
     job: Job;
     showActions?: boolean;
-    showSubmit?: boolean;
   }) => (
-    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4">
-      {/* Responsive flex layout */}
+    <div className="bg-white border border-gray-200 rounded-lg p-4 mb-4 mx-w-5xl">
       <div className="flex flex-col sm:flex-row gap-4">
-        {/* Image */}
-        <div className="w-full sm:w-40 md:w-48 lg:w-56 flex-shrink-0">
+        <div className="w-full sm:w-40 md:w-48 lg:w-56 h-40 flex-shrink-0">
           <img
             src={job.image}
             alt={job.title}
             className="w-full h-40 sm:h-full rounded-lg object-cover"
           />
         </div>
-
-        {/* Content */}
         <div className="flex-1">
           <div className="grid gap-3">
             <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-2 gap-2">
@@ -92,25 +147,6 @@ const JobsListing = () => {
                   )}
                 </div>
                 <p className="text-sm text-gray-500 flex items-center gap-1 mt-1">
-                  <svg
-                    className="w-3 h-3"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
                   {job.location}
                 </p>
                 <p className="text-sm font-semibold text-gray-900 mt-1">
@@ -118,8 +154,6 @@ const JobsListing = () => {
                 </p>
                 <p className="text-xs text-gray-400 mt-1">{job.postedTime}</p>
               </div>
-
-              {/* Status + menu */}
               <div className="flex items-center gap-2 self-end sm:self-start">
                 {job.status && (
                   <span
@@ -138,11 +172,8 @@ const JobsListing = () => {
               </div>
             </div>
           </div>
-
-          {/* Stats */}
           {showActions && (
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 text-sm text-gray-600 mt-3">
-              {/* icons */}
               <div className="flex flex-wrap gap-4">
                 <span className="flex items-center gap-1">
                   <Eye size={16} />
@@ -161,42 +192,22 @@ const JobsListing = () => {
                   {job.rating}
                 </span>
               </div>
-
-              {/* -------actions  --------------*/}
               <div className="flex flex-wrap gap-2">
                 {job.isBoosted ? (
                   <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                    <Rocket size={16} />
-                    Boosted
+                    <Rocket size={16} /> Boosted
                   </button>
                 ) : (
                   <Link to="/provider-dashboard/boost-service">
                     <button className="bg-gray-800 hover:bg-gray-900 text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                      <Rocket size={16} />
-                      Boost
+                      <Rocket size={16} /> Boost
                     </button>
                   </Link>
                 )}
                 <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
-                  <Edit size={16} />
-                  Edit
+                  <Edit size={16} /> Edit
                 </button>
               </div>
-            </div>
-          )}
-
-          {/*------ Submit Proposal Section------------- */}
-          {showSubmit && (
-            <div className="flex flex-col sm:flex-row gap-2 mt-4">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg text-sm font-medium flex-1">
-                Submit Proposal
-              </button>
-              <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
-                Message
-              </button>
-              <button className="border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium flex-1 sm:flex-none">
-                Details
-              </button>
             </div>
           )}
         </div>
@@ -206,8 +217,7 @@ const JobsListing = () => {
 
   return (
     <div className="p-6">
-      <div className=" mx-w-7xl mx-auto space-y-8">
-        {/* Active Jobs Section */}
+      <div className="mx-w-7xl mx-auto space-y-8">
         <div>
           <div className="flex items-center justify-between mb-4">
             <div>
@@ -220,9 +230,38 @@ const JobsListing = () => {
               View All
             </button>
           </div>
-          {activeJobs.map((job) => (
+          {currentJobs.map((job) => (
             <JobCard key={job.id} job={job} showActions />
           ))}
+
+          {/* Previous / Next Pagination */}
+          <div className="flex justify-center gap-2 mt-4">
+            <button
+              onClick={handlePrev}
+              disabled={currentPage === 1}
+              className={`px-4 py-2 rounded border ${
+                currentPage === 1
+                  ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+              }`}
+            >
+              Previous
+            </button>
+            <span className="px-4 py-2 rounded text-gray-700">
+              {currentPage} / {totalPages}
+            </span>
+            <button
+              onClick={handleNext}
+              disabled={currentPage === totalPages}
+              className={`px-4 py-2 rounded border ${
+                currentPage === totalPages
+                  ? "bg-gray-200 text-gray-500 cursor-not-allowed"
+                  : "bg-white text-gray-700 border-gray-300 hover:bg-gray-100"
+              }`}
+            >
+              Next
+            </button>
+          </div>
         </div>
       </div>
     </div>

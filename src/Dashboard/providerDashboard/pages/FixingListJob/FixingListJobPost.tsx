@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { FileText, MapPin, List, Eye, ChevronDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const FixListJobPosting = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -337,13 +338,15 @@ const FixListJobPosting = () => {
 
                 {/* Next Step Button */}
                 <div className="pt-4">
-                  <button
-                    type="button"
-                    onClick={handleNextStep}
-                    className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-colors duration-200 font-medium"
-                  >
-                    Next Step
-                  </button>
+                  <Link to={"/provider-dashboard/fixedjob-list"}>
+                    <button
+                      type="button"
+                      onClick={handleNextStep}
+                      className="bg-gray-800 text-white px-6 py-2 rounded-md hover:bg-gray-900 transition-colors duration-200 font-medium"
+                    >
+                      Next Step
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

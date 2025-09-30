@@ -36,14 +36,13 @@ import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationIn
 // import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
 
 import Rakib from "@/Dashboard/userDashboard/pages/Overview";
-
-import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
-
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
-
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import Message from "@/Dashboard/userDashboard/pages/Message";
 import ProviderLayout from "@/layout/ProviderLayout";
-import BookingComponent from "@/components/booking/BookingComponent";
 import ReportComponent from "@/components/report/ReportComponent";
 // import SettingsPage from "@/components/settings/SettingsPage";
 import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
@@ -191,7 +190,7 @@ const routes = createBrowserRouter([
         element: <Rakib />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
       {
@@ -218,10 +217,14 @@ const routes = createBrowserRouter([
         path: "background-check-payment",
         element: <BackgroundCheckPayment />,
       },
+       {
+        path: "settings",
+        element: <SettingsPage />,
+      },
 
       {
         path: "bookings",
-        element: <BookingComponent />,
+        element: <BookingServiceDashboard />,
       },
       {
         path: "report",

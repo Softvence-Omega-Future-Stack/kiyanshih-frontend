@@ -24,6 +24,7 @@ const ProviderTabs = () => {
       value: "payments",
       href: "/provider-dashboard/payments",
     },
+    { title: "Report", value: "report", href: "/provider-dashboard/report" },
     {
       title: "Settings",
       value: "settings",

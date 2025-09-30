@@ -123,7 +123,7 @@ export default function UploadDocuments() {
   };
 
   return (
-    <div>
+    <div className="mb-10">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         {/* Heading */}
         <div>

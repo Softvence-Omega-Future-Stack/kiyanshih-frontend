@@ -23,14 +23,31 @@ import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
 
 import UserLayout from "@/layout/UserLayout";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
-import Message from "@/Dashboard/userDashboard/pages/Message";
+
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-import ProviderLayout from "@/layout/ProviderLayout";
+// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
-import ProviderProfile from "@/pages/ProviderProfile";
-import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
+import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
+import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
+import Verification from "@/Dashboard/providerDashboard/pages/Verification";
+import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
+// import UploadDocuments from "@/Dashboard/providerDashboard/pages/uploadDocuments";
+// import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
+
+import Rakib from "@/Dashboard/userDashboard/pages/Overview";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import Overview from "@/Dashboard/userDashboard/pages/UserOverview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import Message from "@/Dashboard/userDashboard/pages/Message";
+import ProviderLayout from "@/layout/ProviderLayout";
+import ReportComponent from "@/components/report/ReportComponent";
+// import SettingsPage from "@/components/settings/SettingsPage";
+import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
+import BackgroundCheckPayment from "@/Dashboard/providerDashboard/pages/BackgroundCheckPayment";
+
 
 const routes = createBrowserRouter([
   {
@@ -79,7 +96,6 @@ const routes = createBrowserRouter([
         path: "/provider-signup",
         element: <ProviderSignUp />,
       },
-
       {
         path: "dashboard",
         element: <DashboardLayout />,
@@ -158,8 +174,13 @@ const routes = createBrowserRouter([
         element: <JobPost />,
       },
       {
+
         path: "payment-history",
         element: <Payment />,
+
+        path: "bookings",
+        element: <Bookings />,
+
       },
     ],
   },
@@ -169,16 +190,55 @@ const routes = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "overview",
-        element: <Overview />,
+        element: <Rakib />,
       },
       {
         path: "message",
         element: <Message />,
       },
+
+      {
+        path: "provider-profile",
+        element: <ProviderProfile />,
+      },
+      {
+        path: "upgrade-plan",
+        element: <UpgradePlans />,
+      },
+      {
+        path: "verification",
+        element: <Verification />,
+      },
+      {
+        path: "verification-information",
+        element: <VerificationInfo />,
+      },
+      {
+        path: "upload-documents",
+        element: <UploadDocuments />,
+      },
+      {
+        path: "background-check-payment",
+        element: <BackgroundCheckPayment />,
+      },
+       {
+        path: "settings",
+        element: <SettingsPage />,
+      },
+
+      {
+        path: "bookings",
+        element: <BookingServiceDashboard />,
+      },
+      {
+        path: "report",
+        element: <ReportComponent />,
+      },
+
     ],
   },
 ]);

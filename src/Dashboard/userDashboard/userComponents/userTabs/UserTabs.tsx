@@ -2,6 +2,7 @@ import CommonWrapper from "@/common/space/CommonWrapper";
 import Tabs from "../reuseable/Tabs";
 
 const UserTabs = () => {
+
   const tabOptions = [
     { title: "Overview", value: "overview", href: "/user-dashboard/overview" },
     { title: "My Jobs", value: "jobs", href: "/user-dashboard/my-jobs" },
@@ -22,6 +23,7 @@ const UserTabs = () => {
       </div>
     </CommonWrapper>
   );
+
 };
 
 export default UserTabs;

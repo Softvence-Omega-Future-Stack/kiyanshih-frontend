@@ -761,13 +761,13 @@ const SettingsPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-[1400px] mx-auto my-auto px-4 md:px-10">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen w-full">
+      <div className="w-full">
         <h1 className="text-2xl font-bold text-gray-900 mb-8">Settings</h1>
 
         {/* Tab Navigation */}
         <div className="mb-8">
-          <div className="rounded-sm border border-slate-300 bg-white flex items-center gap-2.5 p-4">
+          <div className="rounded-sm border border-slate-300 bg-white flex items-center gap-2.5">
             <div className="flex overflow-x-scroll scrollbar-none lg:overflow-x-hidden scrollbar-hide-x-auto -mb-px ">
               {tabs.map((tab) => (
                 <button

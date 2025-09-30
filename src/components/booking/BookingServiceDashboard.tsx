@@ -522,7 +522,7 @@ const BookingServiceDashboard: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen w-full max-w-[1400px] mx-auto my-auto px-4 md:px-10">
+    <div className="min-h-screen ">
       <div className="max-w-7xl">
         {/* Stats Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6 sm:mb-8">

@@ -21,23 +21,18 @@ import SubCategorySetUp from "@/Dashboard/Admin/pages/category/SubCategorySetUp"
 import UserManagement from "@/Dashboard/Admin/pages/UserManagement";
 import Subscription from "@/Dashboard/Admin/pages/subscription/Subscription";
 import Transaction from "@/Dashboard/Admin/pages/transaction/Transaction";
-
 import UserLayout from "@/layout/UserLayout";
-
 import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
-// import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 
 import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
 import Verification from "@/Dashboard/providerDashboard/pages/Verification";
 import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
-import Rakib from "@/Dashboard/userDashboard/pages/Overview";
-import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
-import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import Message from "@/Dashboard/userDashboard/pages/Message";
+
 import ProviderLayout from "@/layout/ProviderLayout";
 import ReportComponent from "@/components/report/ReportComponent";
 import UploadDocuments from "@/Dashboard/providerDashboard/pages/UploadDocuments";
@@ -46,6 +41,8 @@ import JobPost from "@/Dashboard/userDashboard/pages/JobPost";
 import SettingsPage from "@/components/settings/SettingsPage";
 import UserSettings from "@/Dashboard/userDashboard/pages/UserSettings";
 import JobReviewPublish from "@/Dashboard/providerDashboard/pages/FixingListJob/ServicePublishForm";
+import Overview from "@/Dashboard/userDashboard/pages/Overview";
+import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
 import ServiceDetailsForm from "@/Dashboard/providerDashboard/pages/FixingListJob/ServiceDeatils";
 import FixListAvailabilityStep from "@/Dashboard/providerDashboard/pages/FixingListJob/FixListAvailabilityStep";
 import FixListJobPosting from "@/Dashboard/providerDashboard/pages/FixingListJob/FixingListJobPost";
@@ -206,7 +203,7 @@ const routes = createBrowserRouter([
         element: <OverviewPage />,
       },
       {
-        path: "message",
+        path: "messages",
         element: <Message />,
       },
 
@@ -249,6 +246,35 @@ const routes = createBrowserRouter([
       {
         path: "bookings",
         element: <BookingServiceDashboard />,
+      },
+
+      {
+        path: "report",
+        element: <ReportComponent />,
+      },
+      {
+        path: "provider-profile",
+        element: <ProviderProfile />
+      },
+       {
+        path: "upgrade-plan",
+        element: <UpgradePlans />,
+      },
+      {
+        path: "verification",
+        element: <Verification />,
+      },
+      {
+        path: "verification-information",
+        element: <VerificationInfo />,
+      },
+      {
+        path: "upload-documents",
+        element: <UploadDocuments />,
+      },
+      {
+        path: "background-check-payment",
+        element: <BackgroundCheckPayment />,
       },
     ],
   },

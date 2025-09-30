@@ -50,6 +50,7 @@ const ProviderNavbar = () => {
     },
   ];
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const isActive = (path: any) => location.pathname === path;
 
   return (

@@ -5,6 +5,7 @@ import BookingTabs from "../userComponents/reuseable/BookingTabs";
 import ServiceCard from "../userComponents/reuseable/ServiceCard";
 import BookingStatusBadge from "../userComponents/reuseable/BookingStatusBadge";
 import Pagination from "@/common/custom/Pagination";
+import UserServiceDashboard from "../userComponents/UserServiceCard";
 
 const Bookings: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ServiceStatus>("Pending");
@@ -59,6 +60,9 @@ const Bookings: React.FC = () => {
 
   return (
     <CommonWrapper>
+      <div>
+        <UserServiceDashboard />
+      </div>
       <div className="py-6">
         <BookingTabs
           title="Booking services"
@@ -99,9 +103,9 @@ const Bookings: React.FC = () => {
             </div>
           )}
         </div>
-        
+
         <div className="mt-8 md:mt-12">
-          <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} /> 
+          <Pagination currentPage={1} totalPages={5} onPageChange={() => { }} />
         </div>
       </div>
     </CommonWrapper>
@@ -200,7 +204,7 @@ export default Bookings;
 //           )}
 //         </div>
 //         <div className="mt-8 md:mt-12">
-//             <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} /> 
+//             <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
 //         </div>
 //       </div>
 //     </CommonWrapper>

@@ -32,6 +32,9 @@ import ProviderLayout from "@/layout/ProviderLayout";
 import Overview from "@/Dashboard/userDashboard/pages/Overview";
 import SingleProviderReview from "@/components/service/SingleProvider/SingleProviderReview";
 import Bookings from "@/Dashboard/userDashboard/pages/Bookings";
+import BookingCheckout from "@/Dashboard/userDashboard/pages/BookingCheckout";
+import UserSettings from "@/Dashboard/userDashboard/pages/UserSettings";
+import UserProfile from "@/Dashboard/userDashboard/pages/UserProfile";
 
 const routes = createBrowserRouter([
   {
@@ -142,7 +145,19 @@ const routes = createBrowserRouter([
       },
       {
         path: "bookings",
-        element: <Bookings/>
+        element: <Bookings />
+      },
+      {
+        path: "booking-checkout",
+        element: <BookingCheckout />,
+      },
+      {
+        path: "settings",
+        element: <UserSettings />,
+      },
+      {
+        path:"user-profile",
+        element: <UserProfile/>
       },
       {
         path: "overview/:title",

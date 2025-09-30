@@ -15,7 +15,7 @@ const BookingStatusBadge: React.FC<BookingStatusBadgeProps> = ({ status, onClick
           textColor: "text-yellow-800",
           borderColor: "border-yellow-200",
           hoverColor: "hover:bg-yellow-100",
-          label: "Booking Pending",
+          label: "Pending",
         };
       case "Accepted":
         return {
@@ -23,7 +23,7 @@ const BookingStatusBadge: React.FC<BookingStatusBadgeProps> = ({ status, onClick
           textColor: "text-green-500",
           borderColor: "border-green-200",
           hoverColor: "hover:bg-green-100",
-          label: "Booking Accepted",
+          label: "Accepted",
         };
       case "Rejected":
         return {
@@ -31,7 +31,7 @@ const BookingStatusBadge: React.FC<BookingStatusBadgeProps> = ({ status, onClick
           textColor: "text-red-500",
           borderColor: "border-red-200",
           hoverColor: "hover:bg-red-100",
-          label: "Booking Rejected",
+          label: "Rejected",
         };
       case "In-progress":
         return {
@@ -47,7 +47,7 @@ const BookingStatusBadge: React.FC<BookingStatusBadgeProps> = ({ status, onClick
           textColor: "text-green-500",
           borderColor: "border-green-200",
           hoverColor: "hover:bg-green-100",
-          label: "Booking Completed",
+          label: "Completed",
         };
       default:
         return {
@@ -65,7 +65,7 @@ const BookingStatusBadge: React.FC<BookingStatusBadgeProps> = ({ status, onClick
   return (
     <button
       onClick={onClick}
-      className={`px-3 py-1 cursor-pointer rounded-full text-sm border ${styles.borderColor} ${styles.bgColor} ${styles.textColor} ${styles.hoverColor}`}
+      className={`px-1 md:px-3 py-1 cursor-pointer rounded-full text-xs md:text-sm border ${styles.borderColor} ${styles.bgColor} ${styles.textColor} ${styles.hoverColor}`}
     >
       {styles.label}
     </button>

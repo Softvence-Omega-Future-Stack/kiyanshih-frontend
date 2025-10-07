@@ -26,12 +26,11 @@ import Job from "@/Dashboard/userDashboard/pages/Job";
 import Payment from "@/Dashboard/userDashboard/pages/Payment";
 import SingleOverview from "@/Dashboard/userDashboard/pages/SingleOverview";
 
-import ProviderProfile from "@/Dashboard/providerDashboard/pages/ProviderProfile";
 import UpgradePlans from "@/Dashboard/providerDashboard/pages/UpgradePlans";
 import Verification from "@/Dashboard/providerDashboard/pages/Verification";
 import VerificationInfo from "@/Dashboard/providerDashboard/pages/VerificationInfo";
 import BookingServiceDashboard from "@/components/booking/BookingServiceDashboard";
-import Message from "@/Dashboard/userDashboard/pages/Message";
+import Message from "@/Dashboard/userDashboard/pages/UserMessage";
 
 import ProviderLayout from "@/layout/ProviderLayout";
 import ReportComponent from "@/components/report/ReportComponent";
@@ -51,6 +50,9 @@ import AvailableJobs from "@/Dashboard/providerDashboard/pages/AvailableJobs/Ava
 import BoostService from "@/Dashboard/providerDashboard/pages/JobListing/BoostService";
 import JobsListing from "@/Dashboard/providerDashboard/pages/JobListing/JobsListing";
 import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
+import UserMessage from "@/Dashboard/userDashboard/pages/UserMessage";
+import ProviderProfile from "@/pages/ProviderProfileSetting";
+import ProviderProfileSetting from "@/pages/ProviderProfileSetting";
 
 const routes = createBrowserRouter([
   {
@@ -81,7 +83,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "/provider-profile/:name",
-        element: <ProviderProfile />,
+        element: <ProviderProfileSetting />,
       },
       {
         path: "/how-it-works",
@@ -170,7 +172,7 @@ const routes = createBrowserRouter([
       },
       {
         path: "message",
-        element: <Message />,
+        element: <UserMessage />,
       },
       {
         path: "my-jobs",
@@ -254,9 +256,9 @@ const routes = createBrowserRouter([
       },
       {
         path: "provider-profile",
-        element: <ProviderProfile />
+        element: <ProviderProfile />,
       },
-       {
+      {
         path: "upgrade-plan",
         element: <UpgradePlans />,
       },

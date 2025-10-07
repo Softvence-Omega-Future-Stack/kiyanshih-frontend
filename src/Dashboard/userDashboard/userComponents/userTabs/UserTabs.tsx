@@ -6,11 +6,8 @@ import messages from "@/assets/icon/tabIcons/message-square.svg";
 import bookings from "@/assets/icon/tabIcons/coins.svg";
 import payments from "@/assets/icon/tabIcons/message-square.svg";
 import settings from "@/assets/icon/tabIcons/settings.svg";
-import { useLocation } from "react-router-dom";
 
 const UserTabs = () => {
-  const { pathname } = useLocation();
-
   const tabOptions = [
     {
       title: "Overview",
@@ -50,17 +47,12 @@ const UserTabs = () => {
     },
   ];
 
-  const pathLists = ["/job-postings/", "/job-postings"];
-
-  const hide = pathLists.includes(pathname);
   return (
-    hide && (
-      <CommonWrapper>
-        <div className="py-6 md:py-10">
-          <Tabs tabs={tabOptions} />
-        </div>
-      </CommonWrapper>
-    )
+    <CommonWrapper>
+      <div className="py-6 md:py-10">
+        <Tabs tabs={tabOptions} />
+      </div>
+    </CommonWrapper>
   );
 };
 

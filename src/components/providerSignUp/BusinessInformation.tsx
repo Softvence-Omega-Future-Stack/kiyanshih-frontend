@@ -3,27 +3,41 @@ import { useState } from "react";
 import { BsFillBagDashFill } from "react-icons/bs";
 import image from "@/assets/images/miniUpload.svg";
 import SubHeader from "@/Dashboard/Admin/common/SubHeader";
+
 const inputClass = {
   input:
-    "w-full bg-[#EFF6FF]/40 rounded-md p-3 text-black font-Geist text-base leading-[24px] border border-[#EFF6FF] outline-none transition bg-[#EFF6FF]/40",
+    "w-full bg-[#EFF6FF]/40 rounded-md p-3 text-black font-Geist text-base leading-[24px] border border-[#EFF6FF] outline-none transition",
   label:
     "text-sm lg:text-base text-[#2D2D2D] font-medium font-Geist leading-[28px] block mb-2",
 };
+
+// Extended service options with 'Others'
 const serviceOptions = [
   { label: "Handyman", value: "Handyman" },
   { label: "Electrician", value: "Electrician" },
   { label: "Painter", value: "Painter" },
   { label: "Carpenter", value: "Carpenter" },
+  { label: "Plumber", value: "Plumber" },
+  { label: "Cleaner", value: "Cleaner" },
+  { label: "Others", value: "Others" },
 ] as const;
+
+// Extended sub-category options with 'Others'
 const subCategoryOptions = [
   { label: "Plumbing", value: "Plumbing" },
   { label: "Wiring", value: "Wiring" },
   { label: "Roof Repair", value: "Roof Repair" },
   { label: "Painting", value: "Painting" },
+  { label: "Carpentry", value: "Carpentry" },
+  { label: "Cleaning", value: "Cleaning" },
+  { label: "Others", value: "Others" },
 ] as const;
+
 const BusinessInformation = () => {
   const [service, setService] = useState("Handyman");
   const [subCategory, setSubCategory] = useState("Plumbing");
+  const [customService, setCustomService] = useState("");
+  const [customSubCategory, setCustomSubCategory] = useState("");
   const [logoPreview, setLogoPreview] = useState<string | null>(null);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +50,7 @@ const BusinessInformation = () => {
       reader.readAsDataURL(file);
     }
   };
+
   return (
     <div>
       <form className="space-y-6">
@@ -54,21 +69,43 @@ const BusinessInformation = () => {
               <CommonSelect
                 value={service}
                 item={serviceOptions}
-                onValueChange={setService}
+                onValueChange={(val) => setService(val)}
                 className={inputClass.input}
-                w={300} // optional: adjust width
+                w={300}
               />
+              {service === "Others" && (
+                <input
+                  type="text"
+                  placeholder="Type your service"
+                  value={customService}
+                  onChange={(e) => setCustomService(e.target.value)}
+                  className={`${inputClass.input} mt-2`}
+                />
+              )}
             </div>
+
+            {/* Sub-Category */}
             <div>
               <label className={inputClass.label}>Sub-Category</label>
               <CommonSelect
                 value={subCategory}
                 item={subCategoryOptions}
-                onValueChange={setSubCategory}
+                onValueChange={(val) => setSubCategory(val)}
                 className={inputClass.input}
-                w={300} // optional: control width
+                w={300}
               />
+              {subCategory === "Others" && (
+                <input
+                  type="text"
+                  placeholder="Type your sub-category"
+                  value={customSubCategory}
+                  onChange={(e) => setCustomSubCategory(e.target.value)}
+                  className={`${inputClass.input} mt-2`}
+                />
+              )}
             </div>
+
+            {/* Other inputs */}
             <div>
               <label className={inputClass.label}>Service Location</label>
               <input
@@ -90,6 +127,7 @@ const BusinessInformation = () => {
           </div>
         </div>
 
+        {/* Business Logo */}
         <div>
           <label className="block font-medium mb-2">Business logo</label>
           <p className={inputClass.label}>
@@ -144,7 +182,7 @@ const BusinessInformation = () => {
           <textarea
             rows={4}
             className={inputClass.input}
-            defaultValue="I'm a homeowner who loves working with skilled professionals to tmprove my property. I value quality work and clear communication."
+            defaultValue="I'm a homeowner who loves working with skilled professionals to improve my property. I value quality work and clear communication."
           />
         </div>
       </form>

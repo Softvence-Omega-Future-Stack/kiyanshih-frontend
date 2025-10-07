@@ -2,10 +2,8 @@ import { Outlet } from "react-router-dom";
 import React, { useState } from "react";
 
 import DashboardHeader from "@/Dashboard/Admin/common/DashboardHeader";
-import Sidebar from "@/Dashboard/Admin/common/Sidebar";
 import CommonHeader from "@/common/header/CommonHeader";
-
-// ✅ Sidebar item type
+import Sidebar from "@/Dashboard/Admin/common/Sidebar";
 
 const DashboardLayout: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);

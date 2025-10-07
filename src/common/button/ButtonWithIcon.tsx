@@ -13,7 +13,7 @@ const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
 }) => (
   <button
     {...props}
-    className={`flex items-center gap-1 px-4 py-2 rounded-md text-sm text-white font-Geist  bg-[#1D4ED8] cursor-pointer ${className}`}
+    className={`flex items-center gap-1 px-4 py-2 rounded-md text-sm text-white font-Geist !flex-shrink-0  bg-[#1D4ED8] cursor-pointer ${className}`}
   >
     {Icon && <Icon className="min-w-4 min-h-4" />}
     {children}

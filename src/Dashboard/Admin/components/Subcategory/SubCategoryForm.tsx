@@ -95,12 +95,12 @@ const SubCategoryForm = () => {
         </div>
 
         {/* Buttons */}
-        <div className="flex gap-4 pt-8">
-          <CommonButton className="!bg-blue !px-8 !text-white w-[243px]">
+        <div className="flex flex-col sm:flex-row gap-4 pt-8">
+          <CommonButton className="!bg-blue !px-8 !text-white sm:w-[243px]">
             Submit
           </CommonButton>
           <CommonButton
-            className="!px-8 w-[243px]"
+            className="!px-8 sm:w-[243px]"
             type="button"
             onClick={handleReset}
           >

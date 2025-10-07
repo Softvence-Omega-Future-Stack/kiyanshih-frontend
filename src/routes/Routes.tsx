@@ -53,6 +53,7 @@ import OverviewPage from "@/Dashboard/providerDashboard/pages/overviewPage";
 import UserMessage from "@/Dashboard/userDashboard/pages/UserMessage";
 import ProviderProfile from "@/pages/ProviderProfileSetting";
 import ProviderProfileSetting from "@/pages/ProviderProfileSetting";
+import LearnMore from "@/pages/LearnMore";
 
 const routes = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ const routes = createBrowserRouter([
         element: <Provider />,
       },
       {
+        path: "/provider/learn-more",
+        element: <LearnMore />,
+      },
+      {
         path: "/provider/:name",
         element: <SingleProvider />,
       },
@@ -93,6 +98,7 @@ const routes = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
+
       {
         path: "/client-signup",
         element: <ClientSignUp />,

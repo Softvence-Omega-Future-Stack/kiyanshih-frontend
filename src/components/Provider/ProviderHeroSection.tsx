@@ -13,7 +13,7 @@ const ProviderHeroSection = () => {
         primaryButtonText="Join Us Today"
         primaryButtonLink="/provider-signup"
         secondaryButtonText="Learn More"
-        secondaryButtonLink="/provider"
+        secondaryButtonLink="/provider/learn-more"
         image={heroImage}
         subColor="!text-white"
       />

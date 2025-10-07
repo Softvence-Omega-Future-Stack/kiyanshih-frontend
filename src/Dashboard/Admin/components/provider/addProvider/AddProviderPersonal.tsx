@@ -5,11 +5,13 @@ import SubHeader from "@/Dashboard/Admin/common/SubHeader";
 import BigTitle from "@/common/header/BigTitle";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import CommonSelect from "@/common/custom/CommonSelect";
+
 const areaOptions = [
   { label: "Area 1", value: "Area 1" },
   { label: "Area 2", value: "Area 2" },
   { label: "Area 3", value: "Area 3" },
 ] as const;
+
 interface BusinessFormData {
   businessName: string;
   userName: string;
@@ -31,6 +33,7 @@ const AddProviderPersonal: React.FC = () => {
   const [selectedArea, setSelectedArea] = useState<
     "Area 1" | "Area 2" | "Area 3" | ""
   >("");
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
@@ -39,8 +42,23 @@ const AddProviderPersonal: React.FC = () => {
 
   const handleLogoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setFormData({ ...formData, logo: e.target.files[0] });
-      setLogoPreview(URL.createObjectURL(e.target.files[0]));
+      const file = e.target.files[0];
+      // Validate file type
+      const validTypes = ["image/jpeg", "image/png", "image/jpg"];
+      if (!validTypes.includes(file.type)) {
+        alert("Only JPG, JPEG, PNG files are allowed");
+        return;
+      }
+      // Validate file size (< 2MB)
+      const maxSize = 2 * 1024 * 1024; // 2MB
+      if (file.size > maxSize) {
+        alert("File size exceeds 2 MB");
+        return;
+      }
+      // Revoke previous object URL
+      if (logoPreview) URL.revokeObjectURL(logoPreview);
+      setFormData({ ...formData, logo: file });
+      setLogoPreview(URL.createObjectURL(file));
     }
   };
 
@@ -76,9 +94,8 @@ const AddProviderPersonal: React.FC = () => {
       <SubHeader className="!text-[#4153B3] mb-3">
         General Information
       </SubHeader>
-      <div className="flex items-start gap-10">
-        {/* Left Form */}
-        <div className="w-full sm:w-2/3 space-y-4">
+      <div className="flex flex-col xl:flex-row items-start gap-10">
+        <div className="w-full xl:w-2/3 space-y-4">
           <div>
             <label className={inputClass.label}>Business name</label>
             <input
@@ -131,8 +148,7 @@ const AddProviderPersonal: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Logo Upload */}
-        <div className="w-full sm:w-1/3 flex flex-col items-center">
+        <div className="w-full xl:w-1/3 flex flex-col items-center">
           <BigTitle className="font-medium  pb-3 text-[#18181A]">
             Company Logo
           </BigTitle>

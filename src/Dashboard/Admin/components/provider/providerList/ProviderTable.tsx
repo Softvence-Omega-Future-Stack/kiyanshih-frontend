@@ -31,14 +31,23 @@ interface ProviderTableProps {
   onDelete?: (provider: Provider) => void;
 }
 const tableHeaders = [
-  { label: "SL", align: "text-center" },
+  { label: "SL", align: "text-center hidden 2xl:table-cell" },
   { label: "Provider", align: "text-left" },
-  { label: "Contact Info", align: "text-left" },
-  { label: "Total Bookings", align: "text-center" },
+  { label: "Contact Info", align: "text-center xl:table-cell hidden" },
+  { label: "Total Bookings", align: "text-center hidden lg:table-cell" },
   { label: "Service Availability", align: "text-center" },
-  { label: "Status", align: "text-center" },
+  { label: "Status", align: "text-center hidden xl:table-cell" },
   { label: "Action", align: "text-center" },
 ];
+
+const tableDesign = {
+  header:
+    "text-lg font-Geist text-[#2C2C2C] font-medium bg-[#EFF6FF] hover:bg-[#EFF6FF] md:h-12 leading-[28px]",
+  cellHeader: "border border-border px-4 ",
+  bodyRow:
+    "text-[#2C2C2C] font-Geist text-lg font-normal md:h-12 leading-[28px]",
+  cell: "border border-border px-4 text-center",
+};
 const ProviderTable: FC<ProviderTableProps> = ({
   providers,
   onToggleAvailability,
@@ -48,11 +57,11 @@ const ProviderTable: FC<ProviderTableProps> = ({
     <CommonBorderWrapper className=" border-0 !p-10">
       <Table>
         <TableHeader>
-          <TableRow className="bg-[#EFF6FF] text-base text-[#2C2C2C] font-medium">
+          <TableRow className={tableDesign.header}>
             {tableHeaders.map((header) => (
               <TableHead
                 key={header.label}
-                className={`border border-border ${header.align}`}
+                className={`${tableDesign.cellHeader} ${header.align}`}
               >
                 {header.label}
               </TableHead>
@@ -62,23 +71,22 @@ const ProviderTable: FC<ProviderTableProps> = ({
 
         <TableBody>
           {providers.map((p) => (
-            <TableRow
-              key={p.sl}
-              className="hover:bg-gray-50 text-[#2C2C2C] text-base font-normal"
-            >
-              <TableCell className="border border-border py-4 text-center">
+            <TableRow key={p.sl} className={tableDesign.bodyRow}>
+              <TableCell
+                className={` hidden 2xl:table-cell  ${tableDesign.cell}`}
+              >
                 {p.sl.toString().padStart(2, "0")}
               </TableCell>
-              <TableCell className="border border-border ">
-                <div className="flex gap-2">
-                  <Avatar className="h-8 w-8">
+              <TableCell className={`  ${tableDesign.cell}`}>
+                <div className="flex items-start gap-2">
+                  <Avatar className="h-8 w-8 mt-1">
                     {p.avatar ? (
                       <AvatarImage src={p.avatar} />
                     ) : (
                       <AvatarFallback>{p.providerName[0]}</AvatarFallback>
                     )}
                   </Avatar>
-                  <div>
+                  <div className="flex flex-col items-start">
                     <p className="font-medium">{p.providerName}</p>
                     <p className="text-orange-500 text-xs">
                       ★ {p.rating.toFixed(1)}
@@ -86,16 +94,20 @@ const ProviderTable: FC<ProviderTableProps> = ({
                   </div>
                 </div>
               </TableCell>
-              <TableCell className="border border-border">
+              <TableCell
+                className={` hidden xl:table-cell  ${tableDesign.cell}`}
+              >
                 <div>
                   <p>{p.contactPhone}</p>
                   <p>{p.contactEmail}</p>
                 </div>
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={` hidden lg:table-cell  ${tableDesign.cell}`}
+              >
                 {p.totalBookings}
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell className={`  ${tableDesign.cell}`}>
                 <div className=" flex justify-center">
                   <CustomSwitch
                     checked={p.isAvailable}
@@ -103,14 +115,16 @@ const ProviderTable: FC<ProviderTableProps> = ({
                   />
                 </div>
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={` hidden xl:table-cell  ${tableDesign.cell}`}
+              >
                 <div
                   className={p.isAvailable ? "text-blue" : "text-[##2C2C2C]"}
                 >
                   {p.status}
                 </div>
               </TableCell>
-              <TableCell className="border border-border">
+              <TableCell className={`  ${tableDesign.cell}`}>
                 <div className="flex justify-center gap-3 text-red-600 cursor-pointer">
                   <button
                     className="hover:text-red-800"
@@ -124,7 +138,7 @@ const ProviderTable: FC<ProviderTableProps> = ({
           ))}
         </TableBody>
       </Table>
-      <div className="w-full ml-auto flex items-center justify-end mt-10">
+      <div className="w-full  flex items-center justify-center lg:justify-end mt-10">
         <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
       </div>
     </CommonBorderWrapper>

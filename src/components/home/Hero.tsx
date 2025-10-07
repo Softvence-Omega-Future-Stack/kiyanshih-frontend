@@ -35,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({
         <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-12 py-12 lg:py-24">
           {/* Left Content */}
           <div className="w-full lg:max-w-[555px] text-center lg:text-left">
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug sm:leading-tight md:leading-[72px] font-Bricolage">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug sm:leading-tight md:leading-[72px] font-bricolage   ">
               {title}
             </h1>
 

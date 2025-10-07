@@ -3,16 +3,15 @@ import CommonButton from "@/common/button/CommonButton";
 import CommonHeader from "@/common/header/CommonHeader";
 import CommonWrapper from "@/common/space/CommonWrapper";
 import { Button } from "@/components/ui/button";
-import { Globe, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import MobileMenu from "../components/navbar/MobileMenu";
 import JoinModal from "@/components/navbar/JoinModal";
 import ActiveLink from "@/components/navbar/ActiveLink";
 import CommonDropdown from "@/common/custom/CommonDropdown";
-import { BiSolidDownArrow } from "react-icons/bi";
 import { languageItems } from "@/Dashboard/Admin/common/data";
-
+import { HiOutlineGlobeAlt } from "react-icons/hi";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
@@ -41,13 +40,13 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-x-3 lg:space-x-4">
+          <div className="hidden md:flex items-center gap-x-3">
             <CommonDropdown
               items={languageItems}
               trigger={
-                <Button variant="ghost" size="sm" className="gap-2">
-                  <Globe className="h-4 w-4" />
-                </Button>
+                <span className="text-3xl text-[#1D4ED8]">
+                  <HiOutlineGlobeAlt />
+                </span>
               }
             />
             <CommonButton className="border !border-[#1D4ED8] !px-4 !py-2">

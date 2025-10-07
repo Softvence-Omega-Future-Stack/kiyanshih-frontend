@@ -8,7 +8,7 @@ interface ParagraphProps {
 const Paragraph: React.FC<ParagraphProps> = ({ children, className }) => {
   return (
     <h2
-      className={`text-sm text-[#0F172A] font-Geist leading-[18px]  ${className}`}
+      className={`text-sm text-[#0F172A] font-geist leading-[18px]  ${className}`}
     >
       {children}
     </h2>

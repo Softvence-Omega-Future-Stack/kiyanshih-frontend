@@ -15,7 +15,7 @@ const BookingTable: React.FC = () => {
       </div>
 
       {/* Pagination */}
-      <div className="w-full ml-auto flex items-center justify-end mt-10">
+      <div className="w-full  flex items-center justify-center lg:justify-end mt-10">
         <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
       </div>
     </CommonBorderWrapper>

@@ -15,9 +15,11 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
   return (
     <div className={`text-center ${className}`}>
-      <LandingTitle className="mb-2">{title}</LandingTitle>
+      <LandingTitle className="mb-2 !font-inter">{title}</LandingTitle>
       {subtitle && (
-        <MediumHeader className="!text-[#334155]">{subtitle}</MediumHeader>
+        <MediumHeader className="!text-[#334155] !font-normal !text-lg  !font-inter ">
+          {subtitle}
+        </MediumHeader>
       )}
     </div>
   );

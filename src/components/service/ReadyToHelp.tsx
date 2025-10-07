@@ -1,6 +1,7 @@
 import CommonButton from "@/common/button/CommonButton";
 import CommonHeader from "@/common/header/CommonHeader";
 import LandingTitle from "@/common/header/LandingTitle";
+import { Link } from "react-router-dom";
 
 const ReadyToHelp = () => {
   return (
@@ -14,7 +15,9 @@ const ReadyToHelp = () => {
         </CommonHeader>
         <div className="flex justify-center pt-4">
           <CommonButton className="w-fit !bg-white text-[#1D4ED8]">
-            Post Your Job at $5.99
+            <Link to="/user-dashboard/job-postings">
+              Post Your Job at $5.99
+            </Link>
           </CommonButton>
         </div>
       </div>

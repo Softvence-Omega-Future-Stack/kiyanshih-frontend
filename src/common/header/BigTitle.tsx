@@ -8,7 +8,7 @@ interface CommonHeaderProps {
 const BigTitle: React.FC<CommonHeaderProps> = ({ children, className }) => {
   return (
     <h2
-      className={`text-base sm:text-[26px] leading-[28px] font-Geist text-[#0891B2] font-semibold ${className}`}
+      className={`text-base sm:text-[26px] leading-[28px] font-geist text-[#0891B2] font-semibold ${className}`}
     >
       {children}
     </h2>

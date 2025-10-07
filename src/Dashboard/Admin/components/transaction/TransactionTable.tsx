@@ -8,23 +8,48 @@ import {
   TableBody,
   TableCell,
 } from "@/components/ui/table";
-
-export const tableHeaders = [
-  { key: "sl", label: "SL", align: "text-center" },
-  { key: "bookingId", label: "Booking ID", align: "text-center" },
-  { key: "bookingDate", label: "Booking Date", align: "text-center" },
-  { key: "serviceLocation", label: "Service Location", align: "text-center" },
-  { key: "customerInfo", label: "Customer Info", align: "text-center" },
-  { key: "providerInfo", label: "Provider Info", align: "text-center" },
-  { key: "totalAmount", label: "Total Amount", align: "text-center" },
-  { key: "status", label: "Status", align: "text-center" },
-  { key: "action", label: "Action", align: "text-center" },
-];
-
 import {
   TransactionData,
   type Transaction,
 } from "@/Dashboard/Admin/pages/transaction/data";
+
+export const tableHeaders = [
+  { key: "sl", label: "SL", align: "text-center hidden 2xl:table-cell" },
+  {
+    key: "bookingId",
+    label: "Booking ID",
+    align: "text-center hidden 2xl:table-cell",
+  },
+  {
+    key: "bookingDate",
+    label: "Booking Date",
+    align: "text-center hidden 2xl:table-cell",
+  },
+  {
+    key: "serviceLocation",
+    label: "Service Location",
+    align: "text-center xl:table-cell hidden",
+  },
+  { key: "customerInfo", label: "Customer Info", align: "text-center" },
+  { key: "providerInfo", label: "Provider Info", align: "text-center " },
+  {
+    key: "totalAmount",
+    label: "Total Amount",
+    align: "text-center xl:table-cell hidden",
+  },
+  { key: "status", label: "Status", align: "text-center lg:table-cell hidden" },
+  { key: "action", label: "Action", align: "text-center" },
+];
+
+const tableDesign = {
+  header:
+    "text-lg font-Geist text-[#2C2C2C] font-medium bg-[#EFF6FF] hover:bg-[#EFF6FF] md:h-12 leading-[28px]",
+  cellHeader: "border border-border px-4 ",
+  bodyRow:
+    "text-[#2C2C2C] font-Geist text-lg font-normal md:h-12 leading-[28px]",
+  cell: "border border-border px-4 text-center",
+};
+
 const statusColors: Record<Transaction["status"], string> = {
   Paid: "text-[#2DD4BF]",
   Refund: "text-[#DB2777]",
@@ -36,13 +61,13 @@ import { RiDeleteBinLine } from "react-icons/ri";
 const TransactionTable = () => {
   return (
     <CommonBorderWrapper className=" border-0 !p-10">
-      <Table className="border border-border text-center">
+      <Table className="">
         <TableHeader>
-          <TableRow className="bg-[#EFF6FF] text-base text-[#2C2C2C] font-medium">
+          <TableRow className={tableDesign.header}>
             {tableHeaders.map((header) => (
               <TableHead
                 key={header.key}
-                className={`border border-border text-center ${header.align}`}
+                className={` ${tableDesign.cellHeader} ${header.align}`}
               >
                 {header.label}
               </TableHead>
@@ -52,48 +77,55 @@ const TransactionTable = () => {
 
         <TableBody>
           {TransactionData.map((booking) => (
-            <TableRow
-              key={booking.sl}
-              className="hover:bg-gray-50 text-[#2C2C2C] text-base font-normal"
-            >
-              <TableCell className="border border-border text-center py-4">
+            <TableRow key={booking.sl} className={tableDesign.bodyRow}>
+              <TableCell
+                className={`2xl:table-cell hidden  ${tableDesign.cell}`}
+              >
                 {booking.sl.toString().padStart(2, "0")}
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={`2xl:table-cell hidden  ${tableDesign.cell}`}
+              >
                 {booking.bookingId}
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={`2xl:table-cell hidden  ${tableDesign.cell}`}
+              >
                 <div>
                   <p>{booking.bookingDate.date}</p>
                   <p>{booking.bookingDate.time}</p>
                 </div>
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={` xl:table-cell hidden  ${tableDesign.cell}`}
+              >
                 {booking.serviceLocation}
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell className={`  ${tableDesign.cell}`}>
                 <div>
                   <p>{booking.customerInfo.name}</p>
                   <p>{booking.customerInfo.phone}</p>
                 </div>
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell className={`  ${tableDesign.cell}`}>
                 <div>
                   <p>{booking.providerInfo.name}</p>
                   <p>{booking.providerInfo.phone}</p>
                 </div>
               </TableCell>
-              <TableCell className="border border-border text-center">
+              <TableCell
+                className={`xl:table-cell hidden  ${tableDesign.cell}`}
+              >
                 {booking.totalAmount}
               </TableCell>
               <TableCell
-                className={`border border-border text-center font-medium ${
+                className={`lg:table-cell hidden ${tableDesign.cell} ${
                   statusColors[booking.status]
                 }`}
               >
                 {booking.status}
               </TableCell>
-              <TableCell className="border border-border text-center ">
+              <TableCell className={`  ${tableDesign.cell}`}>
                 <div className="flex justify-center gap-3 text-blue-500">
                   <button className="hover:text-blue-700">
                     <FiEdit size={18} />
@@ -107,7 +139,7 @@ const TransactionTable = () => {
           ))}
         </TableBody>
       </Table>
-      <div className="w-full ml-auto flex items-center justify-end mt-10">
+      <div className="w-full ml-auto flex items-center justify-center lg:justify-end mt-10">
         <Pagination currentPage={1} totalPages={5} onPageChange={() => {}} />
       </div>
     </CommonBorderWrapper>

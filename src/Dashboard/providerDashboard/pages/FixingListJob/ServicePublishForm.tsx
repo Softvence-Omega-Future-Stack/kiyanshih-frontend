@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Edit2, CheckCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -46,6 +46,7 @@ const JobReviewPublish = () => {
     { number: 4, label: "Review & Publish" },
   ];
 
+  console.log("Job Data:", jobData);
   const handleEdit = (section: string) => {
     console.log(`Editing ${section}`);
     // Navigate to respective step for editing
@@ -58,7 +59,7 @@ const JobReviewPublish = () => {
   };
 
   const handlePublish = () => {
-    console.log("Publishing job:", jobData);
+    console.log("Publishing job:", setJobData);
     alert("Job posted successfully!");
   };
 

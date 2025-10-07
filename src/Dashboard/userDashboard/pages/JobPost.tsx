@@ -36,7 +36,7 @@ const JobPost = () => {
       </div>
 
       <div className="flex items-start gap-8 pb-10 pt-6">
-        <div className=" max-w-[280px]">
+        <div className=" w-[300px]">
           <PostingSidebar currentStep={currentStep} totalSteps={totalSteps} />
         </div>
 

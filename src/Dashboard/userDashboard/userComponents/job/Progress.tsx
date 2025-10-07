@@ -69,7 +69,7 @@ const Progress = () => {
     <div>
       <div className="space-y-4">
         {jobs.map((job) => (
-          <JobCardItem job={job} key={job.id} />
+          <JobCardItem setViewProposals={() => {}} job={job} key={job.id} />
         ))}
       </div>
     </div>

@@ -15,7 +15,8 @@ import profile from "@/assets/images/man.png";
 import { BiSolidDownArrow } from "react-icons/bi";
 import { FaRegBell } from "react-icons/fa6";
 import NotificationIcon from "./NotificationIcon";
-import { languages } from "./data";
+import CommonDropdown from "@/common/custom/CommonDropdown";
+import { languageItems } from "./data";
 
 const DashboardHeader = () => {
   return (
@@ -32,26 +33,16 @@ const DashboardHeader = () => {
 
           <div className="flex items-center gap-4">
             <div className="hidden md:block">
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild className="cursor-pointer">
+              <CommonDropdown
+                items={languageItems}
+                trigger={
                   <Button variant="ghost" size="sm" className="gap-2">
                     <Globe className="h-4 w-4" />
                     English (en)
                     <BiSolidDownArrow className="h-4 w-4" />
                   </Button>
-                </DropdownMenuTrigger>
-
-                <DropdownMenuContent className="bg-white border border-border">
-                  {languages.map((lang) => (
-                    <DropdownMenuItem
-                      key={lang.code}
-                      className="cursor-pointer hover:bg-gray-100"
-                    >
-                      {lang.label} ({lang.code})
-                    </DropdownMenuItem>
-                  ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                }
+              />
             </div>
 
             <NotificationIcon

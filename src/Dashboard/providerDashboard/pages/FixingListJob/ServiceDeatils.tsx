@@ -11,6 +11,7 @@ const ServiceDetailsForm = () => {
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [imagePreview, setImagePreview] = useState<string>("");
 
+  console.log("imageFile", "", imageFile);
   const steps = [
     { number: 1, label: "Basic Information", icon: "📋" },
     { number: 2, label: "Availability & Location", icon: "📍" },

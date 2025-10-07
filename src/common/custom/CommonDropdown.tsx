@@ -21,7 +21,9 @@ interface CommonDropdownProps {
 const CommonDropdown: React.FC<CommonDropdownProps> = ({ items, trigger }) => {
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>{trigger}</DropdownMenuTrigger>
+      <DropdownMenuTrigger className="cursor-pointer" asChild>
+        {trigger}
+      </DropdownMenuTrigger>
 
       <DropdownMenuContent
         align="end"

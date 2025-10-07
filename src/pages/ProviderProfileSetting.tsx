@@ -4,7 +4,7 @@ import ProfileTop from "@/components/service/providerProfile/ProfileTop";
 import ProviderReview from "@/components/service/providerProfile/ProviderReview";
 import ServicesList from "@/components/service/providerProfile/ServicesList";
 
-const ProviderProfile = () => {
+const ProviderProfileSetting = () => {
   return (
     <div>
       <CommonWrapper>
@@ -18,4 +18,4 @@ const ProviderProfile = () => {
   );
 };
 
-export default ProviderProfile;
+export default ProviderProfileSetting;
